@@ -1,0 +1,118 @@
+.whole-navbar {
+    width: 100vw;
+    background-color: #FFFFFF;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    padding-right: 80px;
+}
+
+.navbar-icon {
+    margin-left: 80px;
+    margin-right: 20px;
+}
+
+.navbar-location {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-location-text {
+    font-family: "Inter", "SF Pro Display", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #3E3B3F;
+    margin-left: 8px;
+    white-space: nowrap;
+}
+
+.navbar-spacer-left {
+    width: 133px;
+    min-width: 10px;
+}
+
+.navbar-spacer-right {
+    width: 176px;
+    min-width: 10px;
+}
+
+.navbar-searchbar {
+    width: 458px;
+    min-width: 10px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-color: #F8F7F8;
+    border-radius: 32px;
+    border-width: 1px;
+    height: 64px;
+    flex-grow: 1;
+}
+
+.navbar-searchbar-icon {
+    margin-left: 16px;
+    margin-right: 8px;
+}
+
+.navbar-searchbar-input {
+    width: 100%;
+}
+
+.navbar-cart {
+    display: flex;
+    align-items: center;
+    padding-left: 6px;
+    padding-right: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 39px;
+    background-color: #FEF5FD;
+}
+
+.navbar-cart-logoItem {
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 28px;
+    background-color: white;
+    border-radius: 32px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.navbar-cart-logo {
+    margin-left: 4px;
+    margin-right: 2px;
+}
+
+.navbar-cart-item {
+    font-size: 12px;
+    font-weight: semi-bold;
+    color: #B6349A;
+}
+
+.navbar-cart-text {
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.navbar-loginButton {
+    display: flex;
+    align-items: center;
+    padding: 12px 32px;
+    border-radius: 39px;
+    border-color: #B6349A;
+    border-width: 1px;
+    margin-left: 20px;
+}
+
+.navbar-login-icon {
+
+}
+
+.navbar-login-text {
+    font-size: 12px;
+    margin-left: 8px;
+    font-weight: semi-bold;
+}
