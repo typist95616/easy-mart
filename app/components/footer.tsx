@@ -6,6 +6,7 @@ export default function Footer() {
     return (
         <div className="whole-footer">
             <div className="footer-items">
+                <div className="footer-spacer"></div>
                 <Image src={logo} alt="footer-logo" className="footer-logo"></Image>
                 <div className="footer-about footer-contents">
                     <div className="footer-subHeader">About</div>
