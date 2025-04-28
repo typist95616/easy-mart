@@ -1,0 +1,66 @@
+.whole-productCard {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+}
+
+.productCard-imageBox {
+    width: 240px;
+    height: 240px;
+    background-color: #FEF5FD;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productCard-name {
+    font-size: 16px;
+    margin-top: 16px;
+}
+
+.productCard-pricePerLb {
+    font-size: 14px;
+    margin-top: 16px;
+    font-weight: medium;
+}
+
+.productCard-price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.prodcutCard-orginalTotal {
+    font-size: 16px;
+    opacity: 0.6;
+}
+
+.productCard-totalPrice {
+    font-size: 20px;
+    font-weight: semi-bold;
+}
+
+.productCard-stock {
+    display: flex;
+    align-items: center;
+}
+
+.productCard-stockLeft {
+    font-size: 14px;
+    color: #B6349A;
+    font-weight: medium;
+}
+
+.productCard-stockDivider {
+    font-size: 14px;
+    color: #F0EEF0;
+    margin-left: 12px;
+    margin-right: 12px;
+    font-weight: bold;
+}
+
+.productCard-stockRight {
+    font-size: 14px;
+    font-weight: medium;
+}
