@@ -1,7 +1,10 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 .whole-productSlider {
     width: 100%;
     margin-top: 30px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .productSlider-header {
@@ -50,7 +53,7 @@
     justify-content: center;
 }
 
-.prodcutSlider-leftArrowButton {
+.prodcutSlider-leftArrowButton, .prodcutSlider-rightArrowButton {
     border-radius: 100%;
     border-width: 1px;
     background-color: rgba(240, 238, 240, 0.6);
@@ -58,18 +61,45 @@
     border-color: #F0EEF0;
 }
 
-.prodcutSlider-rightArrowButton {
+.prodcutSlider-leftArrowButton.slick-disabled, .prodcutSlider-rightArrowButton.slick-disabled {
+    border-color: black;
+}
+
+/* .prodcutSlider-rightArrowButton :before {
     border-radius: 100%;
     border-width: 1px;
     background-color: white;
     padding: 12px;   
     border-color: #F0EEF0;
-}
+} */
 
-.productSlider-leftArrow, .productSlider-rightArrow {
-}
-
-.productSlider-slider {
+/* .productSlider-slider {
     display: flex;
     gap: 24px;
+} */
+
+.slick-arrow:before {
+    color: black;
+    background-color: grey;
+    background: grey;
+    font-size: 32px;
+}
+
+.slick-track {
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+}
+
+.slick-slide {
+    margin-right: 24px !important; /* Set your desired gap */
+}
+
+.slick-slide:last-child {
+    margin-right: 0;
+}
+
+/* Optional: Remove default outline on arrows for better appearance */
+.slick-arrow {
+    outline: none;
 }

@@ -1,17 +1,28 @@
-import "./productSlider.css";
+import "./bestSeller.css";
 import ProductCard from "./productCard";
 import orange from "../images/orange.png";
 import rightArrow from "../images/arrow-right.png";
 import leftButton from "../images/left-button.png";
 import rightButton from "../images/right-button.png"
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Product } from "../types/Product";
 import Image from "next/image";
+import Slider from "react-slick";
 
 export default function ProductSlider() {
 
     const [products, setProducts] = useState<Product[]>([]);
     const [filter, setFilter] = useState([]);
+    const sliderRef = useRef<Slider | null>(null);
+
+    const settings = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        arrows: false
+    };
 
     const fetchProducts = async () => {
         const res = await fetch('/api/products');
@@ -33,15 +44,15 @@ export default function ProductSlider() {
                     <Image src={rightArrow} alt="right-arrow" className="productSlider-viewAll-icon"/>
                 </div>
                 <div className="productSlider-arrowGroup">
-                    <div className="prodcutSlider-leftArrowButton">
+                    <div className="prodcutSlider-leftArrowButton"  onClick={() => sliderRef.current?.slickPrev()} style={{ cursor: "pointer" }}>
                         <Image src={leftButton} alt="left-arrow-button" className="prodcutSlider-leftArrow" width={24} height={24}></Image>
                     </div>
-                    <div className="prodcutSlider-rightArrowButton">
+                    <div className="prodcutSlider-rightArrowButton" onClick={() => sliderRef.current?.slickNext()} style={{ cursor: "pointer" }}>
                         <Image src={rightButton} alt="right-arrow-button" className="prodcutSlider-rightArrow" width={24} height={24}></Image>
                     </div>
                 </div>
             </div>
-            <div className="productSlider-slider">
+            <Slider ref={sliderRef} {...settings}>
                 {products.map((product) => 
                     <ProductCard 
                         productName={product.name}
@@ -51,7 +62,7 @@ export default function ProductSlider() {
                         stock={product.stock}
                     />
                 )}
-            </div>
+            </Slider>
         </div>
     )
 }
