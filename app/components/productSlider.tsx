@@ -1,7 +1,57 @@
-import "./porductSlider.css";
+import "./productSlider.css";
+import ProductCard from "./productCard";
+import orange from "../images/orange.png";
+import rightArrow from "../images/arrow-right.png";
+import leftButton from "../images/left-button.png";
+import rightButton from "../images/right-button.png"
+import { useEffect, useState } from "react";
+import { Product } from "../types/Product";
+import Image from "next/image";
 
 export default function ProductSlider() {
+
+    const [products, setProducts] = useState<Product[]>([]);
+    const [filter, setFilter] = useState([]);
+
+    const fetchProducts = async () => {
+        const res = await fetch('/api/products');
+        const data = await res.json();
+        setProducts(data);
+    }
+
+    useEffect(() => {
+        fetchProducts();
+    }, [filter]);
+
     return (
-        <div>slider</div>
+        <div className="whole-productSlider">
+            <div className="productSlider-header">
+                <div className="productSlider-title">Best Seller</div>
+                <div className="productSlider-header-spacer"></div>
+                <div className="productSlider-viewAll-button">
+                    <div className="productSlider-viewAll-text">View All (+40)</div>
+                    <Image src={rightArrow} alt="right-arrow" className="productSlider-viewAll-icon"/>
+                </div>
+                <div className="productSlider-arrowGroup">
+                    <div className="prodcutSlider-leftArrowButton">
+                        <Image src={leftButton} alt="left-arrow-button" className="prodcutSlider-leftArrow" width={24} height={24}></Image>
+                    </div>
+                    <div className="prodcutSlider-rightArrowButton">
+                        <Image src={rightButton} alt="right-arrow-button" className="prodcutSlider-rightArrow" width={24} height={24}></Image>
+                    </div>
+                </div>
+            </div>
+            <div className="productSlider-slider">
+                {products.map((product) => 
+                    <ProductCard 
+                        productName={product.name}
+                        productImage={orange}
+                        pricePerLb={product.price_per_lb}
+                        totalPrice={product.total_price}
+                        stock={product.stock}
+                    />
+                )}
+            </div>
+        </div>
     )
 }

@@ -33,6 +33,7 @@
 .footer-contents {
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 .footer-copyright {
