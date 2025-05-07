@@ -2,8 +2,13 @@
 @import "slick-carousel/slick/slick-theme.css";
 
 .main-content {
-    padding-left: 80px;
-    padding-right: 80px;
     overflow: hidden;
-    margin-top: 32px;
+}
+
+.main-content > * {
+    padding: 40px 80px;
+}
+
+.main-content > *:first-child {
+    padding-top: 32px !important;
 }

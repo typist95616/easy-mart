@@ -14,6 +14,7 @@ export default function ProductSlider() {
     const [products, setProducts] = useState<Product[]>([]);
     const [filter, setFilter] = useState([]);
     const sliderRef = useRef<Slider | null>(null);
+    const [currentSlide, setCurrentSlide] = useState(0);
 
     const settings = {
         dots: false,
@@ -21,8 +22,43 @@ export default function ProductSlider() {
         speed: 500,
         slidesToShow: 5,
         slidesToScroll: 5,
-        arrows: false
-    };
+        initialSlide: 0,
+        arrows: false,
+        afterChange: (index: number) => {
+            setCurrentSlide(index);
+            console.log(index);
+        },
+        responsive: [
+            {
+              breakpoint: 1400,
+              settings: {
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                }
+            },
+            {
+              breakpoint: 1150,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                }
+            },
+            {
+              breakpoint: 900,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+                }
+            },            
+            {
+                breakpoint: 650,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                }
+            }
+        ]
+    }
 
     const fetchProducts = async () => {
         const res = await fetch('/api/products');
@@ -52,7 +88,7 @@ export default function ProductSlider() {
                     </div>
                 </div>
             </div>
-            <Slider ref={sliderRef} {...settings}>
+            <Slider ref={sliderRef} {...settings} key={products.length}>
                 {products.map((product) => 
                     <ProductCard 
                         productName={product.name}

@@ -11,6 +11,8 @@ import Image from 'next/image';
 import banner from "../../images/Banners.png";
 import "./main.css";
 import TrendingFavorites from '../../components/trendingFavorites';
+import OrderNowYourGrocery from '../../components/orderNowYourGrocery';
+import OrderNow from '../../components/orderNow';
 
 export default function Home() {
     return (
@@ -19,7 +21,10 @@ export default function Home() {
             <div className='main-content'>
                 <Banner />
                 <BestSeller />
-                <TrendingFavorites />
+                <TrendingFavorites bgColor="whiteBackground"/>
+                <OrderNowYourGrocery />
+                <TrendingFavorites bgColor="greyBackground"/>
+                <OrderNow />
             </div>
             <Footer />
         </div>

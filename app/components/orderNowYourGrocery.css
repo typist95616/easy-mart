@@ -1,0 +1,31 @@
+.whole-orderNow {
+    display: flex;
+    flex-direction: row;
+    margin-top: 80px;
+    padding: 40px;
+}
+
+.orderNow-spacer {
+    flex-grow: 1;
+}
+
+.prodcutCardGroup {
+    display: flex;
+    gap: 24px;
+}
+
+.orderNow-text {
+    margin-right: 40px;
+}
+
+.orderNow-discount {
+    color: #B6349A;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.orderNow-orderNow{ 
+    color: #0D0C0D;
+    font-size: 32px;
+    font-weight: semi-bold;
+}

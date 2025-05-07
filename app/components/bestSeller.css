@@ -61,7 +61,7 @@
     border-color: #F0EEF0;
 }
 
-.prodcutSlider-leftArrowButton.slick-disabled, .prodcutSlider-rightArrowButton.slick-disabled {
+.prodcutSlider-leftArrowButton.slick-disabled {
     border-color: black;
 }
 

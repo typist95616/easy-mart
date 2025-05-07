@@ -5,4 +5,35 @@
     border-color: #F0EEF0;
     border-width: 1px;
     margin-top: 56px;
+    background-color: white;
+}
+
+.whiteBackground {
+    background-color: white;
+}
+
+.greyBackground {
+    background-color: #FAF8F9;
+}
+
+.trendingBox-h1 {
+    font-size: 24px;
+    font-weight: semi-bold;
+}
+
+.trendingBox-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trendingBox-spacer {
+    flex-grow: 1;
+}
+
+.trendingBox-secondLine {
+    display: flex;
+    align-items: flex-end;
+    padding-top: 18px;
+    padding-bottom: 18px;
 }
