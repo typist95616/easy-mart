@@ -1,0 +1,24 @@
+.dropDown-component {
+    display: flex;
+    padding: 12px;
+    gap: 8px;
+    border-radius: 12px;
+}
+
+.dropDown-component.dropdown-bg-white {
+    background-color: white;
+}
+
+.dropDown-component.dropdown-bg-grey {
+    background-color: #FCFCFC;
+}
+
+.dropdown-searchImage {
+    width: 40px;
+    height: auto;
+}
+
+.dropdwon-searchText {
+    font-size: 14px;
+    font-weight: medium;
+}
