@@ -7,6 +7,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import DropDownItem from "./dropdownItem"
 import "./navbar.css";
+import Link from "next/link";
 
 export default function Navbar() {
 
@@ -14,7 +15,9 @@ export default function Navbar() {
 
     return (
         <div className="whole-navbar">
-            <Image src={easyMartLogo} alt="easyMart-icon" className="navbar-icon"></Image>
+            <Link href="/pages/main">
+                <Image src={easyMartLogo} alt="easyMart-icon" className="navbar-icon" />
+            </Link>
             <div className="navbar-location">
                 <Image src={locationIcon} alt="navbar-location-icon"></Image>
                 <div className="navbar-location-text">10115 New York</div>
@@ -47,10 +50,13 @@ export default function Navbar() {
                 </div>
                 <label className="navbar-cart-text">Cart</label>
             </div>
-            <div className="navbar-loginButton">
-                <Image src={loginIcon} alt="loginButton-icon" className="navbar-login-icon"></Image>
-                <label className="navbar-login-text">Login</label>
-            </div>
+            <Link href={"/pages/login"}>
+                <div className="navbar-loginButton">
+                    <Image src={loginIcon} alt="loginButton-icon" className="navbar-login-icon"></Image>
+                    <label className="navbar-login-text">Login</label>
+                </div>
+            </Link>
+
         </div>
     )
 }
