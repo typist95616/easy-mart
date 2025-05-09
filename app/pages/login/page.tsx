@@ -1,3 +1,5 @@
+"use client";
+
 import "./main.css";
 import Image from "next/image";
 import logo from "../../images/easyMartLogo.png";
