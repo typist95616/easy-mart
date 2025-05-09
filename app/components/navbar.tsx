@@ -30,7 +30,7 @@ export default function Navbar() {
                     <Image src={menuIcon} alt="menu icon"></Image>
                     <div className="navbar-spacer"></div>
                     <div className="navbar-location">
-                        <Image src={locationIcon} alt="location Icon"></Image>
+                        <Image src="../images/location.svg" alt="location Icon"></Image>
                         <div className="navbar-location-text">10115 New York</div>
                     </div>
                     <div className="navbar-spacer"></div>
@@ -66,7 +66,7 @@ export default function Navbar() {
                     <Image src={easyMartLogo} alt="easyMart-icon" className="navbar-icon" />
                 </Link>
                 <div className="navbar-location">
-                    <Image src={locationIcon} alt="location Icon"></Image>
+                    <Image src="../images/location.svg" alt="location Icon"></Image>
                     <div className="navbar-location-text">10115 New York</div>
                 </div>
                 <div className="navbar-spacer-left"></div>
