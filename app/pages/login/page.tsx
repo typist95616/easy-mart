@@ -46,14 +46,18 @@ export default function Home() {
                     <div className="divider-text"> Or </div>
                     <div className="divider"></div>
                 </div>
-                <div className="loginButton-meta">
-                    <Image src={metaLogo} alt="meta Logo"></Image>
-                    <div className="loginButton-meta-text">Sign in with Meta</div>
-                </div>
-                <div className="loginButton-google">
-                    <Image src={googleLogo} alt="google logo"></Image>
-                    <div className="loginButton-google-text">Sign in with Google</div>
-                </div>
+                <Link href={"http://accountscenter.meta.com/"}>
+                    <div className="loginButton-meta">
+                        <Image src={metaLogo} alt="meta Logo"></Image>
+                        <div className="loginButton-meta-text">Sign in with Meta</div>
+                    </div>
+                </Link>
+                <Link href="https://accounts.google.com/">
+                    <div className="loginButton-google">
+                        <Image src={googleLogo} alt="google logo"></Image>
+                        <div className="loginButton-google-text">Sign in with Google</div>
+                    </div>
+                </Link>
             </div>
         </div>
     )

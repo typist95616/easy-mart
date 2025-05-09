@@ -1,62 +1,110 @@
 import easyMartLogo from "../images/easyMartLogo.png";
-import locationIcon from "../images/Location.png";
+import LocationIcon from "../images/location.svg";
 import searchIcon from "../images/search.png";
-import cartIcon from "../images/cart.png";
+import CartIcon from "../images/cart.svg";
 import loginIcon from "../images/login.png";
+import MenuIcon from "../images/menu.svg";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DropDownItem from "./dropdownItem"
 import "./navbar.css";
 import Link from "next/link";
 
+
 export default function Navbar() {
 
     const [searchActive, setSearchActive] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
-    return (
-        <div className="whole-navbar">
-            <Link href="/pages/main">
-                <Image src={easyMartLogo} alt="easyMart-icon" className="navbar-icon" />
-            </Link>
-            <div className="navbar-location">
-                <Image src={locationIcon} alt="navbar-location-icon"></Image>
-                <div className="navbar-location-text">10115 New York</div>
-            </div>
-            <div className="navbar-spacer-left"></div>
-            <div className="navbar-searchbar">
-                <Image src={searchIcon} alt="navbar-searchbar-icon" className="navbar-searchbar-icon"></Image>
-                <input
-                    placeholder="Search by"
-                    className="navbar-searchbar-input"
-                    onFocus={() => setSearchActive(true)}
-                    onBlur={() => setSearchActive(false)}>
-                </input>
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 400);
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
-                {/* Search bar Dropdown menu */}
-                {searchActive && (
-                    <div className="whole-dropdown">                    
-                        <DropDownItem index={0}/>
-                        <DropDownItem index={1}/>
-                        <DropDownItem index={2}/>
+    if (isMobile) {
+        return (
+            <div className="whole-navbar">
+                <div className={`navbar-firstLine${searchActive ? " hide" : ""}`}>
+                    <MenuIcon></MenuIcon>
+                    <div className="navbar-spacer"></div>
+                    <div className="navbar-location">
+                        <LocationIcon></LocationIcon>
+                        <div className="navbar-location-text">10115 New York</div>
                     </div>
-                )}
-            </div>
-
-            <div className="navbar-spacer-right"></div>
-            <div className="navbar-cart">
-                <div className="navbar-cart-logoItem">
-                    <Image src={cartIcon} alt="cart-logo" className="navbar-cart-logo"></Image>
-                    <label className="navbar-cart-item">14</label>
+                    <div className="navbar-spacer"></div>
+                    <div className="navbar-cart-logoItem">
+                        <CartIcon className="navbar-cart-logo"></CartIcon>
+                    </div>
                 </div>
-                <label className="navbar-cart-text">Cart</label>
-            </div>
-            <Link href={"/pages/login"}>
-                <div className="navbar-loginButton">
-                    <Image src={loginIcon} alt="loginButton-icon" className="navbar-login-icon"></Image>
-                    <label className="navbar-login-text">Login</label>
+                <div className="navbar-secondLine">
+                    <div className="navbar-searchbar">
+                        <input
+                            placeholder="   Search by product name"
+                            className="navbar-searchbar-input"
+                            onFocus={() => setSearchActive(true)}
+                            onBlur={() => setSearchActive(false)}>
+                        </input>
+                        <Image src={searchIcon} alt="navbar-searchbar-icon" className="navbar-searchbar-icon"></Image>
+                        {searchActive && (
+                            <div className="whole-dropdown">
+                                <DropDownItem index={0} />
+                                <DropDownItem index={1} />
+                                <DropDownItem index={2} />
+                            </div>
+                        )}
+                    </div>
                 </div>
-            </Link>
+            </div>
+        )
+    }
+    else {
+        return (
+            <div className="whole-navbar">
+                <Link href="/pages/main">
+                    <Image src={easyMartLogo} alt="easyMart-icon" className="navbar-icon" />
+                </Link>
+                <div className="navbar-location">
+                    <LocationIcon></LocationIcon>
+                    <div className="navbar-location-text">10115 New York</div>
+                </div>
+                <div className="navbar-spacer-left"></div>
+                <div className="navbar-searchbar">
+                    <Image src={searchIcon} alt="navbar-searchbar-icon" className="navbar-searchbar-icon"></Image>
+                    <input
+                        placeholder="Search by"
+                        className="navbar-searchbar-input"
+                        onFocus={() => setSearchActive(true)}
+                        onBlur={() => setSearchActive(false)}>
+                    </input>
 
-        </div>
-    )
+                    {/* Search bar Dropdown menu */}
+                    {searchActive && (
+                        <div className="whole-dropdown">
+                            <DropDownItem index={0} />
+                            <DropDownItem index={1} />
+                            <DropDownItem index={2} />
+                        </div>
+                    )}
+                </div>
+
+                <div className="navbar-spacer-right"></div>
+                <div className="navbar-cart">
+                    <div className="navbar-cart-logoItem">
+                        <CartIcon className="navbar-cart-logo" />
+                        <label className="navbar-cart-item">14</label>
+                    </div>
+                    <label className="navbar-cart-text">Cart</label>
+                </div>
+                <Link href={"/pages/login"}>
+                    <div className="navbar-loginButton">
+                        <Image src={loginIcon} alt="loginButton-icon" className="navbar-login-icon"></Image>
+                        <label className="navbar-login-text">Login</label>
+                    </div>
+                </Link>
+
+            </div>
+        )
+    }
 }

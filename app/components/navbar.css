@@ -64,6 +64,11 @@
 
 .navbar-searchbar-input {
     width: 100%;
+    margin: 10px;
+}
+
+.navbar-searchbar-input::placeholder {
+    font-size: 12px;
 }
 
 .navbar-searchbar-input:focus {
@@ -110,6 +115,7 @@
 .navbar-cart-logo {
     margin-left: 4px;
     margin-right: 2px;
+    color: #B6349A;
 }
 
 .navbar-cart-item {
@@ -143,4 +149,104 @@
 
 .navbar-login-icon {
     cursor: pointer;
+}
+
+@media (max-width: 400px) {
+
+    .whole-navbar {
+        height: 124px;
+        width: 100%;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #F8F7F8;
+        background-color: #faf8f9;        
+    }
+
+    .navbar-firstLine {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar-spacer {
+        flex-grow: 1;
+    }
+
+    .navbar-location {
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar-location-text {
+        font-family: "Inter", "SF Pro Display", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: #B6349A;
+        margin-left: 8px;
+        white-space: nowrap;
+    }
+
+    .navbar-location-icon {
+        fill: #B6349A;
+    }
+
+    .navbar-cart-logoItem {
+        display: flex;
+        background-color: #B6349A;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar-cart-logo {
+        fill: white;
+    }
+
+    .navbar-secondLine {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar-searchbar {
+        width: 247px;
+        flex-grow: 1;
+        margin-left: 64px;
+        margin-right: 64px;
+        height: 40px;
+        margin-top: 12px;
+        border: none;
+        transition: margin-left 0.3s ease, margin-right 0.3s ease;
+    }
+
+    .navbar-searchbar:focus-within {
+        border-color: #B6349A40;
+        border-width: 2px;
+        border-style: solid;
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .navbar-searchbar-input {
+        width: 100%;
+        flex-grow: 1;
+        margin: 10px;
+    }
+
+    .navbar-firstLine {
+        transition: opacity 0.3s ease, max-height 0.3s ease;
+        opacity: 1;
+        max-height: 100px; /* adjust as needed */
+        overflow: hidden;
+    }
+    
+    .navbar-firstLine.hide {
+        opacity: 0;
+        max-height: 0;
+        pointer-events: none;
+    }
 }
