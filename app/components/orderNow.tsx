@@ -6,7 +6,7 @@ import orange from "../images/orange.png";
 import orderNowArrow from "../images/orderNow-arrow.png";
 import Image from "next/image";
 
-export default function orderNow() {
+export default function OrderNow() {
 
     const [products, setProducts] = useState<Product[]>([]);
     const [filter, setFilter] = useState([]);

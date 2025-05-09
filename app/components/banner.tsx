@@ -5,9 +5,20 @@ import poster3 from "../images/poster3.png";
 import poster4 from "../images/poster4.png";
 import poster5 from "../images/poster5.png";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 
 export default function Banner() {
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 400);
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <div className="whole-banner">
             <div className="banner-images">
