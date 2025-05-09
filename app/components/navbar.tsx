@@ -1,9 +1,9 @@
 import easyMartLogo from "../images/easyMartLogo.png";
-import LocationIcon from "../images/location.svg";
+import locationIcon from "../images/location.svg";
 import searchIcon from "../images/search.png";
-import CartIcon from "../images/cart.svg";
+import cartIcon from "../images/cart.png";
 import loginIcon from "../images/login.png";
-import MenuIcon from "../images/menu.svg";
+import menuIcon from "../images/menu.svg";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import DropDownItem from "./dropdownItem"
@@ -27,15 +27,15 @@ export default function Navbar() {
         return (
             <div className="whole-navbar">
                 <div className={`navbar-firstLine${searchActive ? " hide" : ""}`}>
-                    <MenuIcon></MenuIcon>
+                    <Image src={menuIcon} alt="menu icon"></Image>
                     <div className="navbar-spacer"></div>
                     <div className="navbar-location">
-                        <LocationIcon></LocationIcon>
+                        <Image src={locationIcon} alt="location Icon"></Image>
                         <div className="navbar-location-text">10115 New York</div>
                     </div>
                     <div className="navbar-spacer"></div>
                     <div className="navbar-cart-logoItem">
-                        <CartIcon className="navbar-cart-logo"></CartIcon>
+                        <Image src={cartIcon} alt="cart Icon"></Image>
                     </div>
                 </div>
                 <div className="navbar-secondLine">
@@ -66,7 +66,7 @@ export default function Navbar() {
                     <Image src={easyMartLogo} alt="easyMart-icon" className="navbar-icon" />
                 </Link>
                 <div className="navbar-location">
-                    <LocationIcon></LocationIcon>
+                    <Image src={locationIcon} alt="location Icon"></Image>
                     <div className="navbar-location-text">10115 New York</div>
                 </div>
                 <div className="navbar-spacer-left"></div>
@@ -92,14 +92,14 @@ export default function Navbar() {
                 <div className="navbar-spacer-right"></div>
                 <div className="navbar-cart">
                     <div className="navbar-cart-logoItem">
-                        <CartIcon className="navbar-cart-logo" />
+                        <Image src={cartIcon} alt="cart Icon" className="navbar-cart-logo"></Image>
                         <label className="navbar-cart-item">14</label>
                     </div>
                     <label className="navbar-cart-text">Cart</label>
                 </div>
                 <Link href={"/pages/login"}>
                     <div className="navbar-loginButton">
-                        <Image src={loginIcon} alt="loginButton-icon" className="navbar-login-icon"></Image>
+                        <Image src={loginIcon} alt="loginButton-icon" className="navbar-login-icon" width={16} height={16}></Image>
                         <label className="navbar-login-text">Login</label>
                     </div>
                 </Link>

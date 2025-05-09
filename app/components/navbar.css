@@ -104,6 +104,7 @@
 .navbar-cart-logoItem {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 40px;
     height: 28px;
     background-color: white;
@@ -116,12 +117,15 @@
     margin-left: 4px;
     margin-right: 2px;
     color: #B6349A;
+    width: 16px;
+    height: auto;
 }
 
 .navbar-cart-item {
     font-size: 12px;
     font-weight: semi-bold;
     color: #B6349A;
+    margin-right: 6px;
 }
 
 .navbar-cart-text {
@@ -149,6 +153,8 @@
 
 .navbar-login-icon {
     cursor: pointer;
+    width: 16px;
+    height: auto;
 }
 
 @media (max-width: 400px) {
