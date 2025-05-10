@@ -4,11 +4,11 @@ import "./main.css";
 import Image from "next/image";
 import logo from "../../images/easyMartLogo.png";
 import Link from "next/link";
-import sms from "../../../public/images/sms.svg";
-import call from "../../../public/images/call.svg";
-import buttonArrow from "../../../public/images/login-arrow-right.svg";
-import metaLogo from "../../../public/images/meta-logo.svg";
-import googleLogo from "../../../public/images/google-logo.svg";
+import sms from "/images/sms.svg";
+import call from "/images/call.svg";
+import buttonArrow from "/images/login-arrow-right.svg";
+import metaLogo from "/images/meta-logo.svg";
+import googleLogo from "/images/google-logo.svg";
 
 export default function Home() {
 
@@ -24,11 +24,11 @@ export default function Home() {
                 <div className="login-form">
                     <div className="email-phone-button">
                         <div className="login-emailButton">
-                            <Image src={sms} alt="sms logo" className="login-emailLogo"></Image>
+                            <Image src="/images/sms.svg" alt="sms logo" className="login-emailLogo" width={24} height={24} />
                             <div className="login-emailText">Email</div>
                         </div>
                         <div className="login-phoneButton">
-                            <Image src={call} alt="call logo" className="login-phoneLogo"></Image>
+                            <Image src="/images/call.svg" alt="call logo" className="login-phoneLogo" width={24} height={24} />
                             <div className="login-phoneText">Phone</div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@ export default function Home() {
                     </div>
                     <button className="login-contiune-button">
                         <div className="login-contiune-button-text">Contiune</div>
-                        <Image src={buttonArrow} alt="login-arrow"></Image>
+                        <Image src="/images/login-arrow-right.svg" alt="login-arrow" width={24} height={24} />
                     </button>
                 </div>
                 <div className="login-divider">
@@ -50,13 +50,13 @@ export default function Home() {
                 </div>
                 <Link href={"http://accountscenter.meta.com/"}>
                     <div className="loginButton-meta">
-                        <Image src={metaLogo} alt="meta Logo"></Image>
+                        <Image src="/images/meta-logo.svg" alt="meta Logo" width={24} height={24} />
                         <div className="loginButton-meta-text">Sign in with Meta</div>
                     </div>
                 </Link>
                 <Link href="https://accounts.google.com/">
                     <div className="loginButton-google">
-                        <Image src={googleLogo} alt="google logo"></Image>
+                        <Image src="/images/google-logo.svg" alt="google logo" width={24} height={24} />
                         <div className="loginButton-google-text">Sign in with Google</div>
                     </div>
                 </Link>
