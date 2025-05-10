@@ -4,11 +4,11 @@ import "./main.css";
 import Image from "next/image";
 import logo from "../../images/easyMartLogo.png";
 import Link from "next/link";
-import sms from "../../images/sms.svg";
-import call from "../../images/call.svg";
-import buttonArrow from "../../images/login-arrow-right.svg";
-import metaLogo from "../../images/meta-logo.svg";
-import googleLogo from "../../images/google-logo.svg";
+import sms from "../../../public/images/sms.svg";
+import call from "../../../public/images/call.svg";
+import buttonArrow from "../../../public/images/login-arrow-right.svg";
+import metaLogo from "../../../public/images/meta-logo.svg";
+import googleLogo from "../../../public/images/google-logo.svg";
 
 export default function Home() {
 
