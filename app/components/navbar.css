@@ -1,16 +1,23 @@
-.whole-navbar {
+/* .whole-navbar {
     width: 100vw;
     background-color: #FFFFFF;
     height: 84px;
     display: flex;
     align-items: center;
-    padding-right: 80px;
+    padding-left: 80px;
+}
+
+
+
+@media (min-width: 1000px)  {
+    .whole-navbar {
+        padding-right: 80px;
+    }
 }
 
 .navbar-icon {
-    margin-left: 80px;
-    margin-right: 20px;
     cursor: pointer;
+    min-width: 134px;
 }
 
 .navbar-location {
@@ -28,19 +35,33 @@
     white-space: nowrap;
 }
 
+@media (min-width: 1000px) {
+    .navbar-spacer {
+        max-width: 20px;
+    }
+}
+
+
+.navbar-spacer {
+    min-width: 1px;
+    flex-grow: 1;
+}
+
 .navbar-spacer-left {
     width: 133px;
-    min-width: 10px;
+    min-width: 1px;
+    flex-grow: 1;
 }
 
 .navbar-spacer-right {
     width: 176px;
-    min-width: 10px;
+    min-width: 1px;
+    flex-grow: 1;
 }
 
 .navbar-searchbar {
     width: 458px;
-    min-width: 10px;
+    min-width: 150px;
     display: flex;
     align-items: center;
     background-color: white;
@@ -73,7 +94,6 @@
 
 .navbar-searchbar-input:focus {
     outline: none;
-    /* Need to set search active */
 }
 
 .whole-dropdown {
@@ -88,49 +108,6 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-}
-
-.navbar-cart {
-    display: flex;
-    align-items: center;
-    padding-left: 6px;
-    padding-right: 12px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    border-radius: 39px;
-    background-color: #FEF5FD;
-}
-
-.navbar-cart-logoItem {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 28px;
-    background-color: white;
-    border-radius: 32px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-}
-
-.navbar-cart-logo {
-    margin-left: 4px;
-    margin-right: 2px;
-    color: #B6349A;
-    width: 16px;
-    height: auto;
-}
-
-.navbar-cart-item {
-    font-size: 12px;
-    font-weight: semi-bold;
-    color: #B6349A;
-    margin-right: 6px;
-}
-
-.navbar-cart-text {
-    font-size: 14px;
-    margin-left: 8px;
 }
 
 .navbar-loginButton {
@@ -157,26 +134,43 @@
     height: auto;
 }
 
-@media (max-width: 400px) {
+.navbar-cart-image {
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .whole-navbar {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}   
+
+@media (max-width: 999px) {
 
     .whole-navbar {
         height: 124px;
         width: 100%;
-        padding: 16px;
+        padding-top: 16px;
+        padding-bottom: 16px;
         display: flex;
         flex-direction: column;
         border-bottom: 1px solid #F8F7F8;
         background-color: #faf8f9;        
     }
 
+    .whole-navbar:focus-within {
+        padding-left: 0px;
+    }
+
     .navbar-firstLine {
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
     }
 
-    .navbar-spacer {
+    .navbar-firstLine-spacer {
+        width: 80px;
         flex-grow: 1;
     }
 
@@ -199,22 +193,16 @@
         fill: #B6349A;
     }
 
-    .navbar-cart-logoItem {
-        display: flex;
-        background-color: #B6349A;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .navbar-cart-logo {
-        fill: white;
-    }
-
     .navbar-secondLine {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .navbar-spacer {
+        max-width: auto;
+        flex-grow: 1;
     }
 
     .navbar-searchbar {
@@ -246,7 +234,7 @@
     .navbar-firstLine {
         transition: opacity 0.3s ease, max-height 0.3s ease;
         opacity: 1;
-        max-height: 100px; /* adjust as needed */
+        max-height: 100px;
         overflow: hidden;
     }
     
@@ -255,4 +243,16 @@
         max-height: 0;
         pointer-events: none;
     }
-}
+
+    .navbar-loginButton {
+        display: flex;
+        align-items: center;
+        border-radius: 39px;
+        border-color: #B6349A;
+        border-width: 1px;
+        cursor: pointer;
+        width: auto;
+        padding: 10px 16px;
+        min-width: 50px;
+    }
+} */

@@ -1,0 +1,11 @@
+.navbar-location-root {
+    display: flex;
+    gap: 8px;
+    min-width: 100px;
+
+    .navbar-location-text {
+        font-weight: 500;
+        font-size: 14px;
+        color: black;
+    }
+}

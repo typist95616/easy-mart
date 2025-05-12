@@ -1,0 +1,85 @@
+$mobileBreakpoint: 600px;
+
+.whole-navbar-v2 {
+    padding: 16px 80px;
+    display: flex;
+    flex-direction: column;
+    background-color: #F8F7F8;
+
+    @media (max-width: $mobileBreakpoint) {
+        padding: 16px;
+        
+        .whole-navbar-v2:focus-within {
+            padding-left: 0px;
+            border-color: #B6349A40;
+            border-width: 2px;
+            border-style: solid;
+            width: 100%;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .easyMartLogo {
+            width: 100px;
+            height: auto;
+        }
+        .top-searchBar {
+            display: none;
+        }
+    }
+
+    .SearchBar {
+        width: 458px;
+        min-width: 150px;
+        background-color: blue;
+    }
+
+    .top-navbar {
+        display: flex;
+        align-items: center;
+        transition: opacity 0.3s ease, max-height 0.3s ease;
+        opacity: 1;
+        max-height: 200px;
+        overflow: hidden;
+
+        .NavBarLocation {
+        }
+        .top-navbar-spacer {
+            min-width: 0px;
+            flex-grow: 1;
+        }
+        .RightNavItems {
+            display: flex;
+        }
+        .top-navbar-searchBar-leftSpacer {
+            min-width: 0px;
+            flex-grow: 1;
+        }
+        .top-navbar-searchBar-rightSpacer {
+            flex-grow: 1;
+        }
+        .RightNavItems {
+            gap: 8px;
+        }
+        @media (max-width: $mobileBreakpoint) {
+            .SearchBar {
+                display: none;
+            }
+
+            .top-navbar-searchBar-rightSpacer {
+                display: none;
+            }
+        }
+    }
+    .bottom-navbar {
+        @media (min-width: $mobileBreakpoint) {
+            display: none;
+        }
+    }
+
+    .top-navbar.hide {
+        opacity: 0;
+        max-height: 0;
+        pointer-events: none;
+    }
+}

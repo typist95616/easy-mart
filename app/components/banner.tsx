@@ -19,31 +19,50 @@ export default function Banner() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    return (
-        <div className="whole-banner">
-            <div className="banner-images">
-                <Image src={poster1} alt="poster1" className="banner-poster poster1"></Image>
-                <Image src={poster2} alt="poster2" className="banner-poster poster2"></Image>
-                <Image src={poster3} alt="poster3" className="banner-poster poster3"></Image>
-                <Image src={poster4} alt="poster4" className="banner-poster poster4"></Image>
-                <Image src={poster5} alt="poster5" className="banner-poster poster5"></Image>
-                <Image src={poster1} alt="poster1" className="banner-poster poster6"></Image>
-                <Image src={poster2} alt="poster2" className="banner-poster poster7"></Image>
-                <Image src={poster3} alt="poster3" className="banner-poster poster8"></Image>
-                <Image src={poster4} alt="poster4" className="banner-poster poster9"></Image>
-                <Image src={poster5} alt="poster5" className="banner-poster poster10"></Image>
+    if (isMobile) {
+        return (
+            <div className="whole-banner">
+                <div className="banner-images">
+                    <Image src={poster1} alt="poster1" className="banner-poster poster1"></Image>
+                    <Image src={poster2} alt="poster2" className="banner-poster poster2"></Image>
+                    <Image src={poster3} alt="poster3" className="banner-poster poster3"></Image>
+                    <Image src={poster4} alt="poster4" className="banner-poster poster4"></Image>
+                    <Image src={poster5} alt="poster5" className="banner-poster poster5"></Image>
+                    <Image src={poster1} alt="poster1" className="banner-poster poster6"></Image>
+                    <Image src={poster2} alt="poster2" className="banner-poster poster7"></Image>
+                    <Image src={poster3} alt="poster3" className="banner-poster poster8"></Image>
+                    <Image src={poster4} alt="poster4" className="banner-poster poster9"></Image>
+                    <Image src={poster5} alt="poster5" className="banner-poster poster10"></Image>
+                </div>
             </div>
-            <div className="banner-images">
-                <Image src={poster2} alt="poster2" className="banner-poster poster2"></Image>
-                <Image src={poster1} alt="poster1" className="banner-poster poster1"></Image>
-                <Image src={poster5} alt="poster5" className="banner-poster poster5"></Image>
-                <Image src={poster1} alt="poster1" className="banner-poster poster6"></Image>
-                <Image src={poster3} alt="poster3" className="banner-poster poster8"></Image>
-                <Image src={poster2} alt="poster2" className="banner-poster poster7"></Image>
-                <Image src={poster3} alt="poster3" className="banner-poster poster3"></Image>
-                <Image src={poster4} alt="poster4" className="banner-poster poster9"></Image>
-                <Image src={poster5} alt="poster5" className="banner-poster poster10"></Image>
+        )
+    } else {
+        return (
+            <div className="whole-banner">
+                <div className="banner-images">
+                    <Image src={poster1} alt="poster1" className="banner-poster poster1"></Image>
+                    <Image src={poster2} alt="poster2" className="banner-poster poster2"></Image>
+                    <Image src={poster3} alt="poster3" className="banner-poster poster3"></Image>
+                    <Image src={poster4} alt="poster4" className="banner-poster poster4"></Image>
+                    <Image src={poster5} alt="poster5" className="banner-poster poster5"></Image>
+                    <Image src={poster1} alt="poster1" className="banner-poster poster6"></Image>
+                    <Image src={poster2} alt="poster2" className="banner-poster poster7"></Image>
+                    <Image src={poster3} alt="poster3" className="banner-poster poster8"></Image>
+                    <Image src={poster4} alt="poster4" className="banner-poster poster9"></Image>
+                    <Image src={poster5} alt="poster5" className="banner-poster poster10"></Image>
+                </div>
+                <div className="banner-images">
+                    <Image src={poster2} alt="poster2" className="banner-poster poster2"></Image>
+                    <Image src={poster1} alt="poster1" className="banner-poster poster1"></Image>
+                    <Image src={poster5} alt="poster5" className="banner-poster poster5"></Image>
+                    <Image src={poster1} alt="poster1" className="banner-poster poster6"></Image>
+                    <Image src={poster3} alt="poster3" className="banner-poster poster8"></Image>
+                    <Image src={poster2} alt="poster2" className="banner-poster poster7"></Image>
+                    <Image src={poster3} alt="poster3" className="banner-poster poster3"></Image>
+                    <Image src={poster4} alt="poster4" className="banner-poster poster9"></Image>
+                    <Image src={poster5} alt="poster5" className="banner-poster poster10"></Image>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }

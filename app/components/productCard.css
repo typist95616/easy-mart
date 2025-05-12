@@ -64,3 +64,13 @@
     font-size: 14px;
     font-weight: medium;
 }
+
+@media (max-width: 480px)  {
+
+    .whole-productCard {
+        display: flex;
+        flex-direction: column;
+        width: 120px;
+    }
+
+}

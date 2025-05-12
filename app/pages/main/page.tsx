@@ -13,11 +13,12 @@ import "./main.css";
 import TrendingFavorites from '../../components/trendingFavorites';
 import OrderNowYourGrocery from '../../components/orderNowYourGrocery';
 import OrderNow from '../../components/orderNow';
+import NavbarV2 from '@/app/components/NavBarV2';
 
 export default function Home() {
     return (
         <div>
-            <Navbar />
+            <NavbarV2 />
             <div className='main-content'>
                 <Banner />
                 <BestSeller />

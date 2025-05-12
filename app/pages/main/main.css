@@ -13,7 +13,7 @@
     padding-top: 32px !important;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
     .main-content > * {
         padding: 0px 16px;
     }

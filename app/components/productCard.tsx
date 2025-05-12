@@ -15,7 +15,7 @@ export default function ProductCard({productName, productImage, pricePerLb, tota
     return (
         <div className="whole-productCard">
             <div className="productCard-imageBox">
-                <Image alt="product-image" src={productImage} className="productCard-image"></Image>
+                <Image alt="product-image" src={productImage} className="productCard-image" width={206} height={154}></Image>
             </div>
             <div className="productCard-name">{productName}</div>
             <div className="productCard-pricePerLb">${pricePerLb}/lb</div>
