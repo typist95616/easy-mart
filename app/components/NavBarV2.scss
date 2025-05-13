@@ -20,7 +20,7 @@ $mobileBreakpoint: 600px;
         }
 
         .easyMartLogo {
-            width: 100px;
+            min-width: 115px;
             height: auto;
         }
         .top-searchBar {
@@ -40,9 +40,10 @@ $mobileBreakpoint: 600px;
         transition: opacity 0.3s ease, max-height 0.3s ease;
         opacity: 1;
         max-height: 200px;
-        overflow: hidden;
 
-        .NavBarLocation {
+        .easyMartLogo {
+            min-width: 115px;
+            height: auto;
         }
         .top-navbar-spacer {
             min-width: 0px;
@@ -71,15 +72,18 @@ $mobileBreakpoint: 600px;
             }
         }
     }
+
+    @media (max-width: $mobileBreakpoint) {
+        .top-navbar.hide {
+            opacity: 0;
+            max-height: 0;
+            pointer-events: none;
+        }
+    }
+
     .bottom-navbar {
         @media (min-width: $mobileBreakpoint) {
             display: none;
         }
-    }
-
-    .top-navbar.hide {
-        opacity: 0;
-        max-height: 0;
-        pointer-events: none;
     }
 }
