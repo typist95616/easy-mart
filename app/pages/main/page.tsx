@@ -4,7 +4,8 @@ import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import Banner from '../../components/banner';
 import ProductCard from '../../components/productCard';
-import BestSeller from '../../components/bestSeller';
+// import BestSeller from '../../components/bestSeller';
+import ProductSlider from "../../components/SliderComponent/ProductSlider";
 import { useEffect, useState } from 'react';
 import { Product } from '@/app/types/Product';
 import Image from 'next/image';
@@ -21,11 +22,13 @@ export default function Home() {
             <NavbarV2 />
             <div className='main-content'>
                 <Banner />
-                <BestSeller />
-                <TrendingFavorites bgColor="whiteBackground"/>
+                {/* <BestSeller Title="Best Seller"/> */}
+                <ProductSlider title="Best Seller"></ProductSlider>
+                <ProductSlider title="Trending Store Favourites"></ProductSlider>
+                {/* <TrendingFavorites bgColor="whiteBackground"/>
                 <OrderNowYourGrocery />
                 <TrendingFavorites bgColor="greyBackground"/>
-                <OrderNow />
+                <OrderNow /> */}
             </div>
             <Footer />
         </div>

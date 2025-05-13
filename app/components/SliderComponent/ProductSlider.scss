@@ -1,0 +1,93 @@
+$mobileBreakpoint: 600px;
+
+.whole-productSlider-root {
+
+    .productSlider-secondLayer {
+        padding: 24px;
+        gap: 24px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    // set border when content is Trending
+    .trending-border {
+        border-radius: 32px;
+        border-color: #F0EEF0;
+        border-width: 1px;
+    }
+    .productSlider-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        .productSlider-title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .productSlider-rightItem {
+            display: flex;
+            gap: 24px;
+
+            .productSlider-viewAll-button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 4px;
+                padding: 10px 20px;
+                border-radius: 32px;
+                border-color: #B6349A;
+                border-width: 1px;
+
+                .productSlider-viewAll-text {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 5px;
+
+                    .productSlider-viewAll-text-left {
+                        font-size: 14px;
+                        font-weight: 600;
+                    }
+
+                    .productSlider-viewAll-text-right {
+                        font-size: 14px;
+                        font-weight: 600;
+                    }
+                }
+
+                .productSlider-viewAll-icon {
+                    width: 20px;
+                    height: auto;
+                }
+            }
+
+            .productSlider-arrowGroup {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 16px;
+
+                .prodcutSlider-leftArrowButton,
+                .prodcutSlider-rightArrowButton {
+                    border-radius: 100%;
+                    border-width: 1px;
+                    background-color: rgba(240, 238, 240, 0.6);
+                    padding: 12px;
+                    border-color: #F0EEF0;
+                }
+            }
+        }
+
+        .best-seller {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .trending {
+            display: flex;
+            flex-direction: column;
+        }
+
+    }
+}

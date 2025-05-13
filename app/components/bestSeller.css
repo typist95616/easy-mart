@@ -1,10 +1,9 @@
-@import "slick-carousel/slick/slick.css";
+/* @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
-.whole-productSlider {
+.whole-productSlider-root {
     width: 100%;
     margin-top: 30px;
-    /* overflow: hidden; */
 }
 
 .productSlider-header {
@@ -65,18 +64,18 @@
     border-color: black;
 }
 
-/* .prodcutSlider-rightArrowButton :before {
+.prodcutSlider-rightArrowButton :before {
     border-radius: 100%;
     border-width: 1px;
     background-color: white;
     padding: 12px;   
     border-color: #F0EEF0;
-} */
+}
 
-/* .productSlider-slider {
+.productSlider-slider {
     display: flex;
     gap: 24px;
-} */
+}
 
 .slick-arrow:before {
     color: black;
@@ -92,14 +91,13 @@
 }
 
 .slick-slide {
-    margin-right: 24px !important; /* Set your desired gap */
+    margin-right: 24px !important; 
 }
 
 .slick-slide:last-child {
     margin-right: 0;
 }
 
-/* Optional: Remove default outline on arrows for better appearance */
 .slick-arrow {
     outline: none;
-}
+} */

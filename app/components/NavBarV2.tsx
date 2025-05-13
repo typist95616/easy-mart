@@ -7,6 +7,7 @@ import CartButton from "../components/NavBarComponent/NavBarCartButton";
 import LoginButton from "../components/NavBarComponent/NavBarLoginButton";
 import clsx from "clsx";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function NavbarV2() {
 
@@ -14,7 +15,9 @@ export default function NavbarV2() {
 
     return <div className="whole-navbar-v2">
         <div className={`top-navbar${searchActive ? " hide" : ""}`}>
-            <Image src={easyMartLogo} alt="logo" className="easyMartLogo"></Image>
+            <Link href="/pages/main">
+                <Image src={easyMartLogo} alt="logo" className="easyMartLogo"></Image>
+            </Link>
             <div className="top-navbar-spacer"></div>
             <NavBarLocation></NavBarLocation>
             <div className="top-navbar-searchBar-leftSpacer"></div>
@@ -23,7 +26,9 @@ export default function NavbarV2() {
             <div className="RightNavItems">
                 <CartButton></CartButton>
                 <div className="top-navbar-spacer"></div>
-                <LoginButton></LoginButton>
+                <Link href="/pages/login">
+                    <LoginButton></LoginButton>
+                </Link>
             </div>
         </div>
         <div className="bottom-navbar">

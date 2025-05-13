@@ -25,7 +25,7 @@ export async function GET(req: Request) {
     {
       "id": 3,
       "name": "strewberry",
-      "img_url": "/images/orange.png",
+      "img_url": "/images/strawberry.png",
       "price_per_lb": 8.76,
       "total_price": 24.96,
       "stock": 89
@@ -41,7 +41,7 @@ export async function GET(req: Request) {
     {
       "id": 2,
       "name": "apple",
-      "img_url": "/images/orange.png",
+      "img_url": "/images/apple.png",
       "price_per_lb": 1.98,
       "total_price": 33.98,
       "stock": 29
@@ -49,7 +49,7 @@ export async function GET(req: Request) {
     {
       "id": 3,
       "name": "strewberry",
-      "img_url": "/images/orange.png",
+      "img_url": "/images/strawberry.png",
       "price_per_lb": 8.76,
       "total_price": 24.96,
       "stock": 89
@@ -65,7 +65,7 @@ export async function GET(req: Request) {
     {
       "id": 5,
       "name": "apple",
-      "img_url": "/images/orange.png",
+      "img_url": "/images/apple.png",
       "price_per_lb": 1.98,
       "total_price": 33.98,
       "stock": 29
@@ -73,7 +73,7 @@ export async function GET(req: Request) {
     {
       "id": 6,
       "name": "strewberry",
-      "img_url": "/images/orange.png",
+      "img_url": "/images/strawberry.png",
       "price_per_lb": 8.76,
       "total_price": 24.96,
       "stock": 89
