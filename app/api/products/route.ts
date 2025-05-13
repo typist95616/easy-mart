@@ -8,7 +8,7 @@ export async function GET(req: Request) {
   return NextResponse.json([
     {
         "id": 1,
-        "name": "orange",
+        "name": "Orange",
         "img_url": "/images/orange.png",
         "price_per_lb": 2.71,
         "total_price": 45.67,
@@ -16,7 +16,7 @@ export async function GET(req: Request) {
     },
     {
       "id": 2,
-      "name": "apple",
+      "name": "Apple",
       "img_url": "/images/apple.png",
       "price_per_lb": 1.98,
       "total_price": 33.98,
@@ -24,7 +24,7 @@ export async function GET(req: Request) {
     },    
     {
       "id": 3,
-      "name": "strewberry",
+      "name": "Strewberry",
       "img_url": "/images/strawberry.png",
       "price_per_lb": 8.76,
       "total_price": 24.96,
@@ -32,7 +32,7 @@ export async function GET(req: Request) {
     }
     ,    {
         "id": 1,
-        "name": "orange",
+        "name": "Orange",
         "img_url": "/images/orange.png",
         "price_per_lb": 2.71,
         "total_price": 45.67,
@@ -40,7 +40,7 @@ export async function GET(req: Request) {
     },
     {
       "id": 2,
-      "name": "apple",
+      "name": "Apple",
       "img_url": "/images/apple.png",
       "price_per_lb": 1.98,
       "total_price": 33.98,
@@ -48,7 +48,7 @@ export async function GET(req: Request) {
     },    
     {
       "id": 3,
-      "name": "strewberry",
+      "name": "Strewberry",
       "img_url": "/images/strawberry.png",
       "price_per_lb": 8.76,
       "total_price": 24.96,
@@ -56,7 +56,7 @@ export async function GET(req: Request) {
     },
     {
       "id": 4,
-      "name": "orange",
+      "name": "Orange",
       "img_url": "/images/orange.png",
       "price_per_lb": 2.71,
       "total_price": 45.67,
@@ -64,7 +64,7 @@ export async function GET(req: Request) {
     },
     {
       "id": 5,
-      "name": "apple",
+      "name": "Apple",
       "img_url": "/images/apple.png",
       "price_per_lb": 1.98,
       "total_price": 33.98,
@@ -72,7 +72,7 @@ export async function GET(req: Request) {
     },    
     {
       "id": 6,
-      "name": "strewberry",
+      "name": "Strewberry",
       "img_url": "/images/strawberry.png",
       "price_per_lb": 8.76,
       "total_price": 24.96,

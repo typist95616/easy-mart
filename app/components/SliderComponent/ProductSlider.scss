@@ -53,6 +53,16 @@ $mobileBreakpoint: 600px;
                     .productSlider-viewAll-text-right {
                         font-size: 14px;
                         font-weight: 600;
+                        transition: opacity 0.3s ease, max-width 0.3s ease;
+                        opacity: 1;
+                        max-width: 100px;
+                    }
+                    @media (max-width: 700px) {
+                        .productSlider-viewAll-text-right {
+                            opacity: 0;
+                            max-width: 0;
+                            pointer-events: none;
+                        }
                     }
                 }
 

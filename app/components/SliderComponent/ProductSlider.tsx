@@ -1,7 +1,7 @@
 import "./ProductSlider.scss";
 import ProductCard from "../productCard";
 import orange from "../images/orange.png";
-import rightArrow from "../../../public/images/right-button.png";
+import rightArrow from "../../../public/images/arrow-right.png";
 import leftButton from "../../../public/images/left-button.png";
 import rightButton from "../../../public/images/right-button.png"
 import { useEffect, useRef, useState } from "react";
