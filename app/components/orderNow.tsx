@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./orderNow.css";
 import { Product } from "../types/Product";
-import ProductCard from "./productCard";
+import ProductCard from "./SliderComponent/ProductCardV2";
 import orange from "../images/orange.png";
 import orderNowArrow from "../images/orderNow-arrow.png";
 import Image from "next/image";

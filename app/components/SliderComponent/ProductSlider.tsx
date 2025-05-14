@@ -1,6 +1,5 @@
 import "./ProductSlider.scss";
-import ProductCard from "../productCard";
-import orange from "../images/orange.png";
+import ProductCard from "./ProductCardV2"
 import rightArrow from "../../../public/images/arrow-right.png";
 import leftButton from "../../../public/images/left-button.png";
 import rightButton from "../../../public/images/right-button.png"
@@ -19,7 +18,6 @@ export default function ProductSlider(props: ProductSliderProps) {
     const [products, setProducts] = useState<Product[]>([]);
     const [filter, setFilter] = useState([]);
     const sliderRef = useRef<Slider | null>(null);
-    const [currentSlide, setCurrentSlide] = useState(0);
 
     // Get data from database
     const fetchProducts = async () => {

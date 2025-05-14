@@ -1,5 +1,4 @@
 // import "./bestSeller.css";
-// import ProductCard from "./productCard";
 // import orange from "../images/orange.png";
 // import rightArrow from "../images/arrow-right.png";
 // import leftButton from "../images/left-button.png";

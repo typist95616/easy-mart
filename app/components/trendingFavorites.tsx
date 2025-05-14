@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "../components/trendingFavorites.css"
 import { Product } from "../types/Product";
-import ProductCard from "./productCard";
 import apple from "../images/apple.png";
 import rightArrow from "../images/arrow-right.png";
 import Image from "next/image";
@@ -94,13 +93,14 @@ export default function TrendingFavorites({ bgColor }: { bgColor?: string }) {
                 <div className="productSlider-slider">
                     <Slider {...settings} ref={sliderRef} key={products.length}>
                         {products.map((product) => 
-                            <ProductCard 
-                                productName={product.name}
-                                productImage={apple}
-                                pricePerLb={product.price_per_lb}
-                                totalPrice={product.total_price}
-                                stock={product.stock}
-                            />
+                            // <ProductCard 
+                            //     productName={product.name}
+                            //     productImage={apple}
+                            //     pricePerLb={product.price_per_lb}
+                            //     totalPrice={product.total_price}
+                            //     stock={product.stock}
+                            // />
+                            <div></div>
                         )}
                     </Slider>
                 </div>

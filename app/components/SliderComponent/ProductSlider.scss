@@ -7,6 +7,12 @@ $mobileBreakpoint: 600px;
         gap: 24px;
         display: flex;
         flex-direction: column;
+
+        @media (max-width: $mobileBreakpoint) {
+            .productSlider-bottom {
+                padding-bottom: 12px;
+            }
+        }
     }
 
     // set border when content is Trending
@@ -20,9 +26,17 @@ $mobileBreakpoint: 600px;
         align-items: flex-start;
         justify-content: space-between;
 
+        @media (max-width: $mobileBreakpoint) {
+            align-items: center;
+        }
+
         .productSlider-title {
             font-size: 24px;
             font-weight: 600;
+
+            @media (max-width: $mobileBreakpoint) {
+                font-size: 17px;   
+            }
         }
 
         .productSlider-rightItem {
@@ -38,6 +52,10 @@ $mobileBreakpoint: 600px;
                 border-radius: 32px;
                 border-color: #B6349A;
                 border-width: 1px;
+
+                @media (max-width: $mobileBreakpoint) {
+                    padding: 4px 8px; 
+                }
 
                 .productSlider-viewAll-text {
                     display: flex;
@@ -64,6 +82,18 @@ $mobileBreakpoint: 600px;
                             pointer-events: none;
                         }
                     }
+                    @media (max-width: $mobileBreakpoint) {
+                        .productSlider-viewAll-text-left {
+                            font-size: 12px;
+                            font-weight: 600;
+                        }
+                        .productSlider-viewAll-text-right {
+                            font-size: 12px;
+                            font-weight: 600;
+                            opacity: 1;
+                            max-width: 100px;
+                        }
+                    }
                 }
 
                 .productSlider-viewAll-icon {
@@ -72,11 +102,16 @@ $mobileBreakpoint: 600px;
                 }
             }
 
+
             .productSlider-arrowGroup {
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
                 gap: 16px;
+
+                @media (max-width: $mobileBreakpoint) {
+                    display: none;
+                }
 
                 .prodcutSlider-leftArrowButton,
                 .prodcutSlider-rightArrowButton {

@@ -1,7 +1,35 @@
+$mobileBreakpoint: 600px;
+
 .whole-productCard {
     display: flex;
     flex-direction: column;
     width: 240px;
+
+    @media (max-width: $mobileBreakpoint) {
+        .productCard-imageBox {
+            height: 120px;
+            width: 120px;
+            background-color: #F8F8F8;
+
+            .productCard-image {
+                transform: scale(0.8);
+            }
+        }
+
+        .productCard-stock {
+            display: none;
+        }
+
+        .productCard-price {
+
+            .productCard-totalPrice {
+                color: #117E11;
+            }
+            .prodcutCard-orginalTotal {
+                text-decoration: line-through;
+            }
+        }
+    }
 }
 
 .productCard-imageBox {
@@ -63,14 +91,4 @@
 .productCard-stockRight {
     font-size: 14px;
     font-weight: medium;
-}
-
-@media (max-width: 480px)  {
-
-    .whole-productCard {
-        display: flex;
-        flex-direction: column;
-        width: 120px;
-    }
-
 }

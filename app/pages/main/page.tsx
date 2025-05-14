@@ -3,7 +3,6 @@
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import Banner from '../../components/banner';
-import ProductCard from '../../components/productCard';
 // import BestSeller from '../../components/bestSeller';
 import ProductSlider from "../../components/SliderComponent/ProductSlider";
 import { useEffect, useState } from 'react';

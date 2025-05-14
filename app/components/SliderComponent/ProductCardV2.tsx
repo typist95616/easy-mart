@@ -1,4 +1,4 @@
-import "./ProductCard.css";
+import "./ProductCardV2.scss";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -10,7 +10,7 @@ interface ProductProps {
     stock: number;
 }   
 
-export default function ProductCard({productName, productImage, pricePerLb, totalPrice, stock}: ProductProps) {
+export default function ProductCardV2({productName, productImage, pricePerLb, totalPrice, stock}: ProductProps) {
 
     return (
         <div className="whole-productCard">

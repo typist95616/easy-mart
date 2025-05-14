@@ -1,5 +1,5 @@
 import "./orderNowYourGrocery.css";
-import ProductCard from "./productCard";
+import ProductCard from "./SliderComponent/ProductCardV2";
 import { useEffect, useRef, useState } from "react";
 import { Product } from "../types/Product";
 import orange from "../images/orange.png"

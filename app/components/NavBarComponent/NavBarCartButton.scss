@@ -10,6 +10,7 @@ $mobileBreakpoint: 600px;
     padding-right: 12px;
     padding-top: 6px;
     padding-bottom: 6px;
+    transition: background-color 0.3s, border-color 0.3s, width 0.3s, height 0.3s;
 
     @media (max-width: 700px)  {
         padding-right: 6px;
