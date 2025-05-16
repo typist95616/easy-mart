@@ -1,3 +1,5 @@
+"use client";
+
 import "./NavBarLocation.scss";
 import Image from "next/image";
 import locationLogo from "../../../public/images/location.png";
