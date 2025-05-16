@@ -2,7 +2,7 @@
 
 import "./NavBarLocation.scss";
 import Image from "next/image";
-import locationLogo from "../../../public/images/location.png";
+import locationLogo from "/images/location.png";
 import clsx from "clsx";
 
 interface NavBarLocationProps {
