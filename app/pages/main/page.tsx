@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from '../../components/navbar';
-import Footer from '../../components/footer';
+import FooterV2 from '../../components/FooterV2';
 import Banner from '../../components/banner';
 // import BestSeller from '../../components/bestSeller';
 import ProductSlider from "../../components/SliderComponent/ProductSlider";
@@ -29,7 +29,7 @@ export default function Home() {
                 <TrendingFavorites bgColor="greyBackground"/>
                 <OrderNow /> */}
             </div>
-            <Footer />
+            <FooterV2 />
         </div>
     )
 }

@@ -3,7 +3,6 @@ $mobileBreakpoint: 600px;
 .whole-productSlider-root {
 
     .productSlider-secondLayer {
-        padding: 24px;
         gap: 24px;
         display: flex;
         flex-direction: column;
@@ -20,6 +19,7 @@ $mobileBreakpoint: 600px;
         border-radius: 32px;
         border-color: #F0EEF0;
         border-width: 1px;
+        padding: 24px;
     }
     .productSlider-top {
         display: flex;
