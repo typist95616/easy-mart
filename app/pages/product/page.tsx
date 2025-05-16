@@ -10,17 +10,17 @@ import ProductOverview from "../../components/ProductPageComponent/ProductOvervi
 import ProductReview from "../../components/ProductPageComponent/ProductReview"
 import Link from "next/link";
 
-interface ProductProps {
-    productName: string;
-    productImage: string;
-    pricePerLb: number;
-    totalPrice: number;
-    stock: number;
-    description: string;
-    detail: string;
-}
+// interface ProductProps {
+//     productName: string;
+//     productImage: string;
+//     pricePerLb: number;
+//     totalPrice: number;
+//     stock: number;
+//     description: string;
+//     detail: string;
+// }
 
-export default function Main(props: ProductProps) {
+export default function Main() {
 
     const searchParams = useSearchParams();
 
