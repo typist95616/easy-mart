@@ -1,0 +1,112 @@
+.productOverview-root {
+    display: flex;
+
+    .productOverview-spacer {
+        width: 128px;
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+
+    .productOverview-imageBox {
+        max-width: 740px;
+        max-height: 545px;
+        background-color: #FDFDFD;
+        border-radius: 32px;
+        border-color: #F4F0F0;
+        border-width: 1px;
+    }
+
+    .productOverview-info {
+        display: flex;
+        flex-direction: column;
+
+        .productOverview-info-description {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .productOverview-info-pricePerLb {
+            font-size: 16px;
+            font-weight: 500;
+            color: #494349;
+        }
+        .productOverview-info-priceBox {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+
+            .productOverview-info-priceBox-special {
+                font-size: 24px;
+                font-weight: 600;
+            }
+            .productOverview-info-priceBox-orginal {
+                font-size: 16px;
+                text-decoration: line-through;
+                color: #807681;
+            }
+        }
+        .productOverview-info-stock {
+            color: #B6349A;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        .productOverview-info-addToCart {
+            display: flex;
+            gap: 8px;
+            background-color: #B6349A;
+            border-radius: 39px;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            margin-bottom: 28px;
+
+            .productOverview-info-addToCart-image {
+                width: 24px;
+                height: auto;
+            }
+            .productOverview-info-addToCart-text {
+                color: white;
+                font-size: 18px;
+                font-weight: 600;
+            }
+        }
+        .productOverview-info-aboutProduct {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .productOverview-info-aboutProduct-text {
+                color: #686069;
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            .productOverview-info-aboutProduct-bestSeller, .productOverview-info-aboutProduct-satisfaction {
+                display: flex;
+                gap: 12px;
+                align-items: center;
+
+                .productOverview-info-aboutProduct-imageBox {
+                    display: flex;
+                    border-radius: 100%;
+                    background-color: #F8F7F8;
+                    width: 40px;
+                    height: 40px;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .productOverview-info-aboutProduct-bestSeller-image, .productOverview-info-aboutProduct-satisfaction-image {
+                    width: 20px;
+                    height: auto
+                }
+
+                .productOverview-info-aboutProduct-bestSeller-text, .productOverview-info-aboutProduct-satisfaction-text {
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

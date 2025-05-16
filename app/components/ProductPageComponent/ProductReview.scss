@@ -1,0 +1,137 @@
+.productReview-root {
+    display: flex;
+    gap: 64px;
+    padding: 24px;
+    border-radius: 32px;
+    background-color: #FCFCFC;
+    border-width: 1px;
+    border-color: #F8F7F8;
+
+    .productReview-star {
+        width: 16px;
+        height: auto;
+    }
+    
+    .productReview-customerReview {
+        flex: 3.5;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+
+        .rating-row {
+            display: flex;
+            align-items: center;
+        }
+        .productReview-ratingCount {
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .productReview-customerReview-header {
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .productReview-customerReview-rating {
+            font-size: 14px;
+            color: #494349;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .productReview-rating-text {
+            margin-right: 8px;
+        }
+        .star-bar{
+            margin-right: 25px;
+            margin-left: 16px;
+        }
+        .productReview-5star {
+
+            .productReview-5star-bar {
+                width: 80%;
+                height: 8px;
+                background-color: #eee;
+                border-radius: 4px;
+                position: relative;
+            }
+
+            .productReview-5star-bar-fill {
+                height: 100%;
+                background-color: #B6349A;
+                border-radius: 4px 0 0 4px;
+            }
+        }
+        .productReview-4star {
+
+            .productReview-4star-bar {
+                width: 80%;
+                height: 8px;
+                background-color: #eee;
+                border-radius: 4px;
+                position: relative;
+            }
+
+            .productReview-4star-bar-fill {
+                height: 100%;
+                background-color: #B6349A;
+                border-radius: 4px 0 0 4px;
+            }
+        }
+        .productReview-3star {
+
+            .productReview-3star-bar {
+                width: 80%;
+                height: 8px;
+                background-color: #eee;
+                border-radius: 4px;
+                position: relative;
+            }
+
+            .productReview-3star-bar-fill {
+                height: 100%;
+                background-color: #B6349A;
+                border-radius: 4px 0 0 4px;
+            }
+        }
+        .productReview-2star {
+
+            .productReview-2star-bar {
+                width: 80%;
+                height: 8px;
+                background-color: #eee;
+                border-radius: 4px;
+                position: relative;
+            }
+
+            .productReview-2star-bar-fill {
+                height: 100%;
+                background-color: #B6349A;
+                border-radius: 4px 0 0 4px;
+            }
+        }
+        .productReview-1star {
+
+            .productReview-1star-bar {
+                width: 80%;
+                height: 8px;
+                background-color: #eee;
+                border-radius: 4px;
+                position: relative;
+            }
+
+            .productReview-1star-bar-fill {
+                height: 100%;
+                background-color: #B6349A;
+                border-radius: 4px 0 0 4px;
+            }
+        }
+    }
+
+    .productReview-recentReview {
+        flex: 6;
+
+        .productReview-recentReview-header {
+            font-size: 22px;
+            font-weight: 600;
+        }
+    }
+}

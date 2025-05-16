@@ -106,6 +106,8 @@ export default function ProductSlider(props: ProductSliderProps) {
                                 pricePerLb={product.price_per_lb}
                                 totalPrice={product.total_price}
                                 stock={product.stock}
+                                description={product.description}
+                                detail={product.detail}
                             />
                         )}
                     </Slider>

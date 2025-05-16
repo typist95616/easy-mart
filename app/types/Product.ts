@@ -5,4 +5,6 @@ export type Product = {
     price_per_lb: number;
     total_price: number;
     stock: number;
+    description: string;
+    detail: string;
 }

@@ -1,0 +1,23 @@
+.singleReviewBox-root {
+
+    .singleReviewBox-header {
+        font-size: 14px;
+        margin-top: 24px;
+    }
+
+    .singleReviewBox-starBox {
+        display: flex;
+        gap: 4px;
+        margin: 4px 0;
+    
+        .singleReviewBox-star {
+            width: 16px;
+            height: auto;
+        }
+    }
+
+    .singleReviewBox-detail {
+        font-size: 13px;
+        color: #494349;
+    }
+}

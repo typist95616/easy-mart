@@ -11,8 +11,8 @@ import Image from 'next/image';
 import banner from "../../images/Banners.png";
 import "./main.css";
 import TrendingFavorites from '../../components/trendingFavorites';
-import OrderNowYourGrocery from '../../components/orderNowYourGrocery';
-import OrderNow from '../../components/orderNow';
+// import OrderNowYourGrocery from '../../components/orderNowYourGrocery';
+// import OrderNow from '../../components/orderNow';
 import NavbarV2 from '@/app/components/NavBarV2';
 
 export default function Home() {
