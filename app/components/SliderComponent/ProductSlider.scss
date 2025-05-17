@@ -1,5 +1,10 @@
 $mobileBreakpoint: 600px;
 
+.slick-track {
+    display: flex;
+    flex-direction: row;
+}
+
 .whole-productSlider-root {
 
     .productSlider-secondLayer {
@@ -134,5 +139,10 @@ $mobileBreakpoint: 600px;
             flex-direction: column;
         }
 
+    }
+
+    // set view all button and arrow group display none for recommendations slider
+    .recommendations-display-none {
+        display: none;
     }
 }

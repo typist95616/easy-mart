@@ -76,10 +76,20 @@ export default function ProductSlider(props: ProductSliderProps) {
 
     return (
         <div className="whole-productSlider-root">
-            <div className={props.title === "Best Seller" ? "productSlider-secondLayer" : "trending-border productSlider-secondLayer"}>
+            <div className={
+                props.title === "Best Seller" ? "productSlider-secondLayer"
+                : props.title === "Trending Store Favourites" ? "trending-border productSlider-secondLayer"
+                : props.title === "Recommendations" ? "productSlider-secondLayer"
+                : ""
+                }>
                 <div className="productSlider-top">
                     <div className="productSlider-title">{props.title}</div>
-                    <div className={props.title === "Best Seller" ? "best-seller productSlider-rightItem" : "trending productSlider-rightItem"}>
+                    <div className={
+                        props.title === "Best Seller" ? "best-seller productSlider-rightItem" 
+                        : props.title === "Trending Store Favourites" ? "trending productSlider-rightItem"
+                        : props.title === "Recommendations" ? "recommendations-display-none"
+                        : ""
+                        }>
                         <div className="productSlider-viewAll-button">
                             <div className="productSlider-viewAll-text">
                                 <div className="productSlider-viewAll-text-left">View All</div>
@@ -87,7 +97,10 @@ export default function ProductSlider(props: ProductSliderProps) {
                             </div>
                             <Image src={rightArrow} alt="right-arrow" className="productSlider-viewAll-icon" />
                         </div>
-                        <div className="productSlider-arrowGroup">
+                        <div className={
+                            props.title === "Recommendations" ? "recommendations-display-none" 
+                            : "productSlider-arrowGroup"
+                            }>
                             <div className="prodcutSlider-leftArrowButton" onClick={() => sliderRef.current?.slickPrev()} style={{ cursor: "pointer" }}>
                                 <Image src={leftButton} alt="left-arrow-button" className="prodcutSlider-leftArrow" width={24} height={24}></Image>
                             </div>

@@ -1,5 +1,13 @@
+$mobileBreakpoint: 600px;
+
 .productOverview-root {
     display: flex;
+
+    @media (max-width: $mobileBreakpoint) {
+        flex-direction: column;
+        align-items: center;   
+    }
+
 
     .productOverview-spacer {
         width: 128px;

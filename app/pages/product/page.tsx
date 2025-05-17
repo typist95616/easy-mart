@@ -6,8 +6,9 @@ import FooterV2 from "../../components/FooterV2";
 import { useSearchParams } from "next/navigation";
 import pathArrow from "../../../public/images/path-arrow.png";
 import Image from "next/image";
-import ProductOverview from "../../components/ProductPageComponent/ProductOverview"
-import ProductReview from "../../components/ProductPageComponent/ProductReview"
+import ProductOverview from "../../components/ProductPageComponent/ProductOverview";
+import ProductReview from "../../components/ProductPageComponent/ProductReview";
+import Recommendations from "../../components/ProductPageComponent/Recommendations";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -63,7 +64,7 @@ function ProductPageContent() {
                 <div className="productPage-detail-header">Details</div>
                 <div className="productPage-detail-content">{detail}</div>
             </div>
-            <div>Recommendations</div>
+            <Recommendations></Recommendations>
         </>
     )
 
