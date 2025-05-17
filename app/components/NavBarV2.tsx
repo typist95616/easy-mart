@@ -1,3 +1,5 @@
+"use client";
+
 import "./NavBarV2.scss";
 import easyMartLogo from "../../public/images/easyMartLogo.png";
 import Image from "next/image";
@@ -8,10 +10,18 @@ import LoginButton from "../components/NavBarComponent/NavBarLoginButton";
 import clsx from "clsx";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function NavbarV2() {
 
     const [searchActive, setSearchActive] = useState(false);
+    const router = useRouter();
+
+    const handleSearch = (searchTerm: string) => {
+        if (searchTerm.trim()) {
+            router.push(`/pages/searchResult?query=${encodeURIComponent(searchTerm)}`);
+        }
+    }
 
     return <div className="whole-navbar-v2">
         <div className={`top-navbar${searchActive ? " hide" : ""}`}>
@@ -21,7 +31,7 @@ export default function NavbarV2() {
             <div className="top-navbar-spacer"></div>
             <NavBarLocation></NavBarLocation>
             <div className="top-navbar-searchBar-leftSpacer"></div>
-            <SearchBar className={clsx("top-searchBar")} searchActive={searchActive} setSearchActive={setSearchActive}/>
+            <SearchBar className={clsx("top-searchBar")} searchActive={searchActive} setSearchActive={setSearchActive} onSearch={handleSearch}/>
             <div className="top-navbar-searchBar-rightSpacer"></div>
             <div className="RightNavItems">
                 <CartButton></CartButton>
@@ -32,7 +42,7 @@ export default function NavbarV2() {
             </div>
         </div>
         <div className="bottom-navbar">
-            <SearchBar className={clsx("bottom-searchBar")} searchActive={searchActive} setSearchActive={setSearchActive}></SearchBar>
+            <SearchBar className={clsx("bottom-searchBar")} searchActive={searchActive} setSearchActive={setSearchActive} onSearch={handleSearch}></SearchBar>
         </div>
     </div>
 }

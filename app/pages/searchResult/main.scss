@@ -1,0 +1,34 @@
+$mobileBreakpoint: 600px;
+
+.searchResult-root {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 80px;
+    gap: 20px;
+
+    @media (max-width: $mobileBreakpoint) {
+        padding: 20px;
+    }
+
+    .searchResult-header {
+        display: flex;
+        justify-content: flex-start;
+
+        .searchResult-header-spacer {
+            width: 0px;
+            flex-shrink: 1;
+        }
+        .searchResult-header-text {
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+
+    .searchResult-body {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+}
