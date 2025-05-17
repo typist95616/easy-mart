@@ -9,6 +9,7 @@ import Image from "next/image";
 import ProductOverview from "../../components/ProductPageComponent/ProductOverview"
 import ProductReview from "../../components/ProductPageComponent/ProductReview"
 import Link from "next/link";
+import { Suspense } from "react";
 
 // interface ProductProps {
 //     productName: string;
@@ -22,6 +23,21 @@ import Link from "next/link";
 
 export default function Main() {
 
+    return (
+        <div>
+            <NavBarV2 />
+            <div className="productPage-root">
+                <Suspense fallback={<div>Loading...</div>}>
+                    <ProductPageContent />
+                </Suspense>
+            </div>
+            <FooterV2 />
+        </div>
+    )
+}
+
+function ProductPageContent() {
+
     const searchParams = useSearchParams();
 
     const productName = searchParams.get("productName");
@@ -33,25 +49,22 @@ export default function Main() {
     const detail = searchParams.get("detail");
 
     return (
-        <div>
-            <NavBarV2 />
-            <div className="productPage-root">
-                <div className="productPage-path">
-                    <Link href="./main">
-                        <div className="productPage-path-text">Home</div> 
-                    </Link>
-                    <Image src={pathArrow} alt="right-arrow" className="productPage-path-arrow"></Image> 
-                    <div className="productPage-path-text product-name">{productName}</div>
-                </div>
-                <ProductOverview productName={productName} productImage={productImage} pricePerLb={pricePerLb} totalPrice={totalPrice} stock={stock} description={description} detail={detail}></ProductOverview>
-                <ProductReview />
-                <div className="productPage-detail">
-                    <div className="productPage-detail-header">Details</div>
-                    <div className="productPage-detail-content">{detail}</div>
-                </div>
-                <div>Recommendations</div>
+        <>
+            <div className="productPage-path">
+                <Link href="./main">
+                    <div className="productPage-path-text">Home</div>
+                </Link>
+                <Image src={pathArrow} alt="right-arrow" className="productPage-path-arrow"></Image>
+                <div className="productPage-path-text product-name">{productName}</div>
             </div>
-            <FooterV2 />
-        </div>
+            <ProductOverview productName={productName} productImage={productImage} pricePerLb={pricePerLb} totalPrice={totalPrice} stock={stock} description={description} detail={detail}></ProductOverview>
+            <ProductReview />
+            <div className="productPage-detail">
+                <div className="productPage-detail-header">Details</div>
+                <div className="productPage-detail-content">{detail}</div>
+            </div>
+            <div>Recommendations</div>
+        </>
     )
+
 }
