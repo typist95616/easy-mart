@@ -6,6 +6,9 @@ $mobileBreakpoint: 600px;
     width: 240px;
 
     @media (max-width: $mobileBreakpoint) {
+        width: auto;
+        height: auto;
+
         .productCard-imageBox {
             height: 120px;
             width: 120px;
@@ -16,7 +19,7 @@ $mobileBreakpoint: 600px;
             }
         }
 
-        .productCard-stock {
+        .hide-stock {
             display: none;
         }
 

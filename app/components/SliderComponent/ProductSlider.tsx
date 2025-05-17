@@ -7,9 +7,10 @@ import { useEffect, useRef, useState } from "react";
 import { Product } from "../../types/Product";
 import Image from "next/image";
 import Slider from "react-slick";
+import clsx from "clsx";
 
 interface ProductSliderProps {
-    class?: string;
+    className?: string;
     title: string;
 }
 
@@ -75,7 +76,7 @@ export default function ProductSlider(props: ProductSliderProps) {
     }
 
     return (
-        <div className="whole-productSlider-root">
+        <div className={clsx("whole-productSlider-root", props.className)}>
             <div className={
                 props.title === "Best Seller" ? "productSlider-secondLayer"
                 : props.title === "Trending Store Favourites" ? "trending-border productSlider-secondLayer"
@@ -121,6 +122,8 @@ export default function ProductSlider(props: ProductSliderProps) {
                                 stock={product.stock}
                                 description={product.description}
                                 detail={product.detail}
+                                // hide the stock only on main page when mobile version
+                                className="hide-stock"
                             />
                         )}
                     </Slider>

@@ -1,2 +1,40 @@
+$mobileBreakpoint: 600px;
+
 .recommendations-root {
+
+    @media (max-width: $mobileBreakpoint) {
+        .recommendations-desktop {
+            display: none;
+        }
+
+        .recommendations-mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .recommendations-mobile-header {
+                color: #0D0C0D;
+                font-size: 18px;
+                font-weight: 600;
+            }
+            
+            .recommendations-mobile-slider {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 16px;
+                .recommendations-mobile-slider > * {
+                    flex: 1 1 45%;
+                    box-sizing: border-box;
+                    width: auto;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    @media (min-width: $mobileBreakpoint) {
+        .recommendations-mobile {
+            display: none;
+        }   
+    }
 }
