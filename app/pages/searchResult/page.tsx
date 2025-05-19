@@ -51,7 +51,7 @@ function SearchResultContent() {
             <div className="searchResult-body">
                 {products.length === 0 && <div>No Result...</div>}
                 {products.map(product => (
-                    <ProductCardV2 productName={product.name} productImage={product.img_url} pricePerLb={product.price_per_lb} totalPrice={product.total_price} stock={product.stock} description={product.description} detail={product.detail}></ProductCardV2>
+                    <ProductCardV2 ID={product.id} ></ProductCardV2>
                 ))}
             </div>
         </>
