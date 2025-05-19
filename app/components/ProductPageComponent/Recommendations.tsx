@@ -27,7 +27,7 @@ export default function Recommendations() {
                 <div className="recommendations-mobile-header">Recommendations</div>
                 <div className="recommendations-mobile-slider">
                     {products.slice(0, 6).map((product, index) => (
-                        <ProductCardV2 productName={product.name} productImage={product.img_url} pricePerLb={product.price_per_lb} totalPrice={product.total_price} stock={product.stock} description={""} detail={""}></ProductCardV2>
+                        <ProductCardV2 ID={product.id}></ProductCardV2>
                     ))}
                 </div>
             </div>
