@@ -8,6 +8,7 @@ import { Product } from "../../types/Product";
 import Image from "next/image";
 import Slider from "react-slick";
 import clsx from "clsx";
+import loadingIcon from "../../../public/images/loading.png";
 
 interface ProductSliderProps {
     className?: string;
@@ -40,7 +41,7 @@ export default function ProductSlider(props: ProductSliderProps) {
         slidesToScroll: 5,
         initialSlide: 0,
         arrows: false,
-        
+
         responsive: [
             {
                 breakpoint: 1400,
@@ -79,18 +80,18 @@ export default function ProductSlider(props: ProductSliderProps) {
         <div className={clsx("whole-productSlider-root", props.className)}>
             <div className={
                 props.title === "Best Seller" ? "productSlider-secondLayer"
-                : props.title === "Trending Store Favourites" ? "trending-border productSlider-secondLayer"
-                : props.title === "Recommendations" ? "productSlider-secondLayer"
-                : ""
-                }>
+                    : props.title === "Trending Store Favourites" ? "trending-border productSlider-secondLayer"
+                        : props.title === "Recommendations" ? "productSlider-secondLayer"
+                            : ""
+            }>
                 <div className="productSlider-top">
                     <div className="productSlider-title">{props.title}</div>
                     <div className={
-                        props.title === "Best Seller" ? "best-seller productSlider-rightItem" 
-                        : props.title === "Trending Store Favourites" ? "trending productSlider-rightItem"
-                        : props.title === "Recommendations" ? "recommendations-display-none"
-                        : ""
-                        }>
+                        props.title === "Best Seller" ? "best-seller productSlider-rightItem"
+                            : props.title === "Trending Store Favourites" ? "trending productSlider-rightItem"
+                                : props.title === "Recommendations" ? "recommendations-display-none"
+                                    : ""
+                    }>
                         <div className="productSlider-viewAll-button">
                             <div className="productSlider-viewAll-text">
                                 <div className="productSlider-viewAll-text-left">View All</div>
@@ -99,9 +100,9 @@ export default function ProductSlider(props: ProductSliderProps) {
                             <Image src={rightArrow} alt="right-arrow" className="productSlider-viewAll-icon" />
                         </div>
                         <div className={
-                            props.title === "Recommendations" ? "recommendations-display-none" 
-                            : "productSlider-arrowGroup"
-                            }>
+                            props.title === "Recommendations" ? "recommendations-display-none"
+                                : "productSlider-arrowGroup"
+                        }>
                             <div className="prodcutSlider-leftArrowButton" onClick={() => sliderRef.current?.slickPrev()} style={{ cursor: "pointer" }}>
                                 <Image src={leftButton} alt="left-arrow-button" className="prodcutSlider-leftArrow" width={24} height={24}></Image>
                             </div>
@@ -113,19 +114,14 @@ export default function ProductSlider(props: ProductSliderProps) {
                 </div>
                 <div className="productSlider-bottom">
                     <Slider ref={sliderRef} {...settings} key={products.length}>
-                        {products.map((product) =>
-                            <ProductCard
-                                productName={product.name}
-                                productImage={product.img_url}
-                                pricePerLb={product.price_per_lb}
-                                totalPrice={product.total_price}
-                                stock={product.stock}
-                                description={product.description}
-                                detail={product.detail}
-                                // hide the stock only on main page when mobile version
-                                className="hide-stock"
-                            />
-                        )}
+                        {products.map((product) => (
+                            <div key={product.id}>
+                                <ProductCard
+                                    ID={product.id}
+                                    className="hide-stock"
+                                />
+                            </div>
+                        ))}
                     </Slider>
                 </div>
             </div>

@@ -53,11 +53,11 @@ export default function Navbar() {
                         </input>
                         <Image src={searchIcon} alt="navbar-searchbar-icon" className="navbar-searchbar-icon"></Image>
                         {searchActive && (
-                            <div className="whole-dropdown">
-                                <DropDownItem index={0} />
-                                <DropDownItem index={1} />
-                                <DropDownItem index={2} />
-                            </div>
+                            <div></div>
+                            // <div className="whole-dropdown">
+                            //     <DropDownItem index={0} />
+                            //     <DropDownItem index={1} />
+                            //     <DropDownItem index={2} />
                         )}
                     </div>
                 </div>
@@ -88,9 +88,9 @@ export default function Navbar() {
                     {/* Search bar Dropdown menu */}
                     {searchActive && (
                         <div className="whole-dropdown">
-                            <DropDownItem index={0} />
+                            {/* <DropDownItem index={0} />
                             <DropDownItem index={1} />
-                            <DropDownItem index={2} />
+                            <DropDownItem index={2} /> */}
                         </div>
                     )}
                 </div>

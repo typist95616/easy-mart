@@ -1,51 +1,57 @@
 import "./ProductCardV2.scss";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import clsx from "clsx";
+import loadingIcon from "../../../public/images/loading.png";
+import { Product } from "@/app/types/Product";
 
 interface ProductProps {
-    productName: string;
-    productImage: any;
-    pricePerLb: number;
-    totalPrice: number;
-    stock: number;
-    description: string;
-    detail: string;
+    ID: number;
     className?: string;
 }
 
 export default function ProductCardV2(props: ProductProps) {
+
+    const [product, setProducts] = useState<Product>();
+
+    const fetchProducts = async () => {
+        const res = await fetch('/api/products/searchByID?ID=' + props.ID);
+        const data = await res.json();
+        setProducts(data);
+    }
+
+    useEffect(() => {
+        fetchProducts();
+    }, [props.ID]);
 
     return (
         <div className="whole-productCard">
             <Link href={{
                 pathname: "./product",
                 query: {
-                    productName: props.productName,
-                    productImage: props.productImage,
-                    pricePerLb: props.pricePerLb,
-                    totalPrice: props.totalPrice,
-                    stock: props.stock,
-                    description: props.description,
-                    detail: props.detail,
+                    ID: props.ID,
                 },
             }}
             >
                 <div className="productCard-imageBox">
-                    <Image alt="product-image" src={props.productImage} className="productCard-image" width={206} height={154}></Image>
+                    {product?.img_url ? (
+                        <Image alt="product-image" src={product?.img_url ?? ""} className="productCard-image" width={206} height={154}></Image>
+                    ) : (
+                        <Image src={loadingIcon} alt="loading icon"></Image>
+                    )}
                 </div>
             </Link>
-            <div className="productCard-name">{props.productName}</div>
-            <div className="productCard-pricePerLb">${props.pricePerLb}/lb</div>
+            <div className="productCard-name">{product?.name}</div>
+            <div className="productCard-pricePerLb">${product?.price_per_lb}/lb</div>
             <div className="productCard-price">
-                <div className="productCard-totalPrice">${props.totalPrice}</div>
-                <div className="prodcutCard-orginalTotal">${props.totalPrice}</div>
+                <div className="productCard-totalPrice">${product?.total_price}</div>
+                <div className="prodcutCard-orginalTotal">${product?.total_price}</div>
             </div>
             <div className={clsx("productCard-stock", props.className)}>
-                <div className="productCard-stockLeft">{props.stock} Left</div>
+                <div className="productCard-stockLeft">{product?.stock} Left</div>
                 <div className="productCard-stockDivider">|</div>
-                <div className="productCard-stockRight">{props.stock} Left</div>
+                <div className="productCard-stockRight">{product?.stock} Left</div>
             </div>
         </div>
     )
