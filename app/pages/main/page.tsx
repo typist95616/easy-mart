@@ -14,8 +14,12 @@ import TrendingFavorites from '../../components/trendingFavorites';
 // import OrderNowYourGrocery from '../../components/orderNowYourGrocery';
 // import OrderNow from '../../components/orderNow';
 import NavbarV2 from '@/app/components/NavBarV2';
+import { useCart } from "../../Context/CartContext";
 
 export default function Home() {
+
+    const { getTotalQuantity } = useCart();
+
     return (
         <div>
             <NavbarV2 />

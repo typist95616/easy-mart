@@ -4,8 +4,11 @@ import cup from "../../../public/images/cup.png";
 import tick from "../../../public/images/tick.png";
 import Image from "next/image";
 import loadingIcon from "../../../public/images/loading.png";
+import { useCart } from "@/app/Context/CartContext";
+import { useState } from "react";
 
 interface ProductProps {
+    id: number;
     productName: string | null;
     productImage: any;
     pricePerLb: number | string | null;
@@ -17,8 +20,23 @@ interface ProductProps {
 
 export default function ProductOverview(props: ProductProps) {
 
+    const { addToCart } = useCart();
+    const [showPopUp, setShowPopUp] = useState(false);
+
+    const handleAddToCart = () => {
+        addToCart({id: props.id, quantity: 1});
+        setShowPopUp(true);
+        // set pop up false after 2 seconds
+        setTimeout(() => {
+            setShowPopUp(false);
+        }, 2000);
+    }
+
     return (
         <>
+        {showPopUp && (
+            <div className="popup-addedToCart">Item added to cart!</div>
+        )}
             <div className="productOverview-root">
                 <div className="productOverview-imageBox">
                     {props.productImage ? (
@@ -36,7 +54,7 @@ export default function ProductOverview(props: ProductProps) {
                         <div className="productOverview-info-priceBox-orginal">${props.totalPrice}</div>
                     </div>
                     <div className="productOverview-info-stock">{props.stock} Left</div>
-                    <div className="productOverview-info-addToCart">
+                    <div className="productOverview-info-addToCart" onClick={handleAddToCart} style={{cursor:"pointer"}}>
                         <Image src={shoppingCart} alt="cart logo" className="productOverview-info-addToCart-image"></Image>
                         <div className="productOverview-info-addToCart-text">Add To Cart</div>
                     </div>

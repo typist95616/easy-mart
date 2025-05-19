@@ -13,17 +13,6 @@ import Link from "next/link";
 import { Suspense, useEffect, useState } from "react";
 import { Product } from "@/app/types/Product";
 
-// interface ProductProps {
-//     ID: number | null;
-    // productName: string;
-    // productImage: string;
-    // pricePerLb: number;
-    // totalPrice: number;
-    // stock: number;
-    // description: string;
-    // detail: string;
-//}
-
 export default function Main() {
 
     return (
@@ -44,16 +33,8 @@ function ProductPageContent() {
     const searchParams = useSearchParams();
 
     const productID = searchParams.get("ID");
-    // const productName = searchParams.get("productName");
-    // const productImage = searchParams.get("productImage");
-    // const pricePerLb = searchParams.get("pricePerLb");
-    // const totalPrice = searchParams.get("totalPrice");
-    // const stock = searchParams.get("stock");
-    // const description = searchParams.get("description");
-    // const detail = searchParams.get("detail");
 
     const [product, setProducts] = useState<Product>();
-    const [filter, setFilter] = useState([]);
 
     // Get data from database
     const fetchProducts = async () => {
@@ -76,9 +57,7 @@ function ProductPageContent() {
                 <div className="productPage-path-text product-name">{product?.name}</div>
             </div>
 
-            {/* productName={productName} productImage={productImage} pricePerLb={pricePerLb} totalPrice={totalPrice} stock={stock} description={description} detail={detail} */}
-
-            <ProductOverview productName={product?.name ?? null} productImage={product?.img_url} pricePerLb={product?.price_per_lb || null} totalPrice={product?.total_price || null} stock={product?.stock || null} description={product?.description || null} detail={product?.detail || null} ></ProductOverview>
+            <ProductOverview id={productID ? Number(productID) : 0} productName={product?.name ?? null} productImage={product?.img_url} pricePerLb={product?.price_per_lb || null} totalPrice={product?.total_price || null} stock={product?.stock || null} description={product?.description || null} detail={product?.detail || null} ></ProductOverview>
             <ProductReview />
             <div className="productPage-detail">
                 <div className="productPage-detail-header">Details</div>

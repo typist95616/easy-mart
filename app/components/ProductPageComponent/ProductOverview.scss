@@ -1,5 +1,35 @@
 $mobileBreakpoint: 600px;
 
+.popup-addedToCart {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FEF5FD;
+    color: #B6349A; // Use your accent color for text
+    border: 1px solid #B6349A80;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(182, 52, 154, 0.15), 0 1.5px 6px rgba(0,0,0,0.08);
+    padding: 20px 40px;
+    font-size: 20px;
+    font-weight: 600;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.5px;
+    font-family: inherit;
+    opacity: 0.98;
+    animation: fadeInOut 2s;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, -60%);}
+    10% { opacity: 0.98; transform: translate(-50%, -50%);}
+    90% { opacity: 0.98; transform: translate(-50%, -50%);}
+    100% { opacity: 0; transform: translate(-50%, -40%);}
+}
+
 .productOverview-root {
     display: flex;
 
