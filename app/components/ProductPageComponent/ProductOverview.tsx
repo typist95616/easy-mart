@@ -23,8 +23,8 @@ export default function ProductOverview(props: ProductProps) {
     const { addToCart } = useCart();
     const [showPopUp, setShowPopUp] = useState(false);
 
-    const handleAddToCart = () => {
-        addToCart({id: props.id, quantity: 1});
+    const handleAddToCart = (price: number) => {
+        addToCart({id: props.id, quantity: 1, price: price, name: props.productName ?? "", img_url: props.productImage});
         setShowPopUp(true);
         // set pop up false after 2 seconds
         setTimeout(() => {
@@ -54,7 +54,7 @@ export default function ProductOverview(props: ProductProps) {
                         <div className="productOverview-info-priceBox-orginal">${props.totalPrice}</div>
                     </div>
                     <div className="productOverview-info-stock">{props.stock} Left</div>
-                    <div className="productOverview-info-addToCart" onClick={handleAddToCart} style={{cursor:"pointer"}}>
+                    <div className="productOverview-info-addToCart" onClick={() => handleAddToCart(Number(props.totalPrice))} style={{cursor:"pointer"}}>
                         <Image src={shoppingCart} alt="cart logo" className="productOverview-info-addToCart-image"></Image>
                         <div className="productOverview-info-addToCart-text">Add To Cart</div>
                     </div>

@@ -13,6 +13,7 @@ import loadingIcon from "../../../public/images/loading.png";
 interface ProductSliderProps {
     className?: string;
     title: string;
+    settings?: any;
 }
 
 export default function ProductSlider(props: ProductSliderProps) {
@@ -33,7 +34,7 @@ export default function ProductSlider(props: ProductSliderProps) {
     }, [filter]);
 
     // slick slider setting
-    const settings = {
+    const settings = props.settings || {
         dots: false,
         infinite: true,
         speed: 500,

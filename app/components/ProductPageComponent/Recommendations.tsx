@@ -3,8 +3,13 @@ import ProductSlider from "../SliderComponent/ProductSlider";
 import "./Recommendations.scss";
 import { Product } from "@/app/types/Product";
 import ProductCardV2 from "../SliderComponent/ProductCardV2";
+import clsx from "clsx";
 
-export default function Recommendations() {
+interface RecommendationsProps {
+    className?: string;
+}
+
+export default function Recommendations(props: RecommendationsProps) {
 
     const [products, setProducts] = useState<Product[]>([]);
     const [filter, setFilter] = useState([]);
@@ -21,8 +26,51 @@ export default function Recommendations() {
     }, [filter]);
 
     return (
-        <div className="recommendations-root">
-            <ProductSlider title="Recommendations" className="recommendations-desktop"></ProductSlider>
+        <div className={clsx("recommendations-root", props.className)}>
+            <ProductSlider 
+                title="Recommendations" 
+                className="recommendations-desktop"
+                settings={{
+                    dots: false,
+                    infinite: true,
+                    speed: 500,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    initialSlide: 0,
+                    arrows: false,
+
+                    responsive: [
+                        {
+                            breakpoint: 1400,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3,
+                            }
+                        },
+                        {
+                            breakpoint: 1150,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2,
+                            }
+                        },
+                        {
+                            breakpoint: 900,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2,
+                            }
+                        }
+                    ]
+                }}
+                ></ProductSlider>
             <div className="recommendations-mobile">
                 <div className="recommendations-mobile-header">Recommendations</div>
                 <div className="recommendations-mobile-slider">

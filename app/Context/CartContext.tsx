@@ -4,15 +4,21 @@ import React, {createContext, ReactNode, useContext, useReducer, useState} from 
 
 export interface CartItem {
     id: number;
+    name: string;
     quantity: number;
+    price: number;
+    img_url: string;
 }
 
 interface CartContextType {
     cart: CartItem[];
     addToCart: (item: CartItem) => void;
     // removeFromCart: (id: number, quantity: number) => void;
+    removeOneFromCart: (id: number) => void;
     // clearCart: () => void;
     getTotalQuantity: () => number;
+    getTotalPrice: () => number;
+    getItemQuantity: (id: number) => number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined); 
@@ -26,6 +32,7 @@ export const useCart = () => {
 };
 
 export const CartProvider = ({ children }: {children: ReactNode}) => {
+
     const [cart, setCart] = useState<CartItem[]>([]);
 
     const addToCart = (item: CartItem) => {
@@ -46,8 +53,30 @@ export const CartProvider = ({ children }: {children: ReactNode}) => {
         return total;
     };
 
+    const getItemQuantity = (id:number) => {
+        const item = cart.find(item => item.id === id);
+        return item? item.quantity : 0;
+    }
+
+    const getTotalPrice = () => {
+        let total = 0;
+        cart.forEach(item => {
+            total += item.price * item.quantity;
+        })
+        return total;
+    }
+
+    const removeOneFromCart = (id: number) => {
+        // const item = cart.find(item => item.id === id);
+        // if (item) {
+        //     item.quantity -= item?.quantity;
+        // } else {
+        //     return;
+        // }
+    }
+
     return (
-        <CartContext.Provider value={{cart, addToCart, getTotalQuantity }}>
+        <CartContext.Provider value={{cart, addToCart, removeOneFromCart, getTotalQuantity, getTotalPrice, getItemQuantity}}>
             {children}
         </CartContext.Provider>
     )

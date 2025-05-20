@@ -1,0 +1,338 @@
+$mobileBreakpoint: 600px;
+
+.cartPage-root {
+    display: flex;
+    gap: 48px;
+    padding: 20px 80px;
+    background-color: white;
+    align-items: flex-start;
+
+    @media (max-width: $mobileBreakpoint) {
+        padding: 16px;
+    }
+
+    .cartPage-left {
+        flex: 7;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .cartPage-locationBox {
+            display: flex;
+            padding: 24px;
+            border-color: #F8F7F8;
+            border-width: 1px;
+            border-radius: 39px;
+            background-color: white;
+
+            @media (max-width: $mobileBreakpoint) {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .cartPage-locationBox-desktop {
+                display: flex;
+                gap: 24px;
+                align-items: center;
+                width: 100%;
+
+                .cartPage-locationBox-locationIcon {
+
+                    .cartPage-locationBox-locationIcon-imageBox {
+                        padding: 16px;
+                        border-radius: 50%;
+                        background-color: #FEF5FD;
+
+                        @media (max-width: $mobileBreakpoint) {
+                            padding: 8px;
+                        }
+
+                        .cartPage-locationBox-locationIcon-image {
+                            width: 15px;
+                            height: auto;
+                            display: block;
+                        }
+                    }
+                }
+
+                .cartPage-locationBox-text {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+
+                    .cartPage-locationBox-text-name {
+                        font-size: 20px;
+                        font-weight: 600;
+
+                        @media (max-width: $mobileBreakpoint) {
+                            font-size: 14px;
+                        }
+                    }
+
+                    .cartPage-locationBox-text-addressBox {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+
+                        .cartPage-locationBox-text-addressIcon {
+                            width: auto;
+                            height: 18px;
+                        }
+
+                        .cartPage-locationBox-text-addressText {
+                            color: #B6349A;
+                            font-size: 16px;
+                            font-weight: 500;
+
+                            @media (max-width: $mobileBreakpoint) {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+
+                .cartPage-locationBox-spacer {
+                    flex-grow: 1;
+                    width: auto;
+                }
+
+                .cartPage-locationBox-date {
+                    background-color: #FAF8F9;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    padding-left: 20px;
+                    padding-right: 16px;
+                    border-radius: 39px;
+                    border-color: #B6349A;
+                    border-width: 1px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 4px;
+
+                    @media (max-width: $mobileBreakpoint) {
+                        padding: 8px;
+                    }
+
+                    .cartPage-locationBox-date-image {
+                        width: auto;
+                        height: 18px;
+                        display: block;
+                    }
+
+                    .cartPage-locationBox-date-text {
+                        color: #111111;
+                        font-size: 14px;
+                        font-weight: 600;
+                        line-height: 1;
+
+                        @media (max-width: $mobileBreakpoint) {
+                            font-size: 10px;
+                        }
+                    }
+
+                    .cartPage-locationBox-date-arrow {
+                        margin-left: 8px;
+                        width: 16px;
+                        height: auto;
+                        display: block;
+
+                    }
+                }
+            }
+
+            .cartPage-locationBox-mobile {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+
+                @media (min-width: $mobileBreakpoint) {
+                    display: none;
+                }
+
+                .cartPage-locationBox-summary {
+                    color: #0D0C0D;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+
+                .cartPage-locationBox-priceBox {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+
+                    .cartPage-locationBox-priceBox-itemPrice {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        .cartPage-locationBox-priceBox-itemPrice-text {
+                            color: #3E3B3F;
+                            font-size: 12px;
+                            font-weight: 500;
+                        }
+
+                        .cartPage-locationBox-priceBox-itemPrice-price {
+                            font-size: 16px;
+                            font-weight: 600;
+                        }
+                    }
+
+                    .cartPage-locationBox-priceBox-deliveryFee {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        .cartPage-locationBox-priceBox-deliveryFee-text {
+                            color: #3E3B3F;
+                            font-size: 12px;
+                            font-weight: 500;
+                        }
+
+                        .cartPage-locationBox-priceBox-deliveryFee-price {
+                            font-size: 16px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+
+        .cartPage-recommendations {
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+    }
+
+    .cartPage-right {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 32px;
+        border-color: #F8F7F8;
+        border-width: 1px;
+        border-radius: 39px;
+    
+        @media (max-width: $mobileBreakpoint) {
+            display: none;
+        }
+
+        .cartPage-freeShippingInfo {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 8px;
+            gap: 8px;
+            .cartPage-freeShippingInfo-bar {
+                width: 100%;
+                height: 6px;
+                background-color: #eee;
+                border-radius: 4px;
+                position: relative;
+                .cartPage-freeShippingInfo-bar-fill {
+                    height: 100%;
+                    background-color: #B6349A;
+                    border-radius: 4px 0 0 4px;
+                }
+            }
+            .cartPage-freeShippingInfo-text {
+                color: #0D0C0D;
+                font-size: 12px;
+                text-align: center;
+            }
+        }
+
+        .cartPage-checkoutBox-summary {
+            color: #0D0C0D;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .cartPage-checkoutBox-priceBox {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            .cartPage-checkoutBox-priceBox-itemPrice {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .cartPage-checkoutBox-priceBox-itemPrice-text {
+                    color: #3E3B3F;
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+
+                .cartPage-checkoutBox-priceBox-itemPrice-price {
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+            }
+
+            .cartPage-checkoutBox-priceBox-deliveryFee {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .cartPage-checkoutBox-priceBox-deliveryFee-text {
+                    color: #3E3B3F;
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+
+                .cartPage-checkoutBox-priceBox-deliveryFee-price {
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .cartPage-divider {
+            width: 100%;
+            border-color: #F0EEF0;
+            border-width: 1px;
+        }
+
+        .cartPage-checkoutBox-subTotal {
+            display: flex;
+            justify-content: space-between;
+            .cartPage-checkoutBox-subTotal-text {
+                color: #0D0C0D;
+                font-size: 16px;
+                font-weight: 600;
+            }
+            .cartPage-checkoutBox-subTotal-amount {
+                color: #3E3B3F;
+                font-size: 16px;
+            }
+        }
+        .cartPage-checkoutBox-checkoutButton {
+            display: flex;
+            justify-content: space-between;
+            background-color: #B6349A;
+            border-radius: 39px;
+            padding: 12px 24px;
+            color: white;
+            .cartPage-checkoutBox-checkoutButton-left {
+                display: flex;
+                justify-content: space-between;
+                gap: 8px;
+                .cartPage-checkoutBox-checkoutButton-image {
+                    width: 24px;
+                    height: auto;
+                }
+                .cartPage-checkoutBox-checkoutButton-text {
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+            }
+            .cartPage-checkoutBox-checkoutButton-amount {
+                font-size: 16px;
+                font-weight: 600;
+            } 
+        }
+    }
+}
