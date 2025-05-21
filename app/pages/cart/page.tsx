@@ -8,11 +8,11 @@ import locationIcon from "../../../public/images/cartpage-location.png";
 import calendarIcon from "../../../public/images/cartPage-calendar.png";
 import rightArrow from "../../../public/images/cartPage-rightArrow.png";
 import Image from "next/image";
-import ItemList from "../../components/ItemListComponent/ItemList";
 import Recommendations from "@/app/components/ProductPageComponent/Recommendations";
 import checkOutIcon from "../../../public/images/card.png";
 import { useCart } from "../../Context/CartContext";
 import { useEffect, useState } from "react";
+import ItemList from "@/app/components/cartPageComponent/ItemList";
 
 export default function Main() {
 
@@ -83,6 +83,30 @@ export default function Main() {
                         </div>
                     </div>
                     <ItemList></ItemList>
+                    <div className="cartPage-mobile-checkOutBox">
+                        <div className="cartPage-freeShippingInfo">
+                            <div className="cartPage-freeShippingInfo-bar">
+                                <div className="cartPage-freeShippingInfo-bar-fill" style={{ width: `${freeDeliveryProgress}%`, transition: 'width 0.3s ease-in-out' }}></div>
+                            </div>
+                            <div className="cartPage-freeShippingInfo-text">
+                                {deliveryFee === 0 ?
+                                "Free Delivery!!" : 
+                                `Free Delivery! $${formatPrice(toFreeDelivery)} on this order to Go to`
+                                }
+                            </div>
+                        </div>
+                        <div className="cartPage-checkoutBox-subTotal">
+                        <div className="cartPage-checkoutBox-subTotal-text">Subtotal</div>
+                        <div className="cartPage-checkoutBox-subTotal-amount">${formatPrice(getTotalPrice() + deliveryFee)}</div>
+                    </div>
+                    <div className="cartPage-checkoutBox-checkoutButton">
+                        <div className="cartPage-checkoutBox-checkoutButton-left">
+                            <Image src={checkOutIcon} alt="checkout Icon" className="cartPage-checkoutBox-checkoutButton-image"></Image>
+                            <div className="cartPage-checkoutBox-checkoutButton-text">Checkout</div>
+                        </div>
+                        <div className="cartPage-checkoutBox-checkoutButton-amount">${formatPrice(getTotalPrice() + deliveryFee)}</div>
+                    </div>
+                    </div>
                     <Recommendations className="cartPage-recommendations"></Recommendations>
                 </div>
                 <div className="cartPage-right">
