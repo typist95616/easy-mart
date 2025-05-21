@@ -22,7 +22,7 @@ export default function Home() {
 
     return (
         <div>
-            <NavbarV2 />
+            <NavbarV2 className="whole-navbar-v2"/>
             <div className='main-content'>
                 <Banner />
                 {/* <BestSeller Title="Best Seller"/> */}

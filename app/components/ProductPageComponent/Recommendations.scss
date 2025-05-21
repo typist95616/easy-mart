@@ -22,6 +22,8 @@ $mobileBreakpoint: 600px;
                 display: flex;
                 flex-wrap: wrap;
                 gap: 16px;
+                justify-content: center;
+
                 .recommendations-mobile-slider > * {
                     flex: 1 1 45%;
                     box-sizing: border-box;

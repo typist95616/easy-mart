@@ -12,7 +12,11 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-export default function NavbarV2() {
+interface NavBarV2Props {
+    className?: string;
+}
+
+export default function NavbarV2(props: NavBarV2Props) {
 
     const [searchActive, setSearchActive] = useState(false);
     const router = useRouter();
@@ -23,7 +27,7 @@ export default function NavbarV2() {
         }
     }
 
-    return <div className="whole-navbar-v2">
+    return <div className={clsx(props.className)}>
         <div className={`top-navbar${searchActive ? " hide" : ""}`}>
             <Link href="/pages/main">
                 <Image src={easyMartLogo} alt="logo" className="easyMartLogo"></Image>

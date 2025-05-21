@@ -13,6 +13,7 @@ import checkOutIcon from "../../../public/images/card.png";
 import { useCart } from "../../Context/CartContext";
 import { useEffect, useState } from "react";
 import ItemList from "@/app/components/cartPageComponent/ItemList";
+import closeIcon from "../../../public/images/close.png";
 
 export default function Main() {
 
@@ -20,6 +21,10 @@ export default function Main() {
     const { getTotalPrice } = useCart();
     const [deliveryFee, setDeliveryFee ] = useState(5);
     const [toFreeDelivery, setToFreeDelivery] = useState(150);
+
+    const goBack = () => {
+        window.history.back();
+    }
 
     // Free delivery fee if over $150
     useEffect(() => {
@@ -44,7 +49,11 @@ export default function Main() {
 
     return (
         <div>
-            <NavbarV2 />
+            <NavbarV2 className="cartPage-desktop-navBar"/>
+            <div className="cartPage-mobile-navBar">
+                <Image src={closeIcon} alt="close icon" className="cartPage-mobile-navBar-image" onClick={goBack}></Image>
+                <div className="cartPage-mobile-navBar-header">My Cart</div>
+            </div>
             <div className="cartPage-root">
                 <div className="cartPage-left">
                     <div className="cartPage-locationBox">

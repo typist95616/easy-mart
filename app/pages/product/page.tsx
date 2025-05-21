@@ -17,7 +17,7 @@ export default function Main() {
 
     return (
         <div>
-            <NavBarV2 />
+            <NavBarV2 className="whole-navbar-v2"/>
             <div className="productPage-root">
                 <Suspense fallback={<div>Loading...</div>}>
                     <ProductPageContent/>

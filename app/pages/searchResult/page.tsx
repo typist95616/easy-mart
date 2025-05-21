@@ -12,7 +12,7 @@ export default function Main() {
 
     return (
         <div>
-            <NavbarV2></NavbarV2>
+            <NavbarV2 className="whole-navbar-v2"></NavbarV2>
             <div className="searchResult-root">
             <Suspense fallback={<div>Loading...</div>}>
                 <SearchResultContent></SearchResultContent>
