@@ -16,23 +16,31 @@ import { useEffect, useState } from "react";
 
 export default function Main() {
 
-    const freeDeliveryProgress = 90;
-
+    const [freeDeliveryProgress, setFreeDeliveryProgress] = useState(0);
     const { getTotalPrice } = useCart();
     const [deliveryFee, setDeliveryFee ] = useState(5);
+    const [toFreeDelivery, setToFreeDelivery] = useState(150);
 
     // Free delivery fee if over $150
     useEffect(() => {
             if(getTotalPrice() >= 150) {
                 setDeliveryFee(0);
+                setFreeDeliveryProgress(100);
+                setToFreeDelivery(0);
             } else {
                 setDeliveryFee(5);
+                setToFreeDelivery(150 - getTotalPrice());
+                if(getTotalPrice() === 0) {
+                    setFreeDeliveryProgress(0);
+                } else {
+                    setFreeDeliveryProgress((getTotalPrice() / 150) * 100);
+                }
             }
         }
     ), [getTotalPrice];
 
     // Display number with two decimal places
-    const formatPrice = (price: number) => price.toFixed(2);
+    const formatPrice = (price: number) => (Math.round(price * 100) / 100).toFixed(2);
 
     return (
         <div>
@@ -80,9 +88,14 @@ export default function Main() {
                 <div className="cartPage-right">
                     <div className="cartPage-freeShippingInfo">
                         <div className="cartPage-freeShippingInfo-bar">
-                            <div className="cartPage-freeShippingInfo-bar-fill" style={{ width: `${freeDeliveryProgress}%` }}></div>
+                            <div className="cartPage-freeShippingInfo-bar-fill" style={{ width: `${freeDeliveryProgress}%`, transition: 'width 0.3s ease-in-out' }}></div>
                         </div>
-                        <div className="cartPage-freeShippingInfo-text">Free Delivery! $3.00 on this order to Go to</div>
+                        <div className="cartPage-freeShippingInfo-text">
+                            {deliveryFee === 0 ?
+                            "Free Delivery!!" : 
+                            `Free Delivery! $${formatPrice(toFreeDelivery)} on this order to Go to`
+                            }
+                        </div>
                     </div>
                     <div className="cartPage-checkoutBox-summary">Order Summary</div>
                     <div className="cartPage-checkoutBox-priceBox">

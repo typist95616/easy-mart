@@ -28,7 +28,7 @@ export default function NavbarV2() {
             <Link href="/pages/main">
                 <Image src={easyMartLogo} alt="logo" className="easyMartLogo"></Image>
             </Link>
-            <div className="top-navbar-spacer"></div>
+            {/* <div className="top-navbar-spacer"></div> */}
             <NavBarLocation></NavBarLocation>
             <div className="top-navbar-searchBar-leftSpacer"></div>
             <SearchBar className={clsx("top-searchBar")} searchActive={searchActive} setSearchActive={setSearchActive} onSearch={handleSearch}/>

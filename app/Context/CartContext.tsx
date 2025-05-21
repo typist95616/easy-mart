@@ -13,7 +13,8 @@ export interface CartItem {
 interface CartContextType {
     cart: CartItem[];
     addToCart: (item: CartItem) => void;
-    // removeFromCart: (id: number, quantity: number) => void;
+    removeFromCart: (id: number) => void;
+    addOneToCart: (id: number) => void;
     removeOneFromCart: (id: number) => void;
     // clearCart: () => void;
     getTotalQuantity: () => number;
@@ -45,6 +46,12 @@ export const CartProvider = ({ children }: {children: ReactNode}) => {
         });
     };
 
+    const removeFromCart = (id:number) => {
+        setCart(prevCart => {
+            return prevCart.filter(item => item.id !== id);
+        })
+    }
+
     const getTotalQuantity = () => {
         let total = 0;
         cart.forEach(item => {
@@ -66,17 +73,30 @@ export const CartProvider = ({ children }: {children: ReactNode}) => {
         return total;
     }
 
+    const addOneToCart = (id: number) => {
+        setCart(prevCart => {
+            return prevCart.map(item => {
+                if(item.id === id) {
+                    return {...item, quantity: item.quantity + 1};
+                }
+                return item;
+            })
+        })
+    }
+
     const removeOneFromCart = (id: number) => {
-        // const item = cart.find(item => item.id === id);
-        // if (item) {
-        //     item.quantity -= item?.quantity;
-        // } else {
-        //     return;
-        // }
+        setCart(prevCart => {
+            return prevCart.map(item => {
+                if(item.id === id) {
+                    return {...item, quantity: item.quantity - 1};
+                }
+                return item;
+            }).filter(item => item.quantity > 0);
+        })
     }
 
     return (
-        <CartContext.Provider value={{cart, addToCart, removeOneFromCart, getTotalQuantity, getTotalPrice, getItemQuantity}}>
+        <CartContext.Provider value={{cart, addToCart, removeFromCart, addOneToCart, removeOneFromCart, getTotalQuantity, getTotalPrice, getItemQuantity}}>
             {children}
         </CartContext.Provider>
     )

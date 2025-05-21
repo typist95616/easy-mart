@@ -15,9 +15,11 @@ interface ItemListProductCardProps {
 
 export default function ItemListProductCard(props: ItemListProductCardProps) {
 
-    const { getItemQuantity } = useCart();
+    const { getItemQuantity, removeOneFromCart, addOneToCart, removeFromCart } = useCart();
 
     const totalPrice = props.productPrice * getItemQuantity(props.id);
+
+    const formatPrice = (price: number) => (Math.round(price * 100) / 100).toFixed(2);
 
     return (
         <div className="ItemListProductCard-root">
@@ -33,16 +35,16 @@ export default function ItemListProductCard(props: ItemListProductCardProps) {
             </div>
             <div className="ItemListProductCard-productInfo-spacer"></div>
                 <div className="ItemListProductCard-productInfo-quantity">
-                    <div className="ItemListProductCard-productInfo-quantity-minusBox">
+                    <div className="ItemListProductCard-productInfo-quantity-minusBox" onClick={() => removeOneFromCart(props.id)}>
                         <Image src={minusIcon} alt="minus Icon" className="ItemListProductCard-productInfo-quantity-minusImage"></Image>
                     </div>
                     <div className="ItemListProductCard-productInfo-quantity-number">{getItemQuantity(props.id)}</div>
-                    <div className="ItemListProductCard-productInfo-quantity-plusBox">
+                    <div className="ItemListProductCard-productInfo-quantity-plusBox" onClick={() => addOneToCart(props.id)}>
                         <Image src={plusIcon} alt="plus Icon" className="ItemListProductCard-productInfo-quantity-plusImage"></Image>
                     </div>
                 </div>
-                <div className="ItemListProductCard-productInfo-remove">Remove</div>
-                <div className="ItemListProductCard-productInfo-total">${totalPrice}</div>
+                <div className="ItemListProductCard-productInfo-remove" onClick={() => removeFromCart(props.id)}>Remove</div>
+                <div className="ItemListProductCard-productInfo-total">${formatPrice(totalPrice)}</div>
         </div>
     )
 }

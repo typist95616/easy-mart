@@ -55,6 +55,7 @@ $mobileBreakpoint: 600px;
             border-radius: 100%;
             padding: 6px;
             background-color: white;
+            cursor: pointer;
             .ItemListProductCard-productInfo-quantity-minusImage {
                 width: 16px;
                 height: auto;
@@ -72,6 +73,7 @@ $mobileBreakpoint: 600px;
             background-color: #B6349A;
             border-radius: 100%;
             padding: 6px;
+            cursor: pointer;
             .ItemListProductCard-productInfo-quantity-plusImage {
                 width: 16px;
                 height: auto;
@@ -82,6 +84,7 @@ $mobileBreakpoint: 600px;
         color: #B6349A;
         font-size: 12px;
         font-weight: 600;
+        cursor: pointer;
     }
     .ItemListProductCard-productInfo-total {
         font-size: 18px;
