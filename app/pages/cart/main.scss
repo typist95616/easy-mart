@@ -6,8 +6,8 @@ $mobileBreakpoint: 600px;
     padding: 20px 80px;
     background-color: white;
     align-items: flex-start;
-    transition: padding 0.3s ease-in-out;
     transition: gap 0.3s ease-in-out;
+    transition: padding 0.3s ease-in-out;
 
     @media (max-width: 950px) {
         padding: 20px 10px;
@@ -34,7 +34,7 @@ $mobileBreakpoint: 600px;
             background-color: white;
             transition: padding 0.3s ease-in-out;
 
-            @media (max-width: 810px)  {
+            @media (max-width: 950px)  {
                 padding: 24px 5px;
             }
 
@@ -76,7 +76,11 @@ $mobileBreakpoint: 600px;
                     .cartPage-locationBox-text-name {
                         font-size: 20px;
                         font-weight: 600;
+                        transition: font-size 0.3s ease-in-out;
 
+                        @media (max-width: 950px) {
+                            font-size: 16px;
+                        }
                         @media (max-width: $mobileBreakpoint) {
                             font-size: 14px;
                         }
@@ -96,7 +100,10 @@ $mobileBreakpoint: 600px;
                             color: #B6349A;
                             font-size: 16px;
                             font-weight: 500;
-
+                            transition: font-size 0.3s ease-in-out;
+                            @media (max-width: 950px) {
+                                font-size: 12px;
+                            }
                             @media (max-width: $mobileBreakpoint) {
                                 font-size: 12px;
                             }
@@ -138,7 +145,10 @@ $mobileBreakpoint: 600px;
                         font-size: 14px;
                         font-weight: 600;
                         line-height: 1;
-
+                        transition: font-size 0.3s ease-in-out;
+                        @media (max-width: 950px) {
+                            font-size: 12px;
+                        }
                         @media (max-width: $mobileBreakpoint) {
                             font-size: 10px;
                         }
@@ -270,6 +280,7 @@ $mobileBreakpoint: 600px;
                 border-radius: 39px;
                 padding: 12px 24px;
                 color: white;
+
                 .cartPage-checkoutBox-checkoutButton-left {
                     display: flex;
                     justify-content: space-between;
@@ -302,7 +313,7 @@ $mobileBreakpoint: 600px;
         border-radius: 39px;
         transition: padding 0.3s ease-in-out;
     
-        @media (max-width: 810px) {
+        @media (max-width: 950px) {
             padding: 32px 5px;
         }
 
@@ -406,9 +417,15 @@ $mobileBreakpoint: 600px;
             border-radius: 39px;
             padding: 12px 24px;
             color: white;
+            transition: padding 0.3s ease-in-out;
+
+            @media (max-width: 700px) {
+                padding: 12px;
+            }
             .cartPage-checkoutBox-checkoutButton-left {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 gap: 8px;
                 .cartPage-checkoutBox-checkoutButton-image {
                     width: 24px;
@@ -417,11 +434,21 @@ $mobileBreakpoint: 600px;
                 .cartPage-checkoutBox-checkoutButton-text {
                     font-size: 16px;
                     font-weight: 600;
+                    transition: font-size 0.3s ease-in-out;
+                    @media (max-width: 700px) {
+                        font-size: 12px;
+                    }
                 }
             }
             .cartPage-checkoutBox-checkoutButton-amount {
                 font-size: 16px;
                 font-weight: 600;
+                display: flex;
+                align-items: center;
+                transition: font-size 0.3s ease-in-out;
+                @media (max-width: 700px) {
+                    font-size: 12px;
+                }
             } 
         }
     }

@@ -59,7 +59,7 @@ $mobileBreakpoint: 600px;
         gap: 16px;
         transition: gap 0.3s ease-in-out;
 
-        @media (max-width: 810px) {
+        @media (max-width: 950px) {
             gap: 5px;
         }
         @media (max-width: $mobileBreakpoint) {
