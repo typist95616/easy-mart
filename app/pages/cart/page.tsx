@@ -12,18 +12,20 @@ import Recommendations from "@/app/components/ProductPageComponent/Recommendatio
 import checkOutIcon from "../../../public/images/card.png";
 import { useCart } from "../../Context/CartContext";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import ItemList from "@/app/components/cartPageComponent/ItemList";
 import closeIcon from "../../../public/images/close.png";
 
 export default function Main() {
 
+    const router = useRouter();
     const [freeDeliveryProgress, setFreeDeliveryProgress] = useState(0);
     const { getTotalPrice } = useCart();
     const [deliveryFee, setDeliveryFee ] = useState(5);
     const [toFreeDelivery, setToFreeDelivery] = useState(150);
 
     const goBack = () => {
-        window.history.back();
+        router.back();
     }
 
     // Free delivery fee if over $150
