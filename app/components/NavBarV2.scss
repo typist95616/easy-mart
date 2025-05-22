@@ -88,4 +88,28 @@ $mobileBreakpoint: 600px;
             display: none;
         }
     }
+
+    .location-popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        pointer-events: all;
+    }
+
+    .location-popup-window {
+        position: fixed;
+        max-width: 800px;
+        max-height: 700px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+        background-color: white;
+        border-radius: 32px;
+        padding: 20px;
+    }
 }

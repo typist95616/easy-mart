@@ -1,0 +1,44 @@
+.popup-root {
+    display: flex;
+    flex-direction: column;
+    width: 680;
+    flex-shrink: 1;
+
+    .popup-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .popup-header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            .popup-header-imageBox {
+                padding: 10px;
+                border-radius: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-color: #F0EEF0;
+                border-width: 1px;
+                .popup-header-leftArrow-image {
+                    width: 20px;
+                    height: auto;
+                }
+            }
+            .popup-header-text {
+                font-size: 22px;
+                font-weight: 600;
+            }
+        }
+        .popup-header-close-image {
+            width: 20px;
+            height: auto;
+        }
+    }
+
+    .popup-divider {
+        margin: 14px 0;
+        border: none;
+        border-top: 1px solid #E5E7EB;
+    }
+}

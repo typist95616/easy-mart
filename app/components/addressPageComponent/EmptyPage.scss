@@ -1,0 +1,50 @@
+.emptyPage-root {
+    padding-top: 32px;
+    padding-bottom: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    .emptyPage-location-imageBox {
+        padding: 18px;
+        background-color: #FEF5FD;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+        .emptyPage-location-image {
+            width: 48px;
+            height: auto;
+        }
+    }
+    .emptyPage-text-up {
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .emptyPage-text-down {
+        font-size: 18px;
+        color: #9C939D;
+    }
+    .emptyPage-addNewAddressButton {
+        display: flex;
+        background-color: #B6349A;
+        border-radius: 39px;
+        padding: 12px 24px;
+        align-items: center;
+        gap: 8px;
+        margin-top: 16px;
+        .emptyPage-addNewAddressButton-image {
+            width: 24px;
+            height: auto;
+        }
+        .emptyPage-addNewAddressButton-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+        }
+    }
+}
