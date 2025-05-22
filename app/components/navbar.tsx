@@ -1,3 +1,5 @@
+"use client";
+
 import easyMartLogo from "../images/easyMartLogo.png";
 import locationIcon from "../../public/images/location.svg";
 import searchIcon from "../images/search.png";
