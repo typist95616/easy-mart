@@ -1,3 +1,5 @@
+"use client";
+
 import "./banner.css";
 import poster1 from "../images/poster1.png";
 import poster2 from "../images/poster2.png";
