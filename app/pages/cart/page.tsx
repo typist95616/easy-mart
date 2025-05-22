@@ -24,6 +24,7 @@ export default function Main() {
     const [deliveryFee, setDeliveryFee ] = useState(5);
     const [toFreeDelivery, setToFreeDelivery] = useState(150);
 
+    // use router.back instead of window.history.back
     const goBack = () => {
         router.back();
     }
