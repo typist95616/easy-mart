@@ -1,0 +1,42 @@
+.addressInputPage-root {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .addressInputPage-addressSearchBar {
+        box-sizing: border-box;
+        height: 64px;
+        padding: 16px;
+        border-color: #F8F7F8;
+        border-width: 1px;
+        border-radius: 32px;
+        border-style: solid;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: 8px;
+
+        .addressInputPage-addressSearchBar-searchIcon {
+            width: 32px;
+            height: auto;
+            flex-shrink: 0;
+        }
+        .addressInputPage-addressSearchBar-input {
+            width: 100%;
+            flex-shrink: 1;
+            outline: none;
+        }
+    }
+
+    .addressInputPage-addressSearchBar:focus-within {
+        border-color: #B6349A40;
+        border-width: 3px;
+        padding: 14px;
+    }
+
+    .addressInputPage-whole-dropdown {
+
+    }
+}
