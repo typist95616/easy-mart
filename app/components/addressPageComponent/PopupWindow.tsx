@@ -5,12 +5,12 @@ import 'leaflet/dist/leaflet.css';
 import { useState } from 'react';
 import closeIcon from "../../../public/images/close.png";
 import Image from "next/image";
-import "./Map.scss";
 import AddressInputPage from "./AddressInputPage";
 import EmptyPage from "./EmptyPage";
-import Map from "./Map";
 import leftArrow from "../../../public/images/popup-leftArrow.png";
 import "./PopupWindow.scss";
+import dynamic from 'next/dynamic';
+import { Suggestion } from '@/app/types/Suggestion';
 
 // Function to update map's location using map.setView()
 function MapUpdater({ position }: { position: [number, number]}) {
@@ -26,7 +26,9 @@ interface PopupWindowProps {
 export default function PopupWindow(props: PopupWindowProps) {
 
     const [currentPage, setCurrentPage] = useState<number>(1)
+    const [currentSuggestion, setCurrentSuggestion] = useState<Suggestion>();
 
+    const MapPage = dynamic(() => import('./MapPage'), { ssr: false });
     const handlePreviousPage = () => {
         if(currentPage === 2) {
             setCurrentPage(1);
@@ -54,10 +56,10 @@ export default function PopupWindow(props: PopupWindowProps) {
                     <EmptyPage setCurrentPage={setCurrentPage}/>
                 )}  
                 {currentPage === 2 && (
-                    <AddressInputPage setCurrentPage={setCurrentPage}/>
+                    <AddressInputPage setCurrentPage={setCurrentPage} setCurrentSuggestion={setCurrentSuggestion}/>
                 )}  
                 {currentPage === 3 && (
-                    <Map />
+                    <MapPage suggestion={currentSuggestion}/>
                 )}
             </div>
         </div>

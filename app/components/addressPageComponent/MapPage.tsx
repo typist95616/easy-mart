@@ -3,9 +3,9 @@
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useState } from 'react';
-import closeIcon from "../../../public/images/close.png";
-import Image from "next/image";
-import "./Map.scss";
+import "./MapPage.scss";
+import { Suggestion } from '@/app/types/Suggestion';
+import { useRouter } from 'next/navigation';
 
 // Function to update map's location using map.setView()
 function MapUpdater({ position }: { position: [number, number]}) {
@@ -14,7 +14,11 @@ function MapUpdater({ position }: { position: [number, number]}) {
     return null;
 }
 
-export default function Map() {
+interface MapPageProps {
+    suggestion?: Suggestion;
+}
+
+export default function Map(props: MapPageProps) {
 
     // State for getting address input
     const [address, setAddress] = useState(""); 
@@ -42,6 +46,7 @@ export default function Map() {
 
     return (
         <div className="popup-root">
+            <div>{props.suggestion?.display_name}</div>
             <MapContainer center={position} zoom={15} scrollWheelZoom={false} style={{ height: "500px", width: "500px"}}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

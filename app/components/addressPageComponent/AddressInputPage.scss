@@ -2,14 +2,16 @@
     padding: 24px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
+    height: 400px;
+    background-color: #F8F7F8;
 
     .addressInputPage-addressSearchBar {
         box-sizing: border-box;
         height: 64px;
         padding: 16px;
-        border-color: #F8F7F8;
+        border-color: #F0EEF0;
         border-width: 1px;
         border-radius: 32px;
         border-style: solid;
@@ -17,6 +19,7 @@
         width: 100%;
         align-items: center;
         gap: 8px;
+        position: relative;
 
         .addressInputPage-addressSearchBar-searchIcon {
             width: 32px;
@@ -37,6 +40,12 @@
     }
 
     .addressInputPage-whole-dropdown {
-
+        position: absolute;
+        width: 96%;
+        z-index: 999;
+        top: 115%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 12px;
     }
 }

@@ -2,7 +2,6 @@
 
 import "./main.scss";
 // import dynamic from "next/dynamic";
-
 // const MapView = dynamic(() => import("../../components/addressPageComponent/Map"), { ssr: false })
 
 export default function AddressPage() {

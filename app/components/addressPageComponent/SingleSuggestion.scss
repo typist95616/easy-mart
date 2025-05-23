@@ -1,0 +1,17 @@
+.suggestion-root {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px;
+    border-radius: 12px;
+
+    .suggestion-image {
+        width: 32px;
+        height: auto;
+    }
+}
+
+.suggestion-root:hover {
+    background-color: #F8F7F8;
+    cursor: pointer;
+}
