@@ -2,7 +2,7 @@
 
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import "./MapPage.scss";
 import { Suggestion } from '@/app/types/Suggestion';
 import { useRouter } from 'next/navigation';
@@ -23,9 +23,9 @@ interface MapPageProps {
 export default function Map(props: MapPageProps) {
 
     //test
-    const addressString = props.suggestion?.address ? 
-  `${props.suggestion.address.building}, ${props.suggestion.address.city}, ${props.suggestion.address.state_district}, ${props.suggestion.address.state}, ${props.suggestion.address.postcode}, ${props.suggestion.address.country}` : 
-  'Address not available';
+    const addressString = props.suggestion?.address ?
+        `${props.suggestion.address.building}, ${props.suggestion.address.city}, ${props.suggestion.address.state_district}, ${props.suggestion.address.state}, ${props.suggestion.address.postcode}, ${props.suggestion.address.country}` :
+        'Address not available';
 
     const [currentAddressType, setCurrentAddressType] = useState("Home");
 
@@ -36,9 +36,21 @@ export default function Map(props: MapPageProps) {
     // State for getting address input
     const [position, setPosition] = useState<[number, number]>([lat, lon]);
 
+    // State for address
+    const [building, setBuilding] = useState(props.suggestion?.address.building);
+    const [city, setCity] = useState(props.suggestion?.address.city);
+    const [village, setVillage] = useState(props.suggestion?.address.village);
+    const [state, setState] = useState(props.suggestion?.address.state);
+    const [roomNumber, setRoomNumber] = useState("");
+    const [addressName, setAddressName] = useState(props.suggestion?.name);
+
+    useEffect(() => {
+        console.log(building);
+    }), [building];
+
     return (
         <div className="mapPage-root">
-            <MapContainer center={position} zoom={15} scrollWheelZoom={false} className="mapPage-map">
+            <MapContainer center={position} zoom={17} scrollWheelZoom={false} className="mapPage-map">
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -51,7 +63,6 @@ export default function Map(props: MapPageProps) {
                 </Marker> */}
             </MapContainer>
             <div className="mapPage-info">
-                {addressString}
                 <div className="mapPage-info-addressType">
                     <div className="mapPage-info-addressType-header">Select Address Type</div>
                     <div className="mapPage-info-addressType-content">
@@ -66,26 +77,36 @@ export default function Map(props: MapPageProps) {
                         </div>
                     </div>
                 </div>
+                <div className="mapPage-info-addressName">
+                    <div className="mapPage-info-addressName-header">Address</div>
+                    <input className="mapPage-info-addressName-input" placeholder="address" value={addressName} onChange={(e) => setAddressName((e.target as HTMLInputElement).value)}></input>
+                </div>
                 <div className="mapPage-info-streetAddress">
-                    <div className="mapPage-info-streetAddress-header">Street Address</div>
-                    <input className="mapPage-info-streetAddress-input" placeholder="Address"></input>
+                    <div className="mapPage-info-streetAddress-room">
+                        <div className="mapPage-info-streetAddress-room-header">Room Number</div>
+                        <input className="mapPage-info-streetAddress-room-input" placeholder="Your Room Number" value={roomNumber} onChange={(e) => setRoomNumber((e.target as HTMLInputElement).value)}></input>
+                    </div>
+                    <div className="mapPage-info-streetAddress-building">
+                        <div className="mapPage-info-streetAddress-building-header">Building</div>
+                        <input className="mapPage-info-streetAddress-building-input" placeholder="Address" value={building} onChange={(e) => setBuilding((e.target as HTMLInputElement).value)}></input>
+                    </div>
                 </div>
                 <div className="mapPage-info-addressDetail">
+                    <div className="mapPage-info-addressDetail-village">
+                        <div className="mapPage-info-addressDetail-village-header">Village</div>
+                        <input className="mapPage-info-addressDetail-village-input" placeholder="village" value={village} onChange={(e) => setVillage((e.target as HTMLInputElement).value)}></input>
+                    </div>
                     <div className="mapPage-info-addressDetail-city">
                         <div className="mapPage-info-addressDetail-city-header">City</div>
-                        <input className="mapPage-info-addressDetail-city-input" placeholder="city"></input>
+                        <input className="mapPage-info-addressDetail-city-input" placeholder="city" value={city} onChange={(e) => setCity((e.target as HTMLInputElement).value)}></input>
                     </div>
-                    <div className="mapPage-info-addressDetail-number">
-                        <div className="mapPage-info-addressDetail-number-header">Number</div>
-                        <input className="mapPage-info-addressDetail-number-input" placeholder="number"></input>
-                    </div>
-                    <div className="mapPage-info-addressDetail-zip">
-                        <div className="mapPage-info-addressDetail-zip-header">Zip Code</div>
-                        <input className="mapPage-info-addressDetail-zip-input" placeholder="zip code"></input>
+                    <div className="mapPage-info-addressDetail-state">
+                        <div className="mapPage-info-addressDetail-state-header">State</div>
+                        <input className="mapPage-info-addressDetail-state-input" placeholder="state" value={state} onChange={(e) => setState((e.target as HTMLInputElement).value)}></input>
                     </div>
                 </div>
                 <div className="mapPage-info-instruction">
-                    <div className="mapPage-info-instruction-header"></div>
+                    <div className="mapPage-info-instruction-header">Delivery Instruction</div>
                     <input className="mapPage-info-instruction-input" placeholder="Delivery Instruction"></input>
                 </div>
                 <div className="mapPage-info-safeButton">

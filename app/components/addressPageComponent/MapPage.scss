@@ -79,17 +79,49 @@
             }
         }
 
-        .mapPage-info-streetAddress {
+        .mapPage-info-addressName {
             display: flex;
             flex-direction: column;
-            gap: 12px;
             justify-content: flex-start;
-            .mapPage-info-streetAddress-header {
+            gap: 12px;
+            .mapPage-info-addressName-header {
                 font-size: 14px;
                 font-weight: 600;
             }
-            .mapPage-info-streetAddress-input {
+            .mapPage-info-addressName-input {
+                
+            }
+        }
 
+        .mapPage-info-streetAddress {
+            display: flex;
+            gap: 12px;
+
+            .mapPage-info-streetAddress-room {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 12px;
+                .mapPage-info-streetAddress-room-header {
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+                .mapPage-info-streetAddress-room-input {
+
+                }
+            }
+            .mapPage-info-streetAddress-building {
+                display: flex;
+                gap: 12px;
+                flex-direction: column;
+                justify-content: flex-start;
+                .mapPage-info-streetAddress-building-header {
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+                .mapPage-info-streetAddress-buliding-input {
+    
+                }
             }
         }
 
@@ -109,35 +141,39 @@
 
                 }
             }
-            .mapPage-info-addressDetail-number {
+            .mapPage-info-addressDetail-village {
                 display: flex;
                 flex-direction: column;
                 gap: 12px;
                 justify-content: flex-start;
-                .mapPage-info-addressDetail-number-header {
+                .mapPage-info-addressDetail-village-header {
                     font-size: 14px;
                     font-weight: 600;
                 }
-                .mapPage-info-addressDetail-number-input {
+                .mapPage-info-addressDetail-village-input {
 
                 }
             }
-            .mapPage-info-addressDetail-zip {
+            .mapPage-info-addressDetail-state {
                 display: flex;
                 flex-direction: column;
                 gap: 12px;
                 justify-content: flex-start;
-                .mapPage-info-addressDetail-zip-header {
+                .mapPage-info-addressDetail-state-header {
                     font-size: 14px;
                     font-weight: 600;
                 }
-                .mapPage-info-addressDetail-zip-input {
+                .mapPage-info-addressDetail-state-input {
 
                 }
             }
         }
 
         .mapPage-info-instruction {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 12px;
             .mapPage-info-instruction-header {
                 font-size: 14px;
                 font-weight: 600;
