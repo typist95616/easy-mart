@@ -1,0 +1,170 @@
+.mapPage-root {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .mapPage-map {
+        height: 420px;
+        width: 100%;
+        border-radius: 32px;
+    }
+
+    .mapPage-info {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .mapPage-info-addressType {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 12px;
+            .mapPage-info-addressType-header {
+                font-size: 14px;
+                font-weight: 600;
+            }
+            .mapPage-info-addressType-content {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 16px;
+                .selected {
+                    background-color: #FEF5FD;
+                    color: #B6349A;
+                    border-color: #B6349A !important;
+                    border-style: solid;
+                    border-width: 1px;
+                }
+                .mapPage-info-addressType-home {
+                    padding: 10px 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 24px;
+                    border-color: #F0EEF0;
+                    border-width: 1px;
+                    border-style: solid;
+                    cursor: pointer;
+                    .mapPage-info-addressType-home-text {
+                        font-size: 14px;
+                    }
+                }
+                .mapPage-info-addressType-apartment {
+                    padding: 10px 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 24px;
+                    border-color: #F0EEF0;
+                    border-width: 1px;
+                    cursor: pointer;
+                    .mapPage-info-addressType-apartment-text {
+                        font-size: 14px;
+
+                    }
+                }
+                .mapPage-info-addressType-office {
+                    padding: 10px 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 24px;
+                    border-color: #F0EEF0;
+                    border-width: 1px;
+                    cursor: pointer;
+                    .mapPage-info-addressType-office-text {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .mapPage-info-streetAddress {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            justify-content: flex-start;
+            .mapPage-info-streetAddress-header {
+                font-size: 14px;
+                font-weight: 600;
+            }
+            .mapPage-info-streetAddress-input {
+
+            }
+        }
+
+        .mapPage-info-addressDetail {
+            display: flex;
+            gap: 12px;
+            .mapPage-info-addressDetail-city {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                justify-content: flex-start;
+                .mapPage-info-addressDetail-city-header {
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+                .mapPage-info-addressDetail-city-input {
+
+                }
+            }
+            .mapPage-info-addressDetail-number {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                justify-content: flex-start;
+                .mapPage-info-addressDetail-number-header {
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+                .mapPage-info-addressDetail-number-input {
+
+                }
+            }
+            .mapPage-info-addressDetail-zip {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                justify-content: flex-start;
+                .mapPage-info-addressDetail-zip-header {
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+                .mapPage-info-addressDetail-zip-input {
+
+                }
+            }
+        }
+
+        .mapPage-info-instruction {
+            .mapPage-info-instruction-header {
+                font-size: 14px;
+                font-weight: 600;
+            }
+            .mapPage-info-instruction-input {
+
+            }
+        }
+
+        .mapPage-info-safeButton {
+            display: flex;
+            width: 100%;
+            padding: 12px 24px;
+            border-radius: 39px;
+            background-color: #B6349A;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
+            .mapPage-info-safeButton-image {
+                width: 24px;
+                height: auto;
+            }
+            .mapPage-info-safeButton-text {
+                color: white;
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+    }
+}

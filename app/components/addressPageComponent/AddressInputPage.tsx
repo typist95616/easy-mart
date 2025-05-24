@@ -24,10 +24,11 @@ export default function AddressInputPage(props: AddressInputPageProps) {
           return;
         }
         const timeout = setTimeout(() => {
-          fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(input)}&limit=4`)
+          fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(input)}&limit=4&addressdetails=1`)
             .then(res => res.json())
             .then(data => {
                 setSuggestions(data);
+                console.log(data);
             });
         }, 300);
         return () => clearTimeout(timeout);
@@ -35,6 +36,7 @@ export default function AddressInputPage(props: AddressInputPageProps) {
 
     return (
         <div className="addressInputPage-root">
+            <div onClick={() => props.setCurrentPage(3)}>next page</div>
             <div className="addressInputPage-addressSearchBar">
                 <Image src={searchIcon} alt="search-Icon" className="addressInputPage-addressSearchBar-searchIcon"></Image>
                 <input
