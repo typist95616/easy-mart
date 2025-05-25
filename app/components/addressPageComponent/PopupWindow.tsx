@@ -32,6 +32,7 @@ export default function PopupWindow(props: PopupWindowProps) {
     const [currentPage, setCurrentPage] = useState<number>(1)
 
     const MapPage = dynamic(() => import('./MapPage'), { ssr: false });
+    const AddressEditPage = dynamic(() => import('./AddressEditPage'), { ssr: false });
     const handlePreviousPage = () => {
         if(currentPage === 2) {
             setCurrentPage(1);
