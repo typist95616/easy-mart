@@ -1,4 +1,9 @@
-interface Address{
+export type Address = {
+    place_id: number;
+    display_name: string;
+    name: string;
+    lat: number;
+    lon: number;
     city: string;
     postcode: string;
     country: string;
@@ -8,12 +13,5 @@ interface Address{
     municipality: string;
     road: string;
     village: string;
-}
-
-export type Suggestion = {
-    display_name: string;
-    address: Address;
-    name: string;
-    lat: number;
-    lon: number;
+    roomNumber: string;
 }

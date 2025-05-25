@@ -1,28 +1,26 @@
 "use client";
 
+import { Address } from "@/app/types/Address";
+import "./AddressEditPage.scss";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useEffect, useState } from 'react';
-import "./MapPage.scss";
-import { Address } from '@/app/types/Address';
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import saveLocationIcon from "../../../public/images/mapPage-saveLocation.png"
-import { useAddress } from '@/app/Context/AddressContext';
+import { useState } from "react";
+import { useAddress } from "@/app/Context/AddressContext";
+import saveLocationIcon from "../../../public/images/mapPage-saveLocation.png";
 
-// Function to update map's location using map.setView()
 function MapUpdater({ position }: { position: [number, number] }) {
     const map = useMap();
     map.setView(position);
     return null;
 }
 
-interface MapPageProps {
-    address?: Address;
+interface addressEditPageProps {
+    address: Address | undefined;
     setCurrentPage: (page: number) => void;
 }
 
-export default function MapPage(props: MapPageProps) {
+export default function AddressEditPage(props: addressEditPageProps) {
 
     const [currentAddressType, setCurrentAddressType] = useState("Home");
 
@@ -42,7 +40,7 @@ export default function MapPage(props: MapPageProps) {
     const [addressName, setAddressName] = useState(props.address?.name);
     const [place_id, setPlace_id] = useState(props.address?.place_id);
 
-    const { addToAddressList, setCurrentAddress } = useAddress();
+    const { editAddress, setCurrentAddress } = useAddress();
 
     return (
         <div className="mapPage-root">
@@ -53,10 +51,10 @@ export default function MapPage(props: MapPageProps) {
                 />
                 <MapUpdater position={position}></MapUpdater>
                 {/* <Marker position={[22.4494017, 114.1711328]}>
-                    <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
-                    </Popup>
-                </Marker> */}
+                <Popup>
+                    A pretty CSS3 popup. <br /> Easily customizable.
+                </Popup>
+            </Marker> */}
             </MapContainer>
             <div className="mapPage-info">
                 <div className="mapPage-info-addressType">
@@ -123,12 +121,12 @@ export default function MapPage(props: MapPageProps) {
                         village: village ?? "",
                         roomNumber: roomNumber ?? ""
                     };
-                    addToAddressList(updatedAddress);
+                    editAddress(updatedAddress);
                     props.setCurrentPage(1);
                     setCurrentAddress(updatedAddress);
                 }}>
                     <Image src={saveLocationIcon} alt="location Icon" className="mapPage-info-safeButton-image"></Image>
-                    <div className="mapPage-info-safeButton-text">Save Location</div>
+                    <div className="mapPage-info-safeButton-text">Save Change</div>
                 </div>
             </div>
         </div>

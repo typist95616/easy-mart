@@ -20,6 +20,7 @@
                 justify-content: center;
                 border-color: #F0EEF0;
                 border-width: 1px;
+                cursor: pointer;
                 .popup-header-leftArrow-image {
                     width: 20px;
                     height: auto;
@@ -33,6 +34,7 @@
         .popup-header-close-image {
             width: 20px;
             height: auto;
+            cursor: pointer;
         }
     }
 

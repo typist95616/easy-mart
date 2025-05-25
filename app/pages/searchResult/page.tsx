@@ -28,8 +28,8 @@ function SearchResultContent() {
     const searchParams = useSearchParams();
     const query = searchParams.get("query") || "";
 
-    const [products, setProducts] = useState<Product[]>([]);
     const [filter, setFilter] = useState([]);
+    const [products, setProducts] = useState<Product[]>([]);
 
     // Get data from database
     const fetchProducts = async () => {

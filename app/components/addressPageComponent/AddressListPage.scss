@@ -1,0 +1,24 @@
+.addressListPage-root {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .addressListPage-addAddressButton {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        margin-top: 6px;
+
+        .addressListPage-addAddressButton-image {
+            width: 16px;
+            height: auto;
+        }
+        .addressListPage-addAddressButton-text {
+           color: #B6349A;
+           font-size: 14px;
+           font-weight: 600;
+       }
+    }
+}

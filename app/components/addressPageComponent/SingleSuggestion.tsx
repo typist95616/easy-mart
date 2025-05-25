@@ -1,23 +1,22 @@
 import "./SingleSuggestion.scss";
 import location from "../../../public/images/suggestion-location.png";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { Suggestion } from "@/app/types/Suggestion";
+import { Address } from "@/app/types/Address";
+import { useAddress } from "@/app/Context/AddressContext";
 
 interface singleSuggestionProps {
-    suggestion: Suggestion;
+    address: Address;
     setCurrentPage: (page: number) => void;
-    setCurrentSuggestion: (suggestion: Suggestion) => void;
 }
 
 export default function singleSuggestion(props: singleSuggestionProps) {
 
-    const router = useRouter();
+    const { setCurrentAddress } = useAddress();
 
     return (
-        <div className="suggestion-root" onMouseDown={() => { props.setCurrentPage(3); props.setCurrentSuggestion(props.suggestion)}}>
+        <div className="suggestion-root" onMouseDown={() => { props.setCurrentPage(3); setCurrentAddress(props.address)}}>
             <Image src={location} alt="location icon" className="suggestion-image"></Image>
-            <div>{props.suggestion.display_name}</div>
+            <div>{props.address.display_name}</div>
         </div>
     );
 }
