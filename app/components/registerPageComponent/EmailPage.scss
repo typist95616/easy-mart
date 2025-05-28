@@ -1,0 +1,94 @@
+.registerPage-registerForm {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .registerPage-registerForm-header {
+        font-size: 32px;
+        font-weight: 600;
+    }
+    .registerPage-emailOrPhone {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        .registerPage-emailOrPhone-emailButton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border-radius: 12px;
+            background-color: #FEF5FD;
+            border-color: #B6349A;
+            border-width: 1px;
+            padding: 12px 24px;
+            .registerPage-emailOrPhone-emailButton-emailLogo {
+                width: 20px;
+                height: auto;
+            }
+            .registerPage-emailOrPhone-emailButton-emailText {
+                color: #B6349A;
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+        .registerPage-emailOrPhone-phoneButton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border-radius: 12px;
+            background-color: #F8F7F8;
+            padding: 12px 24px;
+            .registerPage-emailOrPhone-phoneButton-phoneLogo {
+                width: 20px;
+                height: auto;
+            }
+            .registerPage-emailOrPhone-phoneButton-phoneText {
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+    }
+    .registerPage-getEmail {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        .registerPage-getEmail-text {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .registerPage-getEmail-input {
+            border-radius: 8px;
+            height: 52px;
+            
+        }
+    }
+    .registerPage-contiuneButton {
+        background-color: #B6349A;
+        border-radius: 39px;
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        .registerPage-continueButton-text {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+
+    .registerPage-errorMessage {
+        font-size: 14px;
+        font-weight: 600;
+        color: red;
+    }
+    .registerPage-directToLogin {
+        font-size: 14px;
+        .registerPage-directToLogin-button {
+            font-weight: 600;
+            text-decoration: underline;
+        }
+    }
+}

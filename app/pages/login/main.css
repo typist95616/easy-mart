@@ -78,19 +78,19 @@
     color: black;
 }
 
-.login-getEmail {
+.login-getEmail, .login-getPassword{
     display: flex;
     flex-direction: column;
     margin-top: 24px;
     gap: 8px;
 }
 
-.login-getEmail-text {
+.login-getEmail-text, .login-getPassword-text {
     font-size: 14px;
     font-weight: 600;
 }
 
-.login-getEmail-input {
+.login-getEmail-input, .login-getPassword-input {
     height: 52px;
     border-radius: 8px;
     border-color: #F0EEF0;
@@ -160,6 +160,7 @@
     justify-content: center;
     gap: 14px;
     margin-top: 16px;
+    cursor: pointer;
 }
 
 .loginButton-meta-text {
@@ -172,4 +173,20 @@
     font-size: 16px;
     font-weight: 600;
     color: black;
+}
+
+.directToRegister {
+    display: flex;
+    align-items: center;
+    text-align: flex-start;
+    margin-top: 10px;
+}
+
+.directToRegsiter-text, .directToRegister-button {
+    font-size: 14px;
+}
+
+.directToRegister-button {
+    font-weight: 600;
+    text-decoration: underline;
 }
