@@ -6,11 +6,40 @@ import logo from "../../images/easyMartLogo.png";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+
+    const router = useRouter();
+
+    const handleLogin = async (e: React.FormEvent) => {
+
+        // Avoid the page refresh after login is clicked
+        e.preventDefault();
+        setError("");
+        
+        try {
+            const result = await signIn("credentials", {
+                redirect: false,
+                email,
+                password,
+            });
+
+            if (result?.error) {
+                setError(result.error);
+                console.log("Login failed: " + result.error);
+            } else if (result?.ok){
+                router.push('/pages/main');
+            }
+            
+        } catch (error) {
+            console.log("Unexpected error: " + error);
+        }
+    }
 
     return (
             <div className="whole-loginPage">
@@ -42,7 +71,7 @@ export default function Home() {
                             <div className="login-getPassword-text">Password</div>
                             <input placeholder="  Enter your password" className="login-getPassword-input"></input>
                         </div>
-                        <button className="login-contiune-button">
+                        <button className="login-contiune-button" onClick={handleLogin}>
                             <div className="login-contiune-button-text">Contiune</div>
                             <Image src="/images/login-arrow-right.svg" alt="login-arrow" width={24} height={24} />
                         </button>

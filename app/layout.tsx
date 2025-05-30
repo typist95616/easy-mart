@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./Context/CartContext";
 import { AddressProvider } from "./Context/AddressContext";
-import { SessionProvider } from "next-auth/react";
 import { Providers } from "./providers";
 
 
