@@ -7,8 +7,6 @@ import { TokenProvider } from "./Context/TokenContext";
 import { CurrentUserProvider } from "./Context/CurrentUserContext";
 import { Providers } from "./providers";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../app/api/auth/[...nextauth]/route";
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,14 +29,12 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const session = await getServerSession(authOptions);
 
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers session={session}>
           <AddressProvider>
             <CartProvider>
               <TokenProvider>
@@ -48,7 +44,6 @@ export default async function RootLayout({
               </TokenProvider>
             </CartProvider>
           </AddressProvider>
-        </Providers>
       </body>
     </html>
   );
