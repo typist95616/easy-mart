@@ -1,0 +1,25 @@
+.logout-button-root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 32px;
+    border-radius: 39px;
+    border-color: #B6349A;
+    border-width: 1px;
+    cursor: pointer;
+
+    .logout-button-border {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+
+        .logout-button-userName{
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .logout-button-logoutText {
+            font-size: 12px;
+        }
+    }
+}

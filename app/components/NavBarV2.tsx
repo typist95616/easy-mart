@@ -8,10 +8,14 @@ import SearchBar from "../components/NavBarComponent/NavBarSearchBar";
 import CartButton from "../components/NavBarComponent/NavBarCartButton";
 import LoginButton from "../components/NavBarComponent/NavBarLoginButton";
 import clsx from "clsx";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import PopupWindow from "./addressPageComponent/PopupWindow";
+import LogoutButton from "../components/NavBarComponent/NavBarLogoutButton"
+import { User } from "../types/User";
+import UserName from "./NavBarComponent/UserNameText";
+import { useToken } from "../Context/TokenContext";
 
 interface NavBarV2Props {
     className?: string;
@@ -24,6 +28,9 @@ export default function NavbarV2(props: NavBarV2Props) {
     const [isLocationPopupOpen, setIsLocationPopupOpen] = useState(false);
 
     const router = useRouter();
+
+    const { token, setPageToken } = useToken();
+
 
     const handleSearch = (searchTerm: string) => {
         if (searchTerm.trim()) {
@@ -47,10 +54,21 @@ export default function NavbarV2(props: NavBarV2Props) {
                 <div className="top-navbar-searchBar-rightSpacer"></div>
                 <div className="RightNavItems">
                     <CartButton></CartButton>
+                    {/* {token && (
+                        <>
+                            <UserName></UserName>
+                        </>
+                    )} */}
                     <div className="top-navbar-spacer"></div>
-                    <Link href="/pages/login">
-                        <LoginButton></LoginButton>
-                    </Link>
+                    {token ? (
+                        <LogoutButton></LogoutButton>
+                    ) : (
+                        <>
+                            <Link href="/pages/login">
+                                <LoginButton></LoginButton>
+                            </Link>
+                        </>
+                    )}
                 </div>
             </div>
             <div className="bottom-navbar">

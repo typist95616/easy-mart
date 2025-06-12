@@ -14,6 +14,7 @@
     "@prisma/client": "^6.8.2",
     "bcrypt": "^6.0.0",
     "clsx": "^2.1.1",
+    "jotai": "^2.12.5",
     "leaflet": "^1.9.4",
     "next": "15.3.1",
     "next-auth": "^4.24.11",
@@ -24,7 +25,8 @@
     "react-leaflet": "^5.0.0-rc.2",
     "react-slick": "^0.30.3",
     "sass": "^1.88.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
