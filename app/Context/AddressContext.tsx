@@ -9,6 +9,7 @@ interface AddressContextType {
     editAddress: (address: Address) => void;
     currentAddress: Address | undefined;
     setCurrentAddress: (address: Address | undefined) => void;
+    saveAddressToDB: (address: Address) => void;
 }
 
 const AddressContext = createContext<AddressContextType | undefined>(undefined);
@@ -39,14 +40,39 @@ export const AddressProvider = ({ children }: { children: ReactNode }) => {
 
     const editAddress = (updatedAddress: Address) => {
         setAddressList(prevList =>
-          prevList.map(addr =>
-            addr.place_id === updatedAddress.place_id ? { ...addr, ...updatedAddress } : addr
-          )
+            prevList.map(addr =>
+                addr.place_id === updatedAddress.place_id ? { ...addr, ...updatedAddress } : addr
+            )
         );
-      };
+    };
+
+    const saveAddressToDB = async (address: Address) => {
+        // Check if user logged
+        const token = localStorage.getItem('token');
+        if (!token) {
+            console.log('User not logged in');
+        }
+        
+        // api to save address to db
+        const response = await fetch('/api/saveAddressToDB', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(address)
+        })
+
+        if (!response.ok) {
+            throw new Error("falied to save address to database");
+        }
+
+        const data = await response.json();
+        console.log(data);
+    }
 
     return (
-        <AddressContext.Provider value={{ addressList, addToAddressList, editAddress, currentAddress, setCurrentAddress }}>
+        <AddressContext.Provider value={{ addressList, addToAddressList, editAddress, currentAddress, setCurrentAddress, saveAddressToDB }}>
             {children}
         </AddressContext.Provider>
     );

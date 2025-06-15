@@ -9,16 +9,15 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useToken } from "../../Context/TokenContext";
 import { useCurrentUser } from "../../Context/CurrentUserContext";
-import { useAtom } from "jotai";
-import { token } from "../../Context/TokenAtom";
+import { useAddress } from "@/app/Context/AddressContext";
 
 export default function Home() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const {token, setPageToken} = useToken();
-    const {currentUser, setCurrentUserToLocal} = useCurrentUser();
-    // const [tokenValue, setToken] = useAtom(token);
+    const { token, setPageToken } = useToken();
+    const { currentUser, setCurrentUserToLocal } = useCurrentUser();
+    const { currentAddress, setCurrentAddress } = useAddress();
 
     const router = useRouter();
 
@@ -43,37 +42,29 @@ export default function Home() {
             // add token to local storage
             setPageToken(data.token);
             setCurrentUserToLocal(data.user);
-            console.log("User: ", JSON.stringify(data.user, null, 2)); // Pretty print the user object
+
+            // get user address from db and set to currentaddress
+            const getAddress = await fetch('/api/getUserInfo', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${data.token}`,
+                }
+            })
+
+            if (getAddress.ok) {
+                const data = await getAddress.json();
+                setCurrentAddress(data.address);
+            } else {
+                console.log("error when getting address: " + getAddress);
+            }
+
+            console.log("User: ", JSON.stringify(data.user, null, 2));
             router.push('/pages/main');
         } catch (error) {
             setError(error as string);
+            console.log(error);
         }
     }
-
-    // const handleLogin = async (e: React.FormEvent) => {
-
-    //     // Avoid the page refresh after login is clicked
-    //     e.preventDefault();
-    //     setError("");
-
-    //     try {
-    //         const result = await signIn("credentials", {
-    //             redirect: false,
-    //             email,
-    //             password,
-    //         });
-
-    //         if (result?.error) {
-    //             setError(result.error);
-    //             console.log("Login failed: " + result.error);
-    //         } else if (result?.ok){
-    //             router.push('/pages/main');
-    //         }
-
-    //     } catch (error) {
-    //         console.log("Unexpected error: " + error);
-    //     }
-    // }
 
     return (
         <div className="whole-loginPage">

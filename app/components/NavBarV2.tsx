@@ -15,7 +15,7 @@ import PopupWindow from "./addressPageComponent/PopupWindow";
 import LogoutButton from "../components/NavBarComponent/NavBarLogoutButton"
 import { User } from "../types/User";
 import UserName from "./NavBarComponent/UserNameText";
-import { useToken } from "../Context/TokenContext";
+import { useTokenAtom } from "../Context/TokenAtom";
 
 interface NavBarV2Props {
     className?: string;
@@ -29,7 +29,7 @@ export default function NavbarV2(props: NavBarV2Props) {
 
     const router = useRouter();
 
-    const { token, setPageToken } = useToken();
+    const { token } = useTokenAtom();
 
 
     const handleSearch = (searchTerm: string) => {

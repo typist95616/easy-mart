@@ -17,7 +17,7 @@ export async function POST(req: Request) {
                 email,
                 username,
                 password: hashedPassword,
-                img_url: "@/public/images/tick.png"
+                img_url: "/images/tick.png"
             }
         });
 

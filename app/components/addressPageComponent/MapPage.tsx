@@ -42,7 +42,7 @@ export default function MapPage(props: MapPageProps) {
     const [addressName, setAddressName] = useState(props.address?.name);
     const [place_id, setPlace_id] = useState(props.address?.place_id);
 
-    const { addToAddressList, setCurrentAddress } = useAddress();
+    const { addToAddressList, setCurrentAddress, saveAddressToDB } = useAddress();
 
     return (
         <div className="mapPage-root">
@@ -126,6 +126,7 @@ export default function MapPage(props: MapPageProps) {
                     addToAddressList(updatedAddress);
                     props.setCurrentPage(1);
                     setCurrentAddress(updatedAddress);
+                    saveAddressToDB(updatedAddress);
                 }}>
                     <Image src={saveLocationIcon} alt="location Icon" className="mapPage-info-safeButton-image"></Image>
                     <div className="mapPage-info-safeButton-text">Save Location</div>
