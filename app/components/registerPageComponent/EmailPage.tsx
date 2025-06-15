@@ -13,8 +13,24 @@ export default function EmailPage(props: emailPageProps) {
 
     const [error, setError] = useState("");
 
+    const isValidEmail = (email: string) => {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    };
+
     const handleEmailCheck = async () => {
         setError("");
+
+        if(!props.email) {
+            setError("Please enter your email!");
+            return;
+        }
+
+        if(!isValidEmail(props.email)){
+            setError("Please enter a valid email!");
+            return;
+        }
+
         const res = await fetch("/api/checkEmail", {
             method: "POST",
             headers: {"Content-Type": "application/json"},

@@ -79,7 +79,7 @@ export default function PopupWindow(props: PopupWindowProps) {
                     <MapPage address={currentAddress} setCurrentPage={setCurrentPage}/>
                 )}
                 {currentPage === 4 && (
-                    <AddressEditPage address={currentAddress} setCurrentPage={setCurrentPage}></AddressEditPage>
+                    <AddressEditPage address={currentAddress!} setCurrentPage={setCurrentPage}></AddressEditPage>
                 )}
             </div>
         </div>

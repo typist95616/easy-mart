@@ -7,6 +7,7 @@ import logo from "../../../public/images/easyMartLogo.png";
 import EmailPage from "@/app/components/registerPageComponent/EmailPage";
 import PasswordPage from "@/app/components/registerPageComponent/PasswordPage";
 import { useState } from "react";
+import SuccessfulPage from "@/app/components/registerPageComponent/SuccessfulPage";
 
 export default function Home() {
 
@@ -26,6 +27,9 @@ export default function Home() {
                 )}
                 {currentPage === 2 && (
                     <PasswordPage setCurrentPage={setCurrentPage} email={email}></PasswordPage>
+                )}
+                {currentPage === 3 && (
+                    <SuccessfulPage setCurrentPage={setCurrentPage}></SuccessfulPage>
                 )}
             </div>
         </div>

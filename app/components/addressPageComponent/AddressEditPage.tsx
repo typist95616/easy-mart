@@ -16,7 +16,7 @@ function MapUpdater({ position }: { position: [number, number] }) {
 }
 
 interface addressEditPageProps {
-    address: Address | undefined;
+    address: Address;
     setCurrentPage: (page: number) => void;
 }
 
@@ -25,20 +25,20 @@ export default function AddressEditPage(props: addressEditPageProps) {
     const [currentAddressType, setCurrentAddressType] = useState("Home");
 
     // Default vehicle for the map location
-    const [lat, setLat] = useState(props.address?.lat ?? 22.4494017);
-    const [lon, setLon] = useState(props.address?.lon ?? 114.1711328);
+    const [lat, setLat] = useState(props.address.lat ?? 22.4494017);
+    const [lon, setLon] = useState(props.address.lon ?? 114.1711328);
 
     // State for getting address input
     const [position, setPosition] = useState<[number, number]>([lat, lon]);
 
     // State for address
-    const [building, setBuilding] = useState(props.address?.building);
-    const [city, setCity] = useState(props.address?.city);
-    const [village, setVillage] = useState(props.address?.village);
-    const [state, setState] = useState(props.address?.state);
-    const [roomNumber, setRoomNumber] = useState(props.address?.roomNumber ?? "");
-    const [addressName, setAddressName] = useState(props.address?.name);
-    const [place_id, setPlace_id] = useState(props.address?.place_id);
+    const [building, setBuilding] = useState(props.address.building);
+    const [city, setCity] = useState(props.address.city);
+    const [village, setVillage] = useState(props.address.village);
+    const [state, setState] = useState(props.address.state);
+    const [roomNumber, setRoomNumber] = useState(props.address.roomNumber ?? "");
+    const [addressName, setAddressName] = useState(props.address.name);
+    const [place_id, setPlace_id] = useState(props.address.place_id);
 
     const { editAddress, setCurrentAddress } = useAddress();
 

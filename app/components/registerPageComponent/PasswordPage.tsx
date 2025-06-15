@@ -2,6 +2,7 @@ import "./PasswordPage.scss";
 import Image from "next/image";
 import leftArrow from "../../../public/images/popup-leftArrow.png";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface passwordPageProps {
     setCurrentPage: (page: number) => void;
@@ -13,9 +14,16 @@ export default function PasswordPage(props: passwordPageProps) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const router = useRouter();
 
     const handleRegister = async () => {
         setError("");
+
+        if(!username || !password){
+            setError("Please enter both your username and password!");
+            return;
+        }
+
         try {
             const res = await fetch('/api/register', {
                 method: "POST",
@@ -35,6 +43,7 @@ export default function PasswordPage(props: passwordPageProps) {
             console.error('Client-side registration error:', error);
             setError('An unexpected error, please try again later.');
         }
+        props.setCurrentPage(3);
     }
 
     return (
@@ -54,6 +63,7 @@ export default function PasswordPage(props: passwordPageProps) {
                     <div className="passwordPage-getPassword-text">Password</div>
                     <input className="passwordPage-getPassword-input" placeholder="Password" value={password} onChange={(e) => setPassword((e.target as HTMLInputElement).value)}></input>
                 </div>
+                <div className="passwordPage-errorText">{error}</div>
                 <div className="passwordPage-contiuneButton" onClick={handleRegister}>
                     <div className="passwordPage-continueButton-text">Register</div>
                 </div>

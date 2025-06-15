@@ -13,5 +13,5 @@ export type Address = {
     municipality: string;
     road: string;
     village: string;
-    roomNumber: string;
+    roomNumber?: string;
 }

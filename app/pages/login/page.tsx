@@ -15,15 +15,35 @@ export default function Home() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    
+    const [{ hello }, setABC] = useState({ hello: "world" });
+    
+
     const { token, setPageToken } = useToken();
     const { currentUser, setCurrentUserToLocal } = useCurrentUser();
     const { currentAddress, setCurrentAddress } = useAddress();
-
     const router = useRouter();
+
+    const isValidEmail = (email: string) => {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    };
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
+
+        // Check if input is not empty
+        if(!email || !password){
+            setError("Please fill in all fields!");
+            return;
+        }
+
+        if(!isValidEmail(email)) {
+            setError("Please enter value email");
+            return;
+        }
+
         try {
             const res = await fetch('/api/login', {
                 method: 'POST', // Specify POST method
@@ -34,7 +54,9 @@ export default function Home() {
             });
 
             if (!res.ok) {
-                throw new Error('Login failed'); // Handle non-200 responses
+                const errorResponse = await res.json();
+                setError(errorResponse.error); // Handle non-200 responses
+                throw new Error(errorResponse.error);
             }
 
             const data = await res.json();
@@ -61,7 +83,6 @@ export default function Home() {
             console.log("User: ", JSON.stringify(data.user, null, 2));
             router.push('/pages/main');
         } catch (error) {
-            setError(error as string);
             console.log(error);
         }
     }
@@ -96,6 +117,7 @@ export default function Home() {
                         <div className="login-getPassword-text">Password</div>
                         <input placeholder="  Enter your password" className="login-getPassword-input"></input>
                     </div>
+                    <div className="login-errorText">{error}</div>
                     <button className="login-contiune-button" onClick={handleLogin}>
                         <div className="login-contiune-button-text">Contiune</div>
                         <Image src="/images/login-arrow-right.svg" alt="login-arrow" width={24} height={24} />
