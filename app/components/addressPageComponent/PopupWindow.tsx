@@ -10,7 +10,7 @@ import EmptyPage from "./EmptyPage";
 import leftArrow from "../../../public/images/popup-leftArrow.png";
 import "./PopupWindow.scss";
 import dynamic from 'next/dynamic';
-import { useAddress } from '@/app/Context/AddressContext';
+import { useAddress } from '@/app/Context/AddressQuery';
 import AddressListPage from "./AddressListPage";
 
 // Function to update map's location using map.setView()
@@ -41,7 +41,9 @@ export default function PopupWindow(props: PopupWindowProps) {
     }
 
     useEffect(() => {
-    }), [currentPage];
+        console.log("currentAddress: ", currentAddress);
+        console.log("addressList: ", addressList);
+    }, [])
 
     return (
         <div className="popup-root">
@@ -55,10 +57,10 @@ export default function PopupWindow(props: PopupWindowProps) {
                         <Image src={leftArrow} alt="back button" className="popup-header-leftArrow-image" onClick={handlePreviousPage}></Image>
                         </div>
                     )}
-                    {addressList.length > 0 && currentPage !== 4 && (
+                    {addressList && addressList.length > 0 && currentPage !== 4 && (
                         <div className="popup-header-text">Choose Address</div> 
                     )}
-                    {addressList.length === 0 && currentPage !== 4 && (
+                    {(!addressList || addressList.length === 0) && currentPage !== 4 && (
                         <div className="popup-header-text">Add New Address</div>
                     )}
                 </div>
@@ -66,10 +68,10 @@ export default function PopupWindow(props: PopupWindowProps) {
             </div>
             <div className="popup-divider"></div>
             <div className="popup-content">
-                {currentPage === 1 && addressList.length === 0 && (
+                {currentPage === 1 && (!addressList || addressList.length === 0) && (
                     <EmptyPage setCurrentPage={setCurrentPage}/>
                 )}  
-                {currentPage === 1 && addressList.length > 0 && (
+                {currentPage === 1 && addressList && addressList.length > 0 && (
                     <AddressListPage currentAddress={currentAddress} setCurrentPage={setCurrentPage}></AddressListPage>
                 )}
                 {currentPage === 2 && (

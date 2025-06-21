@@ -5,6 +5,7 @@ import { CartProvider } from "./Context/CartContext";
 import { AddressProvider } from "./Context/AddressContext";
 import { TokenProvider } from "./Context/TokenContext";
 import { CurrentUserProvider } from "./Context/CurrentUserContext";
+import ReactQueryProvider from './ReactQueryProvider';
 import { Providers } from "./providers";
 import { getServerSession } from "next-auth";
 
@@ -35,15 +36,17 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-          <AddressProvider>
-            <CartProvider>
-              <TokenProvider>
-                <CurrentUserProvider>
-                  {children}
-                </CurrentUserProvider>
-              </TokenProvider>
-            </CartProvider>
-          </AddressProvider>
+          <ReactQueryProvider>
+            <AddressProvider>
+              <CartProvider>
+                <TokenProvider>
+                  <CurrentUserProvider>
+                    {children}
+                  </CurrentUserProvider>
+                </TokenProvider>
+              </CartProvider>
+            </AddressProvider>
+          </ReactQueryProvider>
       </body>
     </html>
   );

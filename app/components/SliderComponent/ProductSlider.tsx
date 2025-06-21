@@ -8,7 +8,6 @@ import { Product } from "../../types/Product";
 import Image from "next/image";
 import Slider from "react-slick";
 import clsx from "clsx";
-import loadingIcon from "../../../public/images/loading.png";
 
 interface ProductSliderProps {
     className?: string;

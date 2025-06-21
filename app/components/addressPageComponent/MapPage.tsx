@@ -8,7 +8,8 @@ import { Address } from '@/app/types/Address';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import saveLocationIcon from "../../../public/images/mapPage-saveLocation.png"
-import { useAddress } from '@/app/Context/AddressContext';
+import { useAddress } from '@/app/Context/AddressQuery';
+import AddressListPage from './AddressListPage';
 
 // Function to update map's location using map.setView()
 function MapUpdater({ position }: { position: [number, number] }) {
@@ -42,7 +43,7 @@ export default function MapPage(props: MapPageProps) {
     const [addressName, setAddressName] = useState(props.address?.name);
     const [place_id, setPlace_id] = useState(props.address?.place_id);
 
-    const { addToAddressList, setCurrentAddress, saveAddressToDB } = useAddress();
+    const { addressList, addToAddressList, setCurrentAddress } = useAddress();
 
     return (
         <div className="mapPage-root">
@@ -126,7 +127,6 @@ export default function MapPage(props: MapPageProps) {
                     addToAddressList(updatedAddress);
                     props.setCurrentPage(1);
                     setCurrentAddress(updatedAddress);
-                    saveAddressToDB(updatedAddress);
                 }}>
                     <Image src={saveLocationIcon} alt="location Icon" className="mapPage-info-safeButton-image"></Image>
                     <div className="mapPage-info-safeButton-text">Save Location</div>

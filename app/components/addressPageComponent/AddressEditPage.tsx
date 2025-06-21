@@ -2,11 +2,12 @@
 
 import { Address } from "@/app/types/Address";
 import "./AddressEditPage.scss";
+import "./MapPage.scss";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import Image from 'next/image';
 import { useState } from "react";
-import { useAddress } from "@/app/Context/AddressContext";
+import { useAddress } from "@/app/Context/AddressQuery";
 import saveLocationIcon from "../../../public/images/mapPage-saveLocation.png";
 
 function MapUpdater({ position }: { position: [number, number] }) {
@@ -41,6 +42,7 @@ export default function AddressEditPage(props: addressEditPageProps) {
     const [place_id, setPlace_id] = useState(props.address.place_id);
 
     const { editAddress, setCurrentAddress } = useAddress();
+    
 
     return (
         <div className="mapPage-root">

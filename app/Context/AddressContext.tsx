@@ -1,15 +1,16 @@
 "use client";
 
-import React, { createContext, ReactNode, useContext, useReducer, useState } from "react";
+import React, { createContext, ReactNode, useContext, useState } from "react";
 import { Address } from "../types/Address";
 
 interface AddressContextType {
-    addressList: Address[];
+    addressList: Address[] | undefined;
+    setAddressesList: (addresses: Address[] | undefined) => void;
     addToAddressList: (address: Address) => void;
     editAddress: (address: Address) => void;
     currentAddress: Address | undefined;
     setCurrentAddress: (address: Address | undefined) => void;
-    saveAddressToDB: (address: Address) => void;
+    addAddressToListAfterLogin: (addresses: Address) => void;
 }
 
 const AddressContext = createContext<AddressContextType | undefined>(undefined);
@@ -24,34 +25,46 @@ export const useAddress = () => {
 
 export const AddressProvider = ({ children }: { children: ReactNode }) => {
 
-    const [addressList, setAddressList] = useState<Address[]>([]);
+    const [addressList, setAddressList] = useState<Address[] | undefined>([]);
     const [currentAddress, setCurrentAddress] = useState<Address | undefined>();
 
-    const addToAddressList = (address: Address) => {
-        setAddressList(prevList => {
-            const existing = prevList.find(i => i.name === address.name)
-            if (!existing) {
-                return [...prevList, address];
-            } else {
-                return [...prevList]
-            }
-        });
+    const setAddressesList = (addresses: Address[] | undefined) => {
+        setAddressList(addresses);
+    }
+
+    const addToAddressListNewState = (address: Address) => {
+        const list = addressList ?? [];
+        const existing = list.find(i => i.name === address.name);
+        if (!existing) {
+            console.log("new address list after added: ", [...list, address]);
+            return [...list, address];
+        }
+        return list;
+    }
+
+    const addToAddressList = async (address: Address) => {
+        const newAddressList = addToAddressListNewState(address);
+        await saveAddressToDB(newAddressList);
+        setAddressList(newAddressList);
     }
 
     const editAddress = (updatedAddress: Address) => {
-        setAddressList(prevList =>
-            prevList.map(addr =>
+        setAddressList(prevList => {
+            const list = prevList ?? [];
+            return list.map(addr =>
                 addr.place_id === updatedAddress.place_id ? { ...addr, ...updatedAddress } : addr
-            )
-        );
+            );
+        });
     };
 
-    const saveAddressToDB = async (address: Address) => {
+    const saveAddressToDB = async (addressList: Address[]) => {
         // Check if user logged
         const token = localStorage.getItem('token');
         if (!token) {
             console.log('User not logged in');
         }
+
+        console.log("addressList before insert to table", addressList);
         
         // api to save address to db
         const response = await fetch('/api/saveAddressToDB', {
@@ -60,7 +73,7 @@ export const AddressProvider = ({ children }: { children: ReactNode }) => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify(address)
+            body: JSON.stringify(addressList)
         })
 
         if (!response.ok) {
@@ -71,8 +84,15 @@ export const AddressProvider = ({ children }: { children: ReactNode }) => {
         console.log(data);
     }
 
+    const addAddressToListAfterLogin = (address: Address) => {
+        setAddressList(prevList => {
+            const list = prevList ?? [];
+            return [...list, address];
+        });
+    }
+
     return (
-        <AddressContext.Provider value={{ addressList, addToAddressList, editAddress, currentAddress, setCurrentAddress, saveAddressToDB }}>
+        <AddressContext.Provider value={{ addressList, setAddressesList, addToAddressList, editAddress, currentAddress, setCurrentAddress, addAddressToListAfterLogin }}>
             {children}
         </AddressContext.Provider>
     );

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useCurrentUser } from "@/app/Context/CurrentUserContext";
 import { useTokenAtom } from "../../Context/TokenAtom";
 import Image from "next/image";
+import { useAddress } from "@/app/Context/AddressContext";
 
 export default function NavBarLogoutButton() {
 
@@ -14,6 +15,7 @@ export default function NavBarLogoutButton() {
     const router = useRouter();
     // const [tokenValue, setToken] = useAtom(tokenAtom);
     const { token , setToken } = useTokenAtom();
+    const { currentAddress, setCurrentAddress, setAddressesList } = useAddress();
 
     const handleLogout = async () => {
         try {
@@ -32,6 +34,8 @@ export default function NavBarLogoutButton() {
                 setToken(undefined);
                 localStorage.removeItem("token");
                 setCurrentUserToLocal(undefined);
+                setCurrentAddress(undefined);
+                setAddressesList(undefined);
                 router.push('/pages/main');
             } else {
                 console.error('Failed to log out', response.status);

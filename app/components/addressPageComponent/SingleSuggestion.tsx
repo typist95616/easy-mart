@@ -2,7 +2,7 @@ import "./SingleSuggestion.scss";
 import location from "../../../public/images/suggestion-location.png";
 import Image from "next/image";
 import { Address } from "@/app/types/Address";
-import { useAddress } from "@/app/Context/AddressContext";
+import { useAddress } from "@/app/Context/AddressQuery";
 
 interface singleSuggestionProps {
     address: Address;

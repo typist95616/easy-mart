@@ -4,7 +4,8 @@ import editIcon from "../../../public/images/edit.png";
 import notSelctedIcon from "../../../public/images/notSelected.png";
 import SelectedIcon from "../../../public/images/Selected.png";
 import Image from "next/image";
-import { useAddress } from "@/app/Context/AddressContext";
+import { useAddress } from "@/app/Context/AddressQuery";
+import { useEffect } from "react";
 
 interface singleAddressCardProps {
     address: Address;
@@ -15,6 +16,10 @@ interface singleAddressCardProps {
 export default function SingleAddressCard(props: singleAddressCardProps) {
 
     const { currentAddress, setCurrentAddress } = useAddress();
+
+    useEffect(() => {
+        console.log("current address in single address card: ", props.address);
+    }, [])
 
     return (
         <>

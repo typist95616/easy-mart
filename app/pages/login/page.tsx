@@ -21,7 +21,7 @@ export default function Home() {
 
     const { token, setPageToken } = useToken();
     const { currentUser, setCurrentUserToLocal } = useCurrentUser();
-    const { currentAddress, setCurrentAddress } = useAddress();
+    const { currentAddress, setCurrentAddress, addAddressToListAfterLogin } = useAddress();
     const router = useRouter();
 
     const isValidEmail = (email: string) => {
@@ -76,6 +76,7 @@ export default function Home() {
             if (getAddress.ok) {
                 const data = await getAddress.json();
                 setCurrentAddress(data.address);
+                addAddressToListAfterLogin(Array.isArray(data.address) ? data.address : [data.address]);
             } else {
                 console.log("error when getting address: " + getAddress);
             }
