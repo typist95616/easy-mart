@@ -34,8 +34,8 @@ export default function Home() {
             {/* {currentUser?.email} */}
             {/* {tokenValue} */}
             <div className='main-content'>
-                <ImageSlider images={images}></ImageSlider>
-                <ImageSlider images={images}></ImageSlider>
+                <ImageSlider images={images} direction={"left"}></ImageSlider>
+                <ImageSlider images={images} direction={"right"}></ImageSlider>
                 {/* <Banner /> */}
                 {/* <BestSeller Title="Best Seller"/> */}
                 <ProductSlider title="Best Seller"></ProductSlider>

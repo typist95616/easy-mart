@@ -17,10 +17,10 @@ export default function Main() {
 
     return (
         <div>
-            <NavBarV2 className="whole-navbar-v2"/>
+            <NavBarV2 className="whole-navbar-v2" />
             <div className="productPage-root">
                 <Suspense fallback={<div>Loading...</div>}>
-                    <ProductPageContent/>
+                    <ProductPageContent />
                 </Suspense>
             </div>
             <FooterV2 />
@@ -36,11 +36,15 @@ function ProductPageContent() {
 
     const [product, setProducts] = useState<Product>();
 
+    const [loading, setLoading] = useState(true);
+
     // Get data from database
     const fetchProducts = async () => {
+        setLoading(true);
         const res = await fetch('/api/products/searchByID?ID=' + productID);
-        const data = await res.json();
+        const data = await res.json()
         setProducts(data);
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -57,7 +61,7 @@ function ProductPageContent() {
                 <div className="productPage-path-text product-name">{product?.name}</div>
             </div>
 
-            <ProductOverview id={productID ? Number(productID) : 0} productName={product?.name ?? null} productImage={product?.img_url} pricePerLb={product?.price_per_lb || null} totalPrice={product?.total_price || null} stock={product?.stock || null} description={product?.description || null} detail={product?.detail || null} ></ProductOverview>
+            <ProductOverview isLoading={loading} id={productID ? Number(productID) : 0} productName={product?.name ?? null} productImage={product?.img_url} pricePerLb={product?.price_per_lb || null} totalPrice={product?.total_price || null} stock={product?.stock || null} description={product?.description || null} detail={product?.detail || null} ></ProductOverview>
             <ProductReview />
             <div className="productPage-detail">
                 <div className="productPage-detail-header">Details</div>

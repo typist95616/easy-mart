@@ -5,6 +5,8 @@ import Link from "next/link";
 import clsx from "clsx";
 import loadingIcon from "../../../public/images/loading.png";
 import { Product } from "@/app/types/Product";
+import { Skeleton } from "antd";
+import SkeletonImage from "antd/es/skeleton/Image";
 
 interface ProductProps {
     ID: number;
@@ -38,7 +40,7 @@ export default function ProductCardV2(props: ProductProps) {
                     {product?.img_url ? (
                         <Image alt="product-image" src={product?.img_url ?? ""} className="productCard-image" width={206} height={154}></Image>
                     ) : (
-                        <Image src={loadingIcon} alt="loading icon"></Image>
+                        <SkeletonImage active style={ {width: 206, height: 154} }/>
                     )}
                 </div>
             </Link>

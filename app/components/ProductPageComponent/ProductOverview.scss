@@ -57,6 +57,7 @@ $mobileBreakpoint: 600px;
     .productOverview-info {
         display: flex;
         flex-direction: column;
+        flex-grow: 2;
 
         .productOverview-info-description {
             font-size: 28px;
@@ -87,9 +88,9 @@ $mobileBreakpoint: 600px;
             color: #B6349A;
             font-size: 14px;
             font-weight: 500;
-            margin-bottom: 16px;
         }
         .productOverview-info-addToCart {
+            margin-top: 16px;
             display: flex;
             gap: 8px;
             background-color: #B6349A;

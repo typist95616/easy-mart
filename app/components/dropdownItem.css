@@ -4,6 +4,7 @@
     gap: 8px;
     border-radius: 12px;
     align-items: center;
+    cursor: pointer;
 }
 
 .dropDown-component.dropdown-bg-white {

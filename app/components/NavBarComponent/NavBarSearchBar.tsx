@@ -8,6 +8,25 @@ import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { Product } from "@/app/types/Product";
 
+// 1. callback
+// 2. promise
+// 3. async/await (promise)
+
+function waitOneSecond(): Promise<number> {
+    return new Promise<number>((resolve, reject) => {
+        setTimeout(() => {
+            resolve(1);
+        }, 1000);
+    });
+}
+
+async function abc(): Promise<number> {
+    const res = waitOneSecond();
+    const val = await res;
+    const value = val > 0;
+    return 123;
+}
+
 interface NavBarSearchBarProps {
     className?: string;
     searchActive: boolean;

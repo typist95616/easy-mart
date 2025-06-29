@@ -1,11 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./StandaloneImageSlider.css";
 
 interface StandaloneImageSliderProps {
   images: string[];
+  direction?: "left" | "right";
 }
 
-const StandaloneImageSlider: React.FC<StandaloneImageSliderProps> = ({ images }) => {
+const StandaloneImageSlider: React.FC<StandaloneImageSliderProps> = ({ images, direction }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -65,6 +66,25 @@ const StandaloneImageSlider: React.FC<StandaloneImageSliderProps> = ({ images })
       sliderRef.current.scrollLeft = leftEdge + (sliderRef.current.scrollLeft - rightEdge);
     }
   };
+
+  // 自動慢慢向左移動圖片
+  useEffect(() => {
+    let animationFrame: number;
+    function autoScroll() {
+      if (sliderRef.current && !isDragging) {
+        if (direction === "left") {
+          sliderRef.current.scrollLeft += 0.5; // 調整數字可以改變速度
+        } else {
+          sliderRef.current.scrollLeft -= 0.5; // 調整數字可以改變速度
+        }
+      }
+      animationFrame = requestAnimationFrame(autoScroll);
+    }
+    animationFrame = requestAnimationFrame(autoScroll);
+    return () => {
+      cancelAnimationFrame(animationFrame);
+    };
+  }, [isDragging, direction]);
 
   return (
     <div
