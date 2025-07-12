@@ -9,19 +9,16 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useToken } from "../../Context/TokenContext";
 import { useCurrentUser } from "../../Context/CurrentUserContext";
-import { useAddress } from "@/app/Context/AddressContext";
+import { useAddress } from "@/app/Context/AddressQuery";
 
 export default function Home() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
-    
-    const [{ hello }, setABC] = useState({ hello: "world" });
-    
+    const [error, setError] = useState("");    
 
     const { token, setPageToken } = useToken();
     const { currentUser, setCurrentUserToLocal } = useCurrentUser();
-    const { currentAddress, setCurrentAddress, addAddressToListAfterLogin } = useAddress();
+    const { currentAddress, setCurrentAddress, setAddressesList, clear: clearCache } = useAddress();
     const router = useRouter();
 
     const isValidEmail = (email: string) => {
@@ -59,27 +56,14 @@ export default function Home() {
                 throw new Error(errorResponse.error);
             }
 
+
             const data = await res.json();
 
             // add token to local storage
             setPageToken(data.token);
             setCurrentUserToLocal(data.user);
-
-            // get user address from db and set to currentaddress
-            const getAddress = await fetch('/api/getUserInfo', {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${data.token}`,
-                }
-            })
-
-            if (getAddress.ok) {
-                const data = await getAddress.json();
-                setCurrentAddress(data.address);
-                addAddressToListAfterLogin(Array.isArray(data.address) ? data.address : [data.address]);
-            } else {
-                console.log("error when getting address: " + getAddress);
-            }
+            clearCache();
+            
 
             console.log("User: ", JSON.stringify(data.user, null, 2));
             router.push('/pages/main');

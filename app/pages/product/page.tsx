@@ -12,6 +12,7 @@ import Recommendations from "../../components/ProductPageComponent/Recommendatio
 import Link from "next/link";
 import { Suspense, useEffect, useState } from "react";
 import { Product } from "@/app/types/Product";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 export default function Main() {
 
@@ -34,22 +35,20 @@ function ProductPageContent() {
 
     const productID = searchParams.get("ID");
 
-    const [product, setProducts] = useState<Product>();
+    // const [product, setProducts] = useState<Product>();
 
-    const [loading, setLoading] = useState(true);
+    const queryResult = useQuery({
+        queryKey: ["singeProduct", productID],
+        queryFn: async () => {
+            const res = await fetch('/api/products/searchByID?ID=' + productID);
+            if (!res.ok) {
+                throw new Error("Failed to fetch product");
+            }
+            return res.json();
+        }
+    });
 
-    // Get data from database
-    const fetchProducts = async () => {
-        setLoading(true);
-        const res = await fetch('/api/products/searchByID?ID=' + productID);
-        const data = await res.json()
-        setProducts(data);
-        setLoading(false);
-    }
-
-    useEffect(() => {
-        fetchProducts();
-    }, [productID]);
+    const product = queryResult.data as Product | undefined;
 
     return (
         <>
@@ -61,7 +60,7 @@ function ProductPageContent() {
                 <div className="productPage-path-text product-name">{product?.name}</div>
             </div>
 
-            <ProductOverview isLoading={loading} id={productID ? Number(productID) : 0} productName={product?.name ?? null} productImage={product?.img_url} pricePerLb={product?.price_per_lb || null} totalPrice={product?.total_price || null} stock={product?.stock || null} description={product?.description || null} detail={product?.detail || null} ></ProductOverview>
+            <ProductOverview isLoading={queryResult.isLoading} id={product?.id ?? 0} productName={product?.name ?? null} productImage={product?.img_url} pricePerLb={product?.price_per_lb || null} totalPrice={product?.total_price || null} stock={product?.stock || null} description={product?.description || null} detail={product?.detail || null} ></ProductOverview>
             <ProductReview />
             <div className="productPage-detail">
                 <div className="productPage-detail-header">Details</div>

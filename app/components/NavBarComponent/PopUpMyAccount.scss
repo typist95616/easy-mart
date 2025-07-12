@@ -1,0 +1,91 @@
+.popUpMyAccount-root {
+    width: 340px;
+    border-radius: 24px;
+    padding: 16px;
+    margin-top: 5px;
+    background-color: white;
+    cursor: default;
+
+    .popUpMyAccount-userInfo {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        border-bottom: 1px solid #F0EEF0;
+        padding-bottom: 16px;
+
+        .popUpMyAccount-userInfo-nameAndMember {
+            display: flex;
+            flex-direction: column;
+
+            .popUpMyAccount-userInfo-nameAndMember-name {
+                font-size: 18px;
+                font-weight: 600;
+                color: black;
+            }
+
+            .popUpMyAccount-userInfo-nameAndMember-member {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 2px;
+
+                .popUpMyAccount-userInfo-nameAndMember-member-icon {
+                    width: auto;
+                    height: 16px;
+                    ;
+                }
+
+                .popUpMyAccount-userInfo-nameAndMember-member-text {
+                    color: #A7AA20;
+                    font-weight: 600;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .popUpMyAccount-userInfo-point {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background-color: #FAF8F9;
+            border-radius: 12px;
+            padding: 4px 6px;
+            align-self: center;
+            margin-left: auto;
+
+            .popUpMyAccount-userInfo-point-icon {
+                width: 16px;
+                height: 16px;
+            }
+
+            .popUpMyAccount-userInfo-point-text {
+                color: #B6349A;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .popUpMyAccount-actions {}
+
+    .popUpMyAccount-setting {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding-top: 15px;
+
+        .popUpMyAccount-setting-setting {
+            font-size: 16px;
+            font-weight: 500;
+            color: #9C939D;
+            cursor: pointer;
+        }
+
+        .popUpMyAccount-setting-logout {
+            font-size: 16px;
+            font-weight: 500;
+            color: #9C939D;
+            cursor: pointer;
+        }
+    }
+}

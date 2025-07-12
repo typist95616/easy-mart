@@ -7,13 +7,14 @@
     border-color: #B6349A;
     border-width: 1px;
     cursor: pointer;
+    position: relative;
 
     .logout-button-border {
         display: flex;
         gap: 5px;
         align-items: center;
 
-        .logout-button-userName{
+        .logout-button-userName {
             font-size: 14px;
             font-weight: 600;
         }
@@ -21,5 +22,12 @@
         .logout-button-logoutText {
             font-size: 12px;
         }
+    }
+
+    .my-account-popup {
+        position: absolute;
+        top: 100%;
+        z-index: 1000;
+        right: 0;
     }
 }

@@ -6,12 +6,13 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { atom, useAtom } from "jotai";
 
 interface AddressContextType {
-    addressList: Address[] | undefined;
+    addressList: Address[] | null;
     setAddressesList: (addresses: Address[]) => Promise<void>;
     addToAddressList: (address: Address) => Promise<void>;
     editAddress: (address: Address) => Promise<void>;
     currentAddress: Address | undefined;
     setCurrentAddress: (address: Address | undefined) => void;
+    clear: () => Promise<void>;
 }
 
 const currentAddressAtom = atom<Address | undefined>(undefined);
@@ -24,7 +25,7 @@ export const useAddress = (): AddressContextType => {
         queryFn: async () => {
             const token = localStorage.getItem('token');
             if (!token) {
-                return [];
+                return null;
             }
             const response = await fetch('/api/getUserInfo', {
                 method: 'POST',
@@ -42,7 +43,7 @@ export const useAddress = (): AddressContextType => {
             return data.address;
         }
     });
-    const addressList: Address[] | undefined = queryResult.data;
+    const addressList: Address[] | null = queryResult.data;
 
     const addToAddressListNewState = (address: Address) => {
         const list = addressList ?? [];
@@ -54,7 +55,7 @@ export const useAddress = (): AddressContextType => {
         return list;
     }
 
-    const setAddressesList = async  (addresses: Address[]) => {
+    const setAddressesList = async (addresses: Address[]) => {
         await saveAddressToDB(addresses);
     }
 
@@ -79,7 +80,7 @@ export const useAddress = (): AddressContextType => {
         }
 
         console.log("addressList before insert to table", addressList);
-        
+
         // api to save address to db
         const response = await fetch('/api/saveAddressToDB', {
             method: 'POST',
@@ -100,5 +101,10 @@ export const useAddress = (): AddressContextType => {
         console.log(data);
     }
 
-    return { addressList, setAddressesList, addToAddressList, editAddress, currentAddress, setCurrentAddress };
+    const clear = async () => {
+        setCurrentAddress(undefined);
+        await queryClient.invalidateQueries({ queryKey: ['addressList'] });
+    }
+
+    return { addressList, setAddressesList, addToAddressList, editAddress, currentAddress, setCurrentAddress, clear };
 }

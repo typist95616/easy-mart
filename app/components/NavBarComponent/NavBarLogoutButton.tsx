@@ -5,17 +5,22 @@ import { useRouter } from "next/navigation";
 import { useCurrentUser } from "@/app/Context/CurrentUserContext";
 import { useTokenAtom } from "../../Context/TokenAtom";
 import Image from "next/image";
-import { useAddress } from "@/app/Context/AddressContext";
+import { useAddress } from "@/app/Context/AddressQuery";
+import PopUpMyAccount from "./PopUpMyAccount"
+import { clear } from "console";
 
 export default function NavBarLogoutButton() {
 
     const [userInfo, setUserInfo] = useState<User>();
-    // const { token, clearToken } = useToken();
     const { currentUser, setCurrentUserToLocal } = useCurrentUser();
     const router = useRouter();
-    // const [tokenValue, setToken] = useAtom(tokenAtom);
-    const { token , setToken } = useTokenAtom();
-    const { currentAddress, setCurrentAddress, setAddressesList } = useAddress();
+    const { token, setToken } = useTokenAtom();
+    const { currentAddress, setCurrentAddress, clear: clearCache } = useAddress();
+    const [showPopUp, setShowPopUp] = useState(false);
+
+    const togglePopUp = () => {
+        setShowPopUp(!showPopUp);
+    }
 
     const handleLogout = async () => {
         try {
@@ -30,12 +35,10 @@ export default function NavBarLogoutButton() {
             if (response.ok) {
                 // Handle successful logout if needed
                 console.log('Logged out successfully');
-                // clearToken();
                 setToken(undefined);
                 localStorage.removeItem("token");
                 setCurrentUserToLocal(undefined);
-                setCurrentAddress(undefined);
-                setAddressesList(undefined);
+                clearCache();
                 router.push('/pages/main');
             } else {
                 console.error('Failed to log out', response.status);
@@ -69,12 +72,16 @@ export default function NavBarLogoutButton() {
     }, [token])
 
     return (
-        <div className="logout-button-root">
-            <div className="logout-button-border" onClick={handleLogout}>
+        <div className="logout-button-root" onClick={togglePopUp}>
+            <div className="logout-button-border">
                 <Image src={userInfo?.img_url || "/images/orange.png"} alt="profile" width={20} height={20}></Image>
                 <div className="logout-button-userName">{userInfo?.username}</div>
-                <div className="logout-button-logoutText">Log Out</div>
             </div>
+            {showPopUp && (
+                <div className="my-account-popup">
+                    <PopUpMyAccount handleLogout={handleLogout}></PopUpMyAccount>
+                </div>
+            )}
         </div>
     )
 }
