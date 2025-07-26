@@ -2,5 +2,15 @@
 
     .settingPage-content {
         padding: 32px;
+        display: flex;
+        gap: 32px;
+
+        .settingPage-content-left {
+
+        }
+
+        .settingPage-content-right {
+            flex-grow: 1;
+        }
     }
 }

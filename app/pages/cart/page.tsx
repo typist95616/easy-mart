@@ -15,14 +15,21 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import ItemList from "@/app/components/cartPageComponent/ItemList";
 import closeIcon from "../../../public/images/close.png";
+import ProductImageSlider from "@/app/components/ProductImageSlider";
+import PopUpCheckOut from "@/app/components/cartPageComponent/PopUpCheckOut";
 
 export default function Main() {
 
     const router = useRouter();
     const [freeDeliveryProgress, setFreeDeliveryProgress] = useState(0);
     const { getTotalPrice } = useCart();
-    const [deliveryFee, setDeliveryFee ] = useState(5);
+    const [deliveryFee, setDeliveryFee] = useState(5);
     const [toFreeDelivery, setToFreeDelivery] = useState(150);
+    const [popUpStatus, setPopUpStatus] = useState(false);
+
+    const handlePopUp = () => {
+        setPopUpStatus(!popUpStatus);
+    }
 
     // use router.back instead of window.history.back
     const goBack = () => {
@@ -31,20 +38,20 @@ export default function Main() {
 
     // Free delivery fee if over $150
     useEffect(() => {
-            if(getTotalPrice() >= 150) {
-                setDeliveryFee(0);
-                setFreeDeliveryProgress(100);
-                setToFreeDelivery(0);
+        if (getTotalPrice() >= 150) {
+            setDeliveryFee(0);
+            setFreeDeliveryProgress(100);
+            setToFreeDelivery(0);
+        } else {
+            setDeliveryFee(5);
+            setToFreeDelivery(150 - getTotalPrice());
+            if (getTotalPrice() === 0) {
+                setFreeDeliveryProgress(0);
             } else {
-                setDeliveryFee(5);
-                setToFreeDelivery(150 - getTotalPrice());
-                if(getTotalPrice() === 0) {
-                    setFreeDeliveryProgress(0);
-                } else {
-                    setFreeDeliveryProgress((getTotalPrice() / 150) * 100);
-                }
+                setFreeDeliveryProgress((getTotalPrice() / 150) * 100);
             }
         }
+    }
     ), [getTotalPrice];
 
     // Display number with two decimal places
@@ -52,7 +59,7 @@ export default function Main() {
 
     return (
         <div>
-            <NavbarV2 className="cartPage-desktop-navBar"/>
+            <NavbarV2 className="cartPage-desktop-navBar" />
             <div className="cartPage-mobile-navBar">
                 <Image src={closeIcon} alt="close icon" className="cartPage-mobile-navBar-image" onClick={goBack}></Image>
                 <div className="cartPage-mobile-navBar-header">My Cart</div>
@@ -102,24 +109,24 @@ export default function Main() {
                             </div>
                             <div className="cartPage-freeShippingInfo-text">
                                 {deliveryFee === 0 ?
-                                "Free Delivery!!" : 
-                                `Free Delivery! $${formatPrice(toFreeDelivery)} on this order to Go to`
+                                    "Free Delivery!!" :
+                                    `Free Delivery! $${formatPrice(toFreeDelivery)} on this order to Go to`
                                 }
                             </div>
                         </div>
                         <div className="cartPage-checkoutBox-subTotal">
-                        <div className="cartPage-checkoutBox-subTotal-text">Subtotal</div>
-                        <div className="cartPage-checkoutBox-subTotal-amount">${formatPrice(getTotalPrice() + deliveryFee)}</div>
-                    </div>
-                    <div className="cartPage-checkoutBox-checkoutButton">
-                        <div className="cartPage-checkoutBox-checkoutButton-left">
-                            <Image src={checkOutIcon} alt="checkout Icon" className="cartPage-checkoutBox-checkoutButton-image"></Image>
-                            <div className="cartPage-checkoutBox-checkoutButton-text">Checkout</div>
+                            <div className="cartPage-checkoutBox-subTotal-text">Subtotal</div>
+                            <div className="cartPage-checkoutBox-subTotal-amount">${formatPrice(getTotalPrice() + deliveryFee)}</div>
                         </div>
-                        <div className="cartPage-checkoutBox-checkoutButton-amount">${formatPrice(getTotalPrice() + deliveryFee)}</div>
+                        <div className="cartPage-checkoutBox-checkoutButton">
+                            <div className="cartPage-checkoutBox-checkoutButton-left">
+                                <Image src={checkOutIcon} alt="checkout Icon" className="cartPage-checkoutBox-checkoutButton-image"></Image>
+                                <div className="cartPage-checkoutBox-checkoutButton-text">Checkout</div>
+                            </div>
+                            <div className="cartPage-checkoutBox-checkoutButton-amount">${formatPrice(getTotalPrice() + deliveryFee)}</div>
+                        </div>
                     </div>
-                    </div>
-                    <Recommendations className="cartPage-recommendations"></Recommendations>
+                    <ProductImageSlider title="Recommendations"></ProductImageSlider>
                 </div>
                 <div className="cartPage-right">
                     <div className="cartPage-freeShippingInfo">
@@ -128,8 +135,8 @@ export default function Main() {
                         </div>
                         <div className="cartPage-freeShippingInfo-text">
                             {deliveryFee === 0 ?
-                            "Free Delivery!!" : 
-                            `Free Delivery! $${formatPrice(toFreeDelivery)} on this order to Go to`
+                                "Free Delivery!!" :
+                                `Free Delivery! $${formatPrice(toFreeDelivery)} on this order to Go to`
                             }
                         </div>
                     </div>
@@ -149,7 +156,7 @@ export default function Main() {
                         <div className="cartPage-checkoutBox-subTotal-text">Subtotal</div>
                         <div className="cartPage-checkoutBox-subTotal-amount">${formatPrice(getTotalPrice() + deliveryFee)}</div>
                     </div>
-                    <div className="cartPage-checkoutBox-checkoutButton">
+                    <div className="cartPage-checkoutBox-checkoutButton" onClick={handlePopUp}>
                         <div className="cartPage-checkoutBox-checkoutButton-left">
                             <Image src={checkOutIcon} alt="checkout Icon" className="cartPage-checkoutBox-checkoutButton-image"></Image>
                             <div className="cartPage-checkoutBox-checkoutButton-text">Checkout</div>
@@ -159,6 +166,11 @@ export default function Main() {
                 </div>
             </div>
             <FooterV2 />
+            {popUpStatus &&
+                <div className="cartPage-popUp">
+                    <PopUpCheckOut />
+                </div>
+            }
         </div>
     )
 }

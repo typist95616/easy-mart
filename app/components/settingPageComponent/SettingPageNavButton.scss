@@ -1,7 +1,18 @@
 .navButton-root {
-    background-color: white;
+    color: #9C939D;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    background-color: #FBFBFE;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .navButton-root.selected {
-    background-color: black;
+    color: #B6349A;
+    cursor: pointer;
 }

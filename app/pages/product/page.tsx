@@ -13,6 +13,7 @@ import Link from "next/link";
 import { Suspense, useEffect, useState } from "react";
 import { Product } from "@/app/types/Product";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import ProductImageSlider from "@/app/components/ProductImageSlider";
 
 export default function Main() {
 
@@ -66,7 +67,8 @@ function ProductPageContent() {
                 <div className="productPage-detail-header">Details</div>
                 <div className="productPage-detail-content">{product?.detail}</div>
             </div>
-            <Recommendations></Recommendations>
+            {/* <Recommendations></Recommendations> */}
+            <ProductImageSlider title="Recommendations"></ProductImageSlider>
         </>
     )
 

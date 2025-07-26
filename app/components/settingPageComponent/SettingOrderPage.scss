@@ -1,0 +1,50 @@
+.settingOrderPage-root {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .settingOrderPage-title {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .settingOrderPage-content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        justify-content: center;
+        align-items: center;
+        padding: 32px 24px;
+        border-radius: 32px;
+        border: 1px solid #F0EEF0;
+
+        .settingOrderPage-content-emptyOrder-h1 {
+            margin-top: 16px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .settingOrderPage-content-emptyOrder-h2 {
+            color: #9C939D;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .settingOrderPage-content-startButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background-color: #B6349A;
+            border-radius: 39px;
+            cursor: pointer;
+
+            .settingOrderPage-content-startButton-text {
+                color: white;
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+    }
+}

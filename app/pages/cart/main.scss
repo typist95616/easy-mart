@@ -417,6 +417,7 @@ $mobileBreakpoint: 600px;
                 border-radius: 39px;
                 padding: 12px 24px;
                 color: white;
+                cursor: pointer;
 
                 .cartPage-checkoutBox-checkoutButton-left {
                     display: flex;
@@ -564,6 +565,7 @@ $mobileBreakpoint: 600px;
             padding: 12px 24px;
             color: white;
             transition: padding 0.3s ease-in-out;
+            cursor: pointer;
 
             @media (max-width: 700px) {
                 padding: 12px;
@@ -630,4 +632,15 @@ $mobileBreakpoint: 600px;
     padding: 20px;
     overflow-y: auto;
     max-height: 600px;
+}
+
+.cartPage-popUp {
+    z-index: 1000;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    background-color: grey;
+    border-radius: 36px;
+    padding: 20px;
 }

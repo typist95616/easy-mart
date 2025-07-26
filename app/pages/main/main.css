@@ -5,12 +5,11 @@
     overflow: hidden;
 }
 
-.main-content > * {
+.main-content {
     padding: 40px 80px;
-}
-
-.main-content > *:first-child {
-    padding-top: 32px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
 }
 
 @media (max-width: 600px) {

@@ -1,6 +1,5 @@
 .logout-button-root {
     display: flex;
-    justify-content: center;
     align-items: center;
     padding: 12px 32px;
     border-radius: 39px;
@@ -13,6 +12,7 @@
         display: flex;
         gap: 5px;
         align-items: center;
+        justify-content: center;
 
         .logout-button-userName {
             font-size: 14px;

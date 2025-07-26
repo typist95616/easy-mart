@@ -1,0 +1,26 @@
+.PopUpCheckOut-root {
+    width: 680px;
+
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid black;
+
+        .title-text {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .title-closeIcon {
+        }
+    }
+
+    .select-date {
+
+    }
+
+    .select-time {
+
+    }
+}

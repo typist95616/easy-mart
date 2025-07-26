@@ -3,7 +3,8 @@ $mobileBreakpoint: 600px;
 .whole-productCard {
     display: flex;
     flex-direction: column;
-    width: 240px;
+    width: 100%;
+    box-sizing: border-box;
 
     @media (max-width: $mobileBreakpoint) {
         width: auto;
@@ -36,8 +37,9 @@ $mobileBreakpoint: 600px;
 }
 
 .productCard-imageBox {
-    width: 240px;
-    height: 240px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 240px;
     background-color: #FEF5FD;
     border-radius: 32px;
     display: flex;
@@ -45,9 +47,17 @@ $mobileBreakpoint: 600px;
     justify-content: center;
 }
 
+
+@media (max-width: 900px) {
+    .productCard-imageBox {
+        max-width: 160px;
+    }
+}
+
 .productCard-name {
     font-size: 16px;
     margin-top: 16px;
+    font-weight: 600;
 }
 
 .productCard-pricePerLb {

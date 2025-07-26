@@ -7,7 +7,7 @@ import add from "../../../public/images/popup-add.png";
 import { useAddress } from "@/app/Context/AddressContext";
 
 interface EmptyPageProps {
-    setCurrentPage: (page: number) => void;
+    setCurrentPage?: (page: number) => void;
 }
 
 export default function EmptyPage(props: EmptyPageProps) {
@@ -26,7 +26,7 @@ export default function EmptyPage(props: EmptyPageProps) {
             </div>
             <div className="emptyPage-text-up">You Don't Have any added address</div>
             <div className="emptyPage-text-down">Add your address, start shopping!</div>
-            <div className="emptyPage-addNewAddressButton" onClick={() => props.setCurrentPage(2)}>
+            <div className="emptyPage-addNewAddressButton" onClick={() => props.setCurrentPage!(2)}>
                 <Image src={add} alt="add Icon" className="emptyPage-addNewAddressButton-image"></Image>
                 <div className="emptyPage-addNewAddressButton-text">Add New Address</div>
             </div>

@@ -1,0 +1,66 @@
+.productImageSlider-root {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .productImageSlider-title {
+    display: flex;
+    justify-content: space-between;
+
+    .productImageSlider-title-text {
+      font-weight: 600;
+    }
+
+    .productImageSlider-controlButtons {
+      display: flex;
+      gap: 16px;
+
+      .productImageSlider-controlButtons-previous {
+        border-radius: 1000;
+        border: 1px solid #F0EEF0;
+        padding: 12px;
+        cursor: pointer;
+      }
+
+      .productImageSlider-controlButtons-next {
+        border-radius: 1000;
+        border: 1px solid #F0EEF0;
+        padding: 12px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .productImageSlider-content {
+    display: flex;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.productImageSlider-window {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.productImageSlider-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  gap: 12px;
+}
+
+.productImageSlider-item {
+  width: calc(95% / 5);
+  flex: 0 0 calc(95% / 5);
+  max-width: calc(95% / 5);
+}
+
+// breakpoints to change the Product Card size based on the screen size
+@media (max-width: 1000px) {
+  .productImageSlider-item {
+    width: calc(95% / 4);
+    flex: 0 0 calc(95% / 4);
+    max-width: calc(95% / 4);
+  }
+}

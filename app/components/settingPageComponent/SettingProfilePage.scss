@@ -1,0 +1,80 @@
+.settingProfilePage-root {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .settingProfilePage-title {
+        font-size: 24px;
+        font-weight: 600;;
+    }
+
+    .settingProfilePage-nameBox {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid #F0EEF0;
+        border-radius: 16px;
+        padding: 16px;
+
+        .settingProfilePage-nameBox-left {
+            display: flex;
+            flex-direction: column;
+
+            .settingProfilePage-nameBox-left-title {
+                font-size: 16px;
+                font-weight: 600;
+            }
+            .settingProfilePage-nameBox-left-name {
+                color: #9C939D;
+                font-size: 14px;
+            }
+        }
+
+        .settingProfilePage-nameBox-editButton {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .settingProfilePage-nameBox-editButton-text {
+                font-size: 14px;
+                color: #B6349A;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .settingProfilePage-emailBox {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid #F0EEF0;
+        border-radius: 16px;
+        padding: 16px;
+
+        .settingProfilePage-emailBox-left {
+            display: flex;
+            flex-direction: column;
+
+            .settingProfilePage-emailBox-left-title {
+                font-size: 16px;
+                font-weight: 600;
+            }
+            .settingProfilePage-emailBox-left-name {
+                color: #9C939D;
+                font-size: 14px;
+            }
+        }
+
+        .settingProfilePage-emailBox-editButton {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .settingProfilePage-emailBox-editButton-text {
+                font-size: 14px;
+                color: #B6349A;
+                font-weight: 600;
+            }
+        }
+    }
+}

@@ -38,7 +38,7 @@ export default function AddressInputPage(props: AddressInputPageProps) {
 
     return (
         <div className="addressInputPage-root">
-            <div onClick={() => props.setCurrentPage(3)}>next page</div>
+            {/* <div onClick={() => props.setCurrentPage(3)}>next page</div> */}
             <div className="addressInputPage-addressSearchBar">
                 <Image src={searchIcon} alt="search-Icon" className="addressInputPage-addressSearchBar-searchIcon"></Image>
                 <input
