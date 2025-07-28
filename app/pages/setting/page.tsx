@@ -8,6 +8,7 @@ import { useState } from "react";
 import SettingProfilePage from "@/app/components/settingPageComponent/SettingProfilePage";
 import SettingOrderPage from "@/app/components/settingPageComponent/SettingOrderPage";
 import SettingAddressPage from "@/app/components/settingPageComponent/SettingAddressPage";
+import ComingSoon from "@/app/components/ComingSoon";
 
 export default function Main() {
 
@@ -30,6 +31,9 @@ export default function Main() {
                     )}
                     {currentPage === "address" && (
                         <SettingAddressPage />
+                    )}
+                    {(currentPage === "payment" || currentPage === "notification" || currentPage === "refer" || currentPage === "coupon" || currentPage === "receipt" || currentPage === "setting" || currentPage === "info") && (
+                        <ComingSoon />    
                     )}
                 </div>
             </div>

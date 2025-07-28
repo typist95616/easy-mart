@@ -29,18 +29,19 @@ export default function ProductCardV2(props: ProductProps) {
 
     return (
         <div className="whole-productCard">
-            <Link href={{
-                pathname: "./product",
-                query: {
-                    ID: props.ID,
-                },
-            }}
+            <Link
+                href={{
+                    pathname: "./product",
+                    query: {
+                        ID: props.ID,
+                    },
+                }}
             >
                 <div className="productCard-imageBox">
                     {product?.img_url ? (
                         <Image alt="product-image" src={product?.img_url ?? ""} className="productCard-image" width={206} height={154}></Image>
                     ) : (
-                        <SkeletonImage active style={ {width: 206, height: 154} }/>
+                        <SkeletonImage active style={{ width: 206, height: 154 }} />
                     )}
                 </div>
             </Link>

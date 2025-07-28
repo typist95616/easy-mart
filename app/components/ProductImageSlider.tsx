@@ -43,7 +43,13 @@ export default function ProductImageSlider(props: ProductImageSliderProps) {
 
   // Update images per page based on screen width
   const updateImagesPerPage = () => {
-if (window.innerWidth < 1000) {
+    if (window.innerWidth < 700) {
+      if (window.innerWidth < 600) {
+        setImagesPerPage(4);
+      } else {
+        setImagesPerPage(3);
+      }
+    } else if (window.innerWidth < 1000) {
       setImagesPerPage(4);
     } else {
       setImagesPerPage(5);
@@ -83,7 +89,7 @@ if (window.innerWidth < 1000) {
           }}
         >
           {products.map((product) => (
-            <div className="productImageSlider-item" key={product.id} style={{ flex: `0 0 ${100 / imagesPerPage}%` }}>
+            <div className="productImageSlider-item" key={product.id} style={{ flex: `0 0 ${95 / imagesPerPage}%` }}>
               <ProductCardV2 ID={product.id} />
             </div>
           ))}

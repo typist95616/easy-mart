@@ -50,17 +50,17 @@
   gap: 12px;
 }
 
-.productImageSlider-item {
-  width: calc(95% / 5);
-  flex: 0 0 calc(95% / 5);
-  max-width: calc(95% / 5);
-}
+// .productImageSlider-item {
+//   width: calc(95% / 5);
+//   flex: 0 0 calc(95% / 5);
+//   max-width: calc(95% / 5);
+// }
 
-// breakpoints to change the Product Card size based on the screen size
-@media (max-width: 1000px) {
-  .productImageSlider-item {
-    width: calc(95% / 4);
-    flex: 0 0 calc(95% / 4);
-    max-width: calc(95% / 4);
-  }
-}
+// // breakpoints to change the Product Card size based on the screen size
+// @media (max-width: 1000px) {
+//   .productImageSlider-item {
+//     width: calc(95% / 4);
+//     flex: 0 0 calc(95% / 4);
+//     max-width: calc(95% / 4);
+//   }
+// }

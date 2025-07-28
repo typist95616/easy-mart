@@ -1,0 +1,21 @@
+$mobileBreakpoint: 600px;
+
+.main-content {
+    overflow: hidden;
+    padding-top: 100px;
+}
+
+.main-content {
+    padding-left: 80px;
+    padding-right: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+
+    @media (max-width: $mobileBreakpoint) {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 160px;
+        gap: 24px;
+    }
+}

@@ -8,13 +8,11 @@ import SearchBar from "../components/NavBarComponent/NavBarSearchBar";
 import CartButton from "../components/NavBarComponent/NavBarCartButton";
 import LoginButton from "../components/NavBarComponent/NavBarLoginButton";
 import clsx from "clsx";
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import PopupWindow from "./addressPageComponent/PopupWindow";
 import LogoutButton from "../components/NavBarComponent/NavBarLogoutButton"
-import { User } from "../types/User";
-import UserName from "./NavBarComponent/UserNameText";
 import { useTokenAtom } from "../Context/TokenAtom";
 
 interface NavBarV2Props {

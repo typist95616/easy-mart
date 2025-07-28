@@ -2,7 +2,7 @@
 
 import FooterV2 from '../../components/FooterV2';
 import ProductSlider from "../../components/SliderComponent/ProductSlider";
-import "./main.css";
+import "./main.scss";
 import NavbarV2 from '@/app/components/NavBarV2';
 import { useCurrentUser } from "../../Context/CurrentUserContext";
 import { useAtom } from 'jotai';

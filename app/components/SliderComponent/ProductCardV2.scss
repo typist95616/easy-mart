@@ -3,7 +3,7 @@ $mobileBreakpoint: 600px;
 .whole-productCard {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    // width: 100%;
     box-sizing: border-box;
 
     @media (max-width: $mobileBreakpoint) {
@@ -48,11 +48,11 @@ $mobileBreakpoint: 600px;
 }
 
 
-@media (max-width: 900px) {
-    .productCard-imageBox {
-        max-width: 160px;
-    }
-}
+// @media (max-width: 900px) {
+//     .productCard-imageBox {
+//         max-width: 160px;
+//     }
+// }
 
 .productCard-name {
     font-size: 16px;

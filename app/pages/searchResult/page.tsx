@@ -75,7 +75,7 @@ function SearchResultContent() {
         <>
             <div className="searchResult-header">
                 <div className="searchResult-header-spacer"></div>
-                <div className="searchResult-header-text">{query}</div>
+                <div className="searchResult-header-text">Search Results: {query}</div>
             </div>
             <div className="searchResult-body">
                 {queryResult.isLoading && <div>Loading...</div>}

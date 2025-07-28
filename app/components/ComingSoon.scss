@@ -1,0 +1,18 @@
+.comingSoon-root {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    padding: 20px;
+    justify-self: center;
+
+    .comingSoon-icon {
+        width: 300px;
+        height: auto;
+    }
+
+    .comingSoon-text {
+        color: #B6349A;
+        font-size: 42px;
+        font-weight: 600;
+    }
+}

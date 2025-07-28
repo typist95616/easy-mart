@@ -3,11 +3,15 @@ $mobileBreakpoint: 600px;
 .searchResult-root {
     display: flex;
     flex-direction: column;
-    padding: 20px 80px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 110px;
     gap: 20px;
 
     @media (max-width: $mobileBreakpoint) {
-        padding: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 160px;
     }
 
     .searchResult-header {
@@ -26,6 +30,7 @@ $mobileBreakpoint: 600px;
 
     .searchResult-body {
         display: flex;
+        flex-direction: row;
         gap: 15px;
         flex-wrap: wrap;
         align-items: center;
