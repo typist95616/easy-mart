@@ -1,9 +1,17 @@
+$mobileBreakpoint: 600px;
+
 .settingPage-root {
 
     .settingPage-content {
-        padding: 32px;
+        padding-top: 110px;
+        padding-left: 32px;
+        padding-right: 32px;
         display: flex;
         gap: 32px;
+
+        @media (max-width: $mobileBreakpoint) {
+            padding-top: 160px;
+        }
 
         .settingPage-content-left {
 

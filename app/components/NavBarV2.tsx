@@ -36,8 +36,12 @@ export default function NavbarV2(props: NavBarV2Props) {
         }
     }
 
-    const toggleLocationPopup = () => {
-        setIsLocationPopupOpen(!isLocationPopupOpen);
+    const handleLocationPage = () => {
+        if (window.innerWidth >= 600) {
+            setIsLocationPopupOpen(!isLocationPopupOpen);
+        } else {
+            router.push("/pages/address");
+        }
     }
 
     return (
@@ -46,7 +50,7 @@ export default function NavbarV2(props: NavBarV2Props) {
                 <Link href="/pages/main">
                     <Image src={easyMartLogo} alt="logo" className="easyMartLogo"></Image>
                 </Link>
-                <NavBarLocation onClick={toggleLocationPopup}></NavBarLocation>
+                <NavBarLocation onClick={handleLocationPage}></NavBarLocation>
                 <div className="top-navbar-searchBar-leftSpacer"></div>
                 <SearchBar className={clsx("top-searchBar")} searchActive={searchActive} setSearchActive={setSearchActive} onSearch={handleSearch} />
                 <div className="top-navbar-searchBar-rightSpacer"></div>
