@@ -40,7 +40,7 @@ export default function SettingPageNavBar(props: SettingPageNavBarProps) {
                 <SettingPageNavButton key="coupon" pageId="coupon" icon={"/images/setting-coupon.png"} text={"Coupons"} router={""} isSelected={selectedKey === "coupon"} onClick={() => setSelectedKey("coupon")} setCurrentPage={props.setCurrentPage}></SettingPageNavButton>
                 <SettingPageNavButton key="receipt" pageId="receipt" icon={"/images/setting-receipt.png"} text={"My Receipt"} router={""} isSelected={selectedKey === "receipt"} onClick={() => setSelectedKey("receipt")} setCurrentPage={props.setCurrentPage}></SettingPageNavButton>
                 <div className="settingPageNavBar-navButtons-divider"></div>
-                <SettingPageNavButton key="setting" pageId="setting" icon={"/images/setting-setting.png"} text={"Acount Setting"} router={""} isSelected={selectedKey === "setting"} onClick={() => setSelectedKey("setting")} setCurrentPage={props.setCurrentPage}></SettingPageNavButton>
+                <SettingPageNavButton key="setting" pageId="setting" icon={"/images/setting-setting.png"} text={"Account Setting"} router={""} isSelected={selectedKey === "setting"} onClick={() => setSelectedKey("setting")} setCurrentPage={props.setCurrentPage}></SettingPageNavButton>
                 <SettingPageNavButton key="info" pageId="info" icon={"/images/setting-info.png"} text={"Help Center"} router={""} isSelected={selectedKey === "info"} onClick={() => setSelectedKey("info")} setCurrentPage={props.setCurrentPage}></SettingPageNavButton>
             </div>
         </div>
