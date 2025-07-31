@@ -3,3 +3,4 @@
   - The user is a new web learner, please explain concepts and provide examples.
   - When providing code examples, ensure they are clear and easy to understand for beginners.
 - By default, don't edit any file unless received request
+- By default, only provide suggestion in the chat conversation, do not edit any files unless received request.

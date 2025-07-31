@@ -2,14 +2,12 @@
 
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import "./MapPage.scss";
 import { Address } from '@/app/types/Address';
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import saveLocationIcon from "../../../public/images/mapPage-saveLocation.png"
 import { useAddress } from '@/app/Context/AddressQuery';
-import AddressListPage from './AddressListPage';
 
 // Function to update map's location using map.setView()
 function MapUpdater({ position }: { position: [number, number] }) {
@@ -43,7 +41,11 @@ export default function MapPage(props: MapPageProps) {
     const [addressName, setAddressName] = useState(props.address?.name);
     const [place_id, setPlace_id] = useState(props.address?.place_id);
 
-    const { addressList, addToAddressList, setCurrentAddress } = useAddress();
+    const { addToAddressList, setCurrentAddress } = useAddress();
+
+    const handleSaveLocation = async () => {
+
+    }
 
     return (
         <div className="mapPage-root">
@@ -106,7 +108,7 @@ export default function MapPage(props: MapPageProps) {
                     <div className="mapPage-info-instruction-header">Delivery Instruction</div>
                     <input className="mapPage-info-instruction-input" placeholder="Delivery Instruction"></input>
                 </div>
-                <div className="mapPage-info-safeButton" onClick={() => {
+                <div className="mapPage-info-safeButton" onClick={async () => {
                     const updatedAddress = {
                         place_id: place_id ?? 0,
                         display_name: addressName ?? "",
@@ -124,9 +126,10 @@ export default function MapPage(props: MapPageProps) {
                         village: village ?? "",
                         roomNumber: roomNumber ?? ""
                     };
-                    addToAddressList(updatedAddress);
+                    
+                    await addToAddressList(updatedAddress);
+                    await setCurrentAddress(updatedAddress);
                     props.setCurrentPage(1);
-                    setCurrentAddress(updatedAddress);
                 }}>
                     <Image src={saveLocationIcon} alt="location Icon" className="mapPage-info-safeButton-image"></Image>
                     <div className="mapPage-info-safeButton-text">Save Location</div>

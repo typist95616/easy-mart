@@ -72,7 +72,7 @@ export default function PopupWindow(props: PopupWindowProps) {
                     <EmptyPage setCurrentPage={setCurrentPage}/>
                 )}  
                 {currentPage === 1 && addressList && addressList.length > 0 && (
-                    <AddressListPage currentAddress={currentAddress} setCurrentPage={setCurrentPage}></AddressListPage>
+                    <AddressListPage setCurrentPage={setCurrentPage}></AddressListPage>
                 )}
                 {currentPage === 2 && (
                     <AddressInputPage setCurrentPage={setCurrentPage}/>

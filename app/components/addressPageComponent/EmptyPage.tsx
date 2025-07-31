@@ -4,7 +4,7 @@ import "./EmptyPage.scss";
 import Image from "next/image";
 import location from "../../../public/images/popup-location.png";
 import add from "../../../public/images/popup-add.png";
-import { useAddress } from "@/app/Context/AddressContext";
+import { useAddress } from "@/app/Context/AddressQuery";
 
 interface EmptyPageProps {
     setCurrentPage?: (page: number) => void;

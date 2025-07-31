@@ -16,10 +16,12 @@ interface NavBarLocationProps {
 export default function NavBarLocation(props: NavBarLocationProps) {
 
     const { currentAddress, setCurrentAddress, addressList, setAddressesList } = useAddress();
-    const { token , setToken } = useTokenAtom();
+    const { token, setToken } = useTokenAtom();
 
     useEffect(() => {
-        if (addressList) {
+        if (currentAddress != null) {
+            setCurrentAddress(currentAddress);
+        } else if (addressList) {
             setCurrentAddress(addressList[0]);
         }
     }, [!!addressList])
@@ -51,8 +53,8 @@ export default function NavBarLocation(props: NavBarLocationProps) {
             <Image src={locationLogo} alt="location logo" className="navbar-location-image"></Image>
             <div className="navbar-location-text">
                 {currentAddress?.building !== undefined && currentAddress?.roomNumber !== undefined ?
-                `${currentAddress?.roomNumber} ${currentAddress?.building}` :
-                "Your Address"
+                    `${currentAddress?.roomNumber} ${currentAddress?.building}` :
+                    "Your Address"
                 }
             </div>
         </div>

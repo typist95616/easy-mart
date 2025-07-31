@@ -8,21 +8,24 @@ import { useEffect } from "react";
 
 interface addressListPageProps {
     setCurrentPage: (page: number) => void;
-    currentAddress: Address | undefined;
 }
 
 export default function AddressListPage(props: addressListPageProps) {
 
-    const { addressList } = useAddress();
+    const { addressList, currentAddress, setCurrentAddress } = useAddress();
 
     useEffect(() => {
-        console.log("addressList in list page: ", addressList);
+        if (currentAddress != null) {
+            setCurrentAddress(currentAddress);
+        } else if (addressList) {
+            setCurrentAddress(addressList[0]);
+        }
     }, [])
     
     return (
         <div className="addressListPage-root">
             {addressList!.map((address => (
-                <SingleAddressCard address={address} currentAddress={props.currentAddress} setCurrentPage={props.setCurrentPage}/>
+                <SingleAddressCard address={address} setCurrentPage={props.setCurrentPage}/>
             )))}
             <div className="addressListPage-addAddressButton" onClick={() => props.setCurrentPage(2)}>
                 <Image src={addIcon} alt="add Icon" className="addressListPage-addAddressButton-image"></Image>

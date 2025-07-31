@@ -10,7 +10,6 @@ import { useEffect } from "react";
 interface singleAddressCardProps {
     address: Address;
     setCurrentPage: (page: number) => void;
-    currentAddress: Address | undefined;
 }
 
 export default function SingleAddressCard(props: singleAddressCardProps) {
@@ -18,8 +17,8 @@ export default function SingleAddressCard(props: singleAddressCardProps) {
     const { currentAddress, setCurrentAddress } = useAddress();
 
     useEffect(() => {
-        console.log("current address in single address card: ", props.address);
-    }, [])
+        console.log("currentAddress: ", currentAddress);
+    }, [currentAddress])
 
     return (
         <>

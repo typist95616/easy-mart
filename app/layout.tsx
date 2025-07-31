@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./Context/CartContext";
-import { AddressProvider } from "./Context/AddressContext";
 import { TokenProvider } from "./Context/TokenContext";
 import { CurrentUserProvider } from "./Context/CurrentUserContext";
 import ReactQueryProvider from './ReactQueryProvider';
@@ -36,17 +35,15 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-          <ReactQueryProvider>
-            <AddressProvider>
-              <CartProvider>
-                <TokenProvider>
-                  <CurrentUserProvider>
-                    {children}
-                  </CurrentUserProvider>
-                </TokenProvider>
-              </CartProvider>
-            </AddressProvider>
-          </ReactQueryProvider>
+        <ReactQueryProvider>
+          <CartProvider>
+            <TokenProvider>
+              <CurrentUserProvider>
+                {children}
+              </CurrentUserProvider>
+            </TokenProvider>
+          </CartProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );

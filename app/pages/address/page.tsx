@@ -6,20 +6,21 @@ import CloseIcon from "@/public/images/close.png";
 import { useRouter } from "next/navigation";
 import { useAddress } from "@/app/Context/AddressQuery";
 import EmptyPage from "@/app/components/addressPageComponent/EmptyPage";
-import { useEffect } from "react";
+import { useState } from "react";
+import AddressListPage from "@/app/components/addressPageComponent/AddressListPage";
+import AddressInputPage from "@/app/components/addressPageComponent/AddressInputPage";
+import MapPage from "@/app/components/addressPageComponent/MapPage";
+import AddressEditPage from "@/app/components/addressPageComponent/AddressEditPage";
 
 export default function Main() {
 
     const router = useRouter();
-    const { addressList } = useAddress();
+    const { addressList, currentAddress } = useAddress();
+    const [ currentPage, setCurrentPage ] = useState<number>(1);
 
     const goBack = () => {
-        router.back();
+        router.push("/pages/main");
     }
-
-    useEffect(() => {
-        console.log("current addressList: ", addressList);
-    }, [])
 
     return (
         <div className="mobileAddress-root">
@@ -28,11 +29,20 @@ export default function Main() {
                 <div className="heading-text">Address</div>
             </div>
             <div className="content">
-                {(addressList === null || addressList?.length === 0) && (
+                {(addressList === null || addressList?.length === 0) && currentPage === 1 && (
                     <EmptyPage></EmptyPage>
                 )}
-                {addressList?.length != 0 && addressList != null && (
-                    <div>address</div>
+                {addressList?.length != 0 && addressList != null && currentPage === 1 && (
+                    <AddressListPage setCurrentPage={setCurrentPage}></AddressListPage>
+                )}
+                { currentPage === 2 && (
+                    <AddressInputPage setCurrentPage={setCurrentPage} />
+                )}
+                { currentPage === 3 && (
+                    <MapPage address={currentAddress} setCurrentPage={setCurrentPage} />
+                )}
+                { currentPage === 4 && (
+                    <AddressEditPage address={currentAddress!} setCurrentPage={setCurrentPage} />
                 )}
             </div>
         </div>
