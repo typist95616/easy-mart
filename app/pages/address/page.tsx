@@ -9,18 +9,20 @@ import EmptyPage from "@/app/components/addressPageComponent/EmptyPage";
 import { useState } from "react";
 import AddressListPage from "@/app/components/addressPageComponent/AddressListPage";
 import AddressInputPage from "@/app/components/addressPageComponent/AddressInputPage";
-import MapPage from "@/app/components/addressPageComponent/MapPage";
-import AddressEditPage from "@/app/components/addressPageComponent/AddressEditPage";
+import dynamic from "next/dynamic";
 
 export default function Main() {
 
     const router = useRouter();
     const { addressList, currentAddress } = useAddress();
-    const [ currentPage, setCurrentPage ] = useState<number>(1);
+    const [currentPage, setCurrentPage] = useState<number>(1);
 
     const goBack = () => {
         router.push("/pages/main");
     }
+
+    const MapPage = dynamic(() => import('@/app/components/addressPageComponent/MapPage'), { ssr: false });
+    const AddressEditPage = dynamic(() => import('@/app/components/addressPageComponent/AddressEditPage'), { ssr: false });
 
     return (
         <div className="mobileAddress-root">
@@ -35,13 +37,13 @@ export default function Main() {
                 {addressList?.length != 0 && addressList != null && currentPage === 1 && (
                     <AddressListPage setCurrentPage={setCurrentPage}></AddressListPage>
                 )}
-                { currentPage === 2 && (
+                {currentPage === 2 && (
                     <AddressInputPage setCurrentPage={setCurrentPage} />
                 )}
-                { currentPage === 3 && (
+                {currentPage === 3 && (
                     <MapPage address={currentAddress} setCurrentPage={setCurrentPage} />
                 )}
-                { currentPage === 4 && (
+                {currentPage === 4 && (
                     <AddressEditPage address={currentAddress!} setCurrentPage={setCurrentPage} />
                 )}
             </div>
