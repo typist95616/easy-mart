@@ -4,15 +4,30 @@ import NavbarV2 from "@/app/components/NavBarV2";
 import "./main.scss";
 import FooterV2 from "@/app/components/FooterV2";
 import SettingPageNavBar from "@/app/components/settingPageComponent/SettingPageNavBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SettingProfilePage from "@/app/components/settingPageComponent/SettingProfilePage";
 import SettingOrderPage from "@/app/components/settingPageComponent/SettingOrderPage";
 import SettingAddressPage from "@/app/components/settingPageComponent/SettingAddressPage";
 import ComingSoon from "@/app/components/ComingSoon";
+import EditNamePopUp from "@/app/components/settingPageComponent/EditNamePopUp";
 
 export default function Main() {
 
     const [currentPage, setCurrentPage] = useState("profile")
+    const [popUpShow, setPopUpShow] = useState(false);
+
+    // disable scroll function when popup is shown
+    useEffect(() => {
+        if (popUpShow) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset"; // 恢復滾動
+        }
+
+        return () => {
+            document.body.style.overflow = "unset"; // 清理時恢復滾動
+        };
+    }, [popUpShow]);
 
     return (
         <div className="settingPage-root">
@@ -24,7 +39,7 @@ export default function Main() {
                 </div>
                 <div className="settingPage-content-right">
                     {currentPage === "profile" && (
-                        <SettingProfilePage />
+                        <SettingProfilePage setPopUpShow={setPopUpShow} />
                     )}
                     {currentPage === "order" && (
                         <SettingOrderPage />
@@ -33,11 +48,17 @@ export default function Main() {
                         <SettingAddressPage />
                     )}
                     {(currentPage === "payment" || currentPage === "notification" || currentPage === "refer" || currentPage === "coupon" || currentPage === "receipt" || currentPage === "setting" || currentPage === "info") && (
-                        <ComingSoon />    
+                        <ComingSoon />
                     )}
                 </div>
             </div>
             <FooterV2 />
+            {popUpShow && (
+                <>
+                    <div className="overlay-background"></div>
+                    <EditNamePopUp setPopUpShow={setPopUpShow}></EditNamePopUp>
+                </>
+            )}
         </div>
     )
 }

@@ -25,22 +25,28 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: 'User not found' }, { status: 401 });
         }
 
-        console.log("session: " + JSON.stringify(session));
+        const body = await req.json();
+        const { name } = body;
 
-        const user = await prisma.member.findUnique({
+        const updatedUser = await prisma.member.update({
             where: {
-                email: session?.userID,
+                email: session.userID,
+            }, 
+            data: {
+                username: name.trim(),
             }
         })
 
-        if (!user) {
-            return NextResponse.json({ error: 'User not found' }, { status: 404 });
-        }
+        return NextResponse.json({
+            success: true,
+            message: 'Name updated successfully',
+            user: updatedUser
+        });
 
-        console.log("user: " + JSON.stringify(user));
-        return NextResponse.json(user);
     } catch (error) {
-        console.error(error);
+        console.error("Error when editing name: ", error);
         return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
     }
+
+
 }

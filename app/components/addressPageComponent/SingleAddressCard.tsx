@@ -16,10 +16,6 @@ export default function SingleAddressCard(props: singleAddressCardProps) {
 
     const { currentAddress, setCurrentAddress } = useAddress();
 
-    useEffect(() => {
-        console.log("currentAddress: ", currentAddress);
-    }, [currentAddress])
-
     return (
         <>
             <div className={ "singleAddressCard-root" + (currentAddress === props.address ? " selected" : "")} onClick={() => setCurrentAddress(props.address)}>

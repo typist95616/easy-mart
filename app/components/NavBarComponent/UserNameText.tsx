@@ -19,7 +19,6 @@ export default function UserNameText() {
 
                 if (response.ok) {
                     const data = await response.json();
-                    console.log("data: " + data)
                     setUserInfo(data); // Store the fetched user info
                 } else {
                     console.error('Failed to fetch user info', response.status);

@@ -50,7 +50,6 @@ export default function NavBarLogoutButton() {
 
     useEffect(() => {
         if (token) {
-            console.log("current token:" + token);
             const fetchUserInfo = async () => {
                 const response = await fetch('/api/getUserInfo', {
                     method: 'POST',

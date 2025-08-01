@@ -40,11 +40,6 @@ export default function PopupWindow(props: PopupWindowProps) {
         }
     }
 
-    useEffect(() => {
-        console.log("currentAddress: ", currentAddress);
-        console.log("addressList: ", addressList);
-    }, [])
-
     return (
         <div className="popup-root">
             <div className="popup-header">
