@@ -10,11 +10,17 @@ import SettingOrderPage from "@/app/components/settingPageComponent/SettingOrder
 import SettingAddressPage from "@/app/components/settingPageComponent/SettingAddressPage";
 import ComingSoon from "@/app/components/ComingSoon";
 import EditNamePopUp from "@/app/components/settingPageComponent/EditNamePopUp";
+import DropDownMessage from "@/app/components/DropDownMessage";
 
 export default function Main() {
 
     const [currentPage, setCurrentPage] = useState("profile")
     const [popUpShow, setPopUpShow] = useState(false);
+    const [popUpMessageShow, setPopUpMessageShow] = useState(false);
+
+    const handleShow = () => {
+        setPopUpMessageShow(!popUpMessageShow);
+    }
 
     // disable scroll function when popup is shown
     useEffect(() => {
@@ -33,6 +39,9 @@ export default function Main() {
         <div className="settingPage-root">
             <NavbarV2 className="whole-navbar-v2" />
             <div className="settingPage-content">
+                
+                <div onClick={handleShow}>show</div>
+
                 <div className="settingPage-content-left">
                     <SettingPageNavBar setCurrentPage={setCurrentPage} />
                     {/* Logout Button */}
@@ -58,6 +67,9 @@ export default function Main() {
                     <div className="overlay-background"></div>
                     <EditNamePopUp setPopUpShow={setPopUpShow}></EditNamePopUp>
                 </>
+            )}
+            {popUpMessageShow && (
+                <DropDownMessage />
             )}
         </div>
     )

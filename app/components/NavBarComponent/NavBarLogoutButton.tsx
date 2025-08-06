@@ -73,8 +73,8 @@ export default function NavBarLogoutButton() {
     return (
         <div className="logout-button-root" onClick={togglePopUp}>
             <div className="logout-button-border">
-                <Image src={userInfo?.img_url || "/images/orange.png"} alt="profile" width={20} height={20}></Image>
-                <div className="logout-button-userName">{userInfo?.username}</div>
+                <Image src={currentUser?.img_url || "/images/orange.png"} alt="profile" width={20} height={20}></Image>
+                <div className="logout-button-userName">{currentUser?.username}</div>
             </div>
             {showPopUp && (
                 <div className="my-account-popup">
